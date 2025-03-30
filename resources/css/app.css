@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Boldonse&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+@source '../views/';
+
+@plugin 'tailwindcss-animate';
+
+@theme {
+    --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    --color-charm-gold: #ceb382;
+
+    --color-charm-cream-100: oklch(0.99 0.005 30);
+    --color-charm-cream-200: oklch(0.97 0.01 30);
+    --color-charm-cream-300: oklch(0.94 0.015 30);
+    --color-charm-cream-400: oklch(0.91 0.02 30);
+    --color-charm-cream-500: oklch(0.88 0.025 30); /* #faf4f2 */
+    --color-charm-cream-600: oklch(0.75 0.03 30);
+    --color-charm-cream-700: oklch(0.65 0.035 30);
+    --color-charm-cream-800: oklch(0.55 0.04 30);
+    --color-charm-cream-900: oklch(0.45 0.045 30);
+
+    --color-charm-brown-100: oklch(0.92 0.03 30);
+    --color-charm-brown-200: oklch(0.85 0.04 30);
+    --color-charm-brown-300: oklch(0.78 0.05 30);
+    --color-charm-brown-400: oklch(0.7 0.06 30);
+    --color-charm-brown-500: oklch(0.62 0.07 30); /* #a1604e */
+    --color-charm-brown-600: oklch(0.52 0.07 30);
+    --color-charm-brown-700: oklch(0.42 0.06 30);
+    --color-charm-brown-800: oklch(0.34 0.05 30);
+    --color-charm-brown-900: oklch(0.26 0.04 30);
+
+    --color-charm-dark-100: oklch(0.5 0.005 270);
+    --color-charm-dark-200: oklch(0.4 0.005 270);
+    --color-charm-dark-300: oklch(0.32 0.005 270);
+    --color-charm-dark-400: oklch(0.25 0.005 270);
+    --color-charm-dark-500: oklch(0.18 0.005 270); /* #000000 */
+    --color-charm-dark-600: oklch(0.14 0.004 270);
+    --color-charm-dark-700: oklch(0.11 0.003 270);
+    --color-charm-dark-800: oklch(0.08 0.002 270);
+    --color-charm-dark-900: oklch(0.05 0.001 270);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+p {
+    @apply mb-5;
+}
