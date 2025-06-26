@@ -16,18 +16,10 @@ name('products.training');
 @endsection
 
 @section('content')
-    <section class="bg-charm-cream-200 py-20 lg:py-30 flex justify-center">
-        <div class="max-w-xl mx-auto px-5 lg:px-0 relative">
-            <span
-                class="font-[Alex_Brush] text-charm-dark text-4xl xl:text-5xl absolute -top-0 left-1/2 -translate-1/2 opacity-5 drop-shadow-lg font-bold">
-                {{ env('APP_NAME') }}
-            </span>
-            <h2 class="text-xl xl:text-3xl text-charm-dark drop-shadow-lg text-center uppercase">
-                If your business is hair extension, if you use tape hair, if you have to order ready-made product and if you
-                are not completely satisfied with its quality, then this video is for you.
-            </h2>
-        </div>
-    </section>
+    <x-section.header>
+        If your business is hair extension, if you use tape hair, if you have to order ready-made product and if you
+        are not completely satisfied with its quality, then this video is for you.
+    </x-section.header>
 
     <section class="grid lg:grid-cols-3 2xl:grid-cols-4">
         <div class="bg-charm-cream-300 px-10 py-20 lg:p-20 bg-charm-200 flex flex-col justify-center gap-y-10">
@@ -44,8 +36,7 @@ name('products.training');
                 depending on your client needs. Your income will undoubtedly increase after completing this training.
             </span>
         </div>
-        <div
-            class="bg-charm-cream-200 lg:col-span-2 2xl:col-span-1 p-10 py-20 lg:px-60 lg:p-20 2xl:px-20 flex items-center">
+        <div class="bg-charm-cream-200 lg:col-span-2 2xl:col-span-1 p-10 py-20 lg:px-60 lg:p-20 2xl:px-20 flex items-center">
             <div class="flex flex-col gap-y-10 relative">
                 <img src="{{ Vite::asset('resources/images/icons/video-play.svg') }}"
                     class="absolute left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:-left-1/3 top-1/2 -translate-y-1/2 2xl:left-0 opacity-10 lg:opacity-5 2xl:opacity-10 size-60 lg:size-75 rotate-12 drop-shadow-lg -z-0"

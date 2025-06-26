@@ -14,10 +14,10 @@ class Product extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $fillable = ['name', 'category', 'type', 'is_active', 'options'];
+    protected $fillable = ['name', 'description', 'category', 'type', 'active', 'options'];
 
     protected $casts = [
-        'options' => 'object',
+        'options' => 'array',
     ];
 
     public function registerMediaConversions(?Media $media = null): void
@@ -26,10 +26,5 @@ class Product extends Model implements HasMedia
             ->addMediaConversion('admin')
             ->fit(Fit::Contain, 200, 200)
             ->nonQueued();
-    }
-
-    public function active(): bool
-    {
-        return true;
     }
 }

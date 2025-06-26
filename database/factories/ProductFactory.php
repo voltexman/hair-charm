@@ -22,9 +22,9 @@ class ProductFactory extends Factory
             'name' => fake()->words(4, true),
             'category' => fake()->randomElement(ProductCategory::all()),
             'type' => fake()->randomElement(['Thick wefts', 'Standard wefts', 'Micro wefts']),
-            'is_active' => fake()->boolean(),
+            'active' => fake()->boolean(),
             'options' => collect()->times(5, fn () => [
-                'length' => fake()->numberBetween(10, 50),
+                'length' => fake()->numberBetween(14, 24),
                 'price' => fake()->numberBetween(100, 800),
                 'weight' => fake()->numberBetween(80, 200),
             ]),

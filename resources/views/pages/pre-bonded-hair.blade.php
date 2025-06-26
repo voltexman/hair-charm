@@ -20,35 +20,32 @@ name('products.pre-bonded-hair');
 @endsection
 
 @section('content')
-    <section class="bg-charm-cream-100 py-20 lg:py-30">
-        <div
-            class="sm:max-w-md lg:max-w-2xl mx-auto text-charm-dark-400 text-lg px-5 lg:px-0 lg:text-3xl text-center uppercase">
-            Are you looking for the highest quality micro ring hair extensions, pre bonded hair?
+    <x-section.header>
+        Are you looking for the highest quality micro ring hair extensions, pre bonded hair?
+        Our company {{ env('APP_NAME') }} will help with this.
+    </x-section.header>
+
+    <section class="bg-charm-dark-400 px-10 py-20 lg:py-40 flex items-center">
+        <div class="font-[Lora] text-4xl font-medium max-w-3xl mx-auto text-center italic text-charm-cream-200">
+            Such kind of product must be purchased only from professionals in their field, who have excellent raw
+            materials and know how to prepare it for sale.
         </div>
     </section>
 
-    <section class="grid sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-charm-cream-300 px-10 py-20 flex items-center">
-            <span class="font-[Lora] text-xl font-medium">
-                Our company <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> will help with this. Such kind of
-                product must be purchased only from professionals in their field, who have excellent raw materials and know
-                how to prepare it for sale.
-            </span>
-        </div>
-        <div class="bg-charm-cream-200 px-10 py-20">
-            <span class="font-[Lora] text-xl font-medium">
+    <section class="grid sm:grid-cols-2 lg:grid-cols-2">
+        <div class="bg-charm-cream-100 px-20 py-40">
+            <div class="font-[Lora] text-xl font-medium max-w-xl mx-auto">
                 In our production we use only Virgin Slavic hair, which are cut off from Slavic girls. They are considered
                 elite, because they look stunningly, easy for wearing without causing trouble to their possessor, are easy
                 to care for and do not differ from native tresses.
-            </span>
+            </div>
         </div>
-        <div
-            class="sm:col-span-2 lg:col-span-1 bg-charm-cream-300 sm:bg-charm-cream-100 lg:sm:bg-charm-cream-300 px-10 sm:px-40 py-20 lg:px-10">
-            <span class="font-[Lora] text-xl font-medium">
+        <div class="bg-charm-cream-200 px-20 py-40">
+            <div class="font-[Lora] text-xl font-medium max-w-xl mx-auto">
                 Pre-tipped hair from the company <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> will serve you
                 3-4 years and will look great. Our craftsmen do all this laborious process manually. Our employees use only
                 strong Italian keratin. The advantage of our pre-bonded strands is hair does not shed.
-            </span>
+            </div>
         </div>
     </section>
 
@@ -95,7 +92,7 @@ name('products.pre-bonded-hair');
         </div>
     </section>
 
-    <x-section.separate.marquee text="Pre Bonded Hair" />
+    <x-section.marquee text="Pre Bonded Hair" />
 
     <section class="bg-charm-cream-100 px-10 py-20">
         <x-product>
@@ -105,32 +102,34 @@ name('products.pre-bonded-hair');
         </x-product>
     </section>
 
-    <section class="grid sm:grid-cols-4">
-        <div class="sm:col-span-2 xl:col-span-1 bg-charm-cream-100 lg:bg-charm-cream-200 px-10 py-20 flex items-center">
-            <span class="font-[Lora] text-xl font-medium">
-                It's a matter of taste to choose which types of the proposed Pre-bonded hair you prefer. We guarantee
-                perfect quality of the finished products and fast lead-time. Our company is manufacturing goods for hair
-                extensions for a long time, so it has tremendous experience in this field of activity.
-            </span>
+    <section class="bg-charm-dark-500 px-20 py-40 flex items-center">
+        <div class="font-[Lora] text-4xl font-medium max-w-4xl mx-auto text-center text-charm-cream-300">
+            It's a matter of taste to choose which types of the proposed Pre-bonded hair you prefer. We guarantee
+            <span class="text-charm-cream-600/80 font-black italic">perfect quality</span> of the finished products and
+            <span class="text-charm-cream-600/80 font-black italic">fast lead-time</span>.
+            Our company is manufacturing goods for
+            <span class="text-charm-cream-600/80 font-black italic">hair extensions</span> for a long time, so it has
+            tremendous experience in this field of activity.
         </div>
-        <div
-            class="sm:col-span-2 xl:col-span-1 bg-charm-cream-200 lg:bg-charm-cream-300 px-10 py-20 2xl:p-15 flex flex-col items-center gap-y-5">
+    </section>
+
+    <section class="grid sm:grid-cols-3">
+        <div class="bg-charm-cream-300 px-10 py-20 2xl:px-20 2xl:py-40 flex flex-col items-center gap-y-5">
             <img src="{{ Vite::asset('resources/images/icons/discount-shape.svg') }}"
                 class="size-45 rotate-6 drop-shadow-lg" alt="">
-            <span class="font-[Oswald] tracking-wide uppercase text-xl font-medium">
+            <span class="font-[Oswald] tracking-wide uppercase text-xl font-medium max-w-sm text-center">
                 For wholesale customers, we always have pleasant discounts. So a large order of goods will cost somewhat
                 cheaper than usual.
             </span>
         </div>
-        <div class="sm:col-span-2 xl:col-span-1 sm:bg-charm-cream-200 lg:bg-charm-cream-100 px-10 py-20 flex items-center">
+        <div class="sm:bg-charm-cream-200 px-10 py-20 2xl:px-20 2xl:py-40 flex items-center">
             <span class="font-[Lora] text-xl font-medium">
                 Choosing our company, you can not doubt the high quality of the products. All used material was sanitized
                 and is safe for health. In addition, cases of using mixed strands in one product are excluded, because we
                 adhere to the principle - one hair donor - one product.
             </span>
         </div>
-        <div
-            class="sm:col-span-2 xl:col-span-1 bg-charm-cream-200 sm:bg-charm-cream-100 lg:bg-charm-cream-200 px-10 py-20 flex items-center">
+        <div class="bg-charm-cream-100 px-10 py-20 2xl:px-20 2xl:py-40 flex items-center">
             <span class="font-[Lora] text-xl font-semibold tracking-wide uppercase">
                 Do not hesitate, <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> company is responsible for all
                 its orders, so we hope to become a regular reliable partner for you in matter of regular deliveries of

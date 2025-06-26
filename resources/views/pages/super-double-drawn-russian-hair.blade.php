@@ -18,19 +18,10 @@ name('products.super-double-drawn-russian-hair');
 @endsection
 
 @section('content')
-    <section class="bg-charm-cream-200 py-20 lg:py-30 flex justify-center">
-        <div class="max-w-xl mx-auto px-5 lg:px-0 relative">
-            <span
-                class="font-[Alex_Brush] text-charm-dark text-4xl xl:text-5xl absolute -top-0 left-1/2 -translate-1/2 opacity-5 drop-shadow-lg font-bold">
-                {{ env('APP_NAME') }}
-            </span>
-            <div
-                class="text-xl xl:text-3xl text-charm-dark-500 drop-shadow-lg leading-8 xl:leading-10 text-center uppercase">
-                {{ env('APP_NAME') }} company offers for sale a special product - Russian virgin double drawn hair
-                extensions.
-                </h2>
-            </div>
-    </section>
+    <x-section.header>
+        {{ env('APP_NAME') }} company offers for sale a special product - Russian virgin double drawn hair
+        extensions.
+    </x-section.header>
 
     <section class="grid sm:grid-cols-2">
         <div class="bg-charm-cream-100 px-10 py-20 2xl:px-40 flex items-center">

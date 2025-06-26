@@ -20,42 +20,37 @@ name('products.wefts');
 @endsection
 
 @section('content')
-    <section class="bg-charm-cream-200 py-20 lg:py-30 flex justify-center">
-        <div class="max-w-xl mx-auto px-5 lg:px-0 relative">
-            <span
-                class="font-[Alex_Brush] text-charm-dark text-4xl xl:text-5xl absolute -top-0 left-1/2 -translate-1/2 opacity-5 drop-shadow-lg font-bold">
-                {{ env('APP_NAME') }}
-            </span>
-            <h2 class="text-xl xl:text-3xl text-charm-dark-500 drop-shadow-lg leading-8 xl:leading-10 text-center uppercase">
-                One of the most popular methods is Russian hand tied wefts hair extensions.
-            </h2>
-        </div>
-    </section>
+    <x-section.header>
+        One of the most popular methods is Russian hand tied wefts hair extensions.
+    </x-section.header>
 
-    <section class="grid lg:grid-cols-3">
-        <div class="bg-charm-cream-100 px-15 2xl:px-30 2xl:py-15 flex flex-col justify-center items-center relative gap-5">
+    <section class="grid md:grid-cols-6">
+        <div
+            class="md:col-span-3 xl:col-span-2 bg-charm-cream-100 px-10 py-10 xl:px-20 2xl:px-30 md:py-20 flex flex-col justify-center items-center relative gap-5">
             <img src="{{ Vite::asset('resources/images/icons/hair-style-salon-circular-badge.svg') }}"
                 class="size-40 drop-shadow-lg -z-0" alt="">
-            <span class="font-[Boldonse] text-charm-dark-300 text-center text-sm tracking-wide leading-7 uppercase z-10">
+            <div
+                class="font-[Boldonse] text-charm-dark-300 text-center text-sm tracking-wide leading-7 uppercase z-10 max-w-sm">
                 Our company has a great experience in manufacturing similar products, which are deservedly respected by all
                 our regular customers.
-            </span>
+            </div>
         </div>
-        <div class="lg:col-span-2 bg-charm-cream-300 p-20 2xl:px-40 2xl:py-20 flex justify-center items-center">
-            <span class="lg:ps-10 lg:border-s-4 font-[Lora] text-xl font-medium text-charm-dark-600">
+
+        <div
+            class="md:order-3 md:col-span-full xl:col-span-4 bg-charm-cream-200 xl:bg-charm-cream-300 px-5 py-20 md:px-10 lg:p-20 2xl:px-40 2xl:py-20 flex justify-center items-center">
+            <div class="font-[Lora] text-lg md:text-xl 2xl:text-2xl font-semibold text-charm-dark-600 italic">
                 Please note our products favourably differ from other competitors in that we use natural virgin Slavic hair
-                purchased directly from donors in Ukraine and Russian. In addition, all haircuts that are used in
-                <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> company for production are with dense tips. Such
-                bulks are considered to be the most qualitative and healthy. We do not issue non-standard goods as elite
-                (for example, giving out Asian hair for a true Slavic hair), so the quality of the wefts from
+                purchased directly from donors in <b>Ukraine</b> and <b>Russian</b>. In addition, all haircuts that are used
+                in <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> company for production are with dense tips.
+                Such bulks are considered to be the most qualitative and healthy. We do not issue non-standard goods as
+                elite (for example, giving out Asian hair for a true Slavic hair), so the quality of the wefts from
                 <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> will be the reference quality and will please you
                 for a long time. After all, Slavic strands have wonderful appearance, an ideal structure and ease of care.
-            </span>
+            </div>
         </div>
-    </section>
 
-    <section class="grid lg:grid-cols-3">
-        <div class="lg:col-span-1 bg-charm-cream-200 px-10 2xl:px-20 py-20 flex justify-center items-center">
+        <div
+            class="md:order-2 xl:order-3 xl:col-span-2 md:col-span-3 bg-charm-cream-300 lg:bg-charm-cream-300 px-10 2xl:px-20 py-20 flex justify-center items-center">
             <x-list>
                 <x-slot:caption>So, what do you get by contacting us?</x-slot>
                 <x-list.item>
@@ -73,37 +68,34 @@ name('products.wefts');
                 </x-list.item>
             </x-list>
         </div>
-        <div class="lg:col-span-2">
+
+        <div class="md:order-4 xl:order-4 md:col-span-full xl:col-span-4">
             <img src="https://www.hair-charm.com/images/HAIR/wefts/3.jpg" class="object-cover size-full" alt="">
         </div>
     </section>
 
-    <x-section.separate.marquee text="Wefts" />
+    {{-- <x-section.marquee text="Wefts" /> --}}
 
-    <section class="grid lg:grid-cols-3">
-        <div>
+    <section class="grid md:grid-cols-2 xl:grid-cols-3">
+        <div class="md:col-span-1 md:order-1">
             <img src="https://www.hair-charm.com/images/HAIR/wefts/1.jpg" class="object-cover size-full" alt="">
         </div>
-        <div class="bg-charm-cream-100 px-10 py-20 lg:p-20 flex justify-center items-center">
+        <div class="md:col-span-1 md:order-2 bg-charm-cream-100 px-10 py-20 lg:p-20 flex justify-center items-center">
             <span class="font-[Oswald] font-bold uppercase text-charm-dark-300 text-2xl">
                 Hand tied wefts are used for production of wigs and a variety of extension methods. They can be divided into
                 three types: thick, standart, micro.
             </span>
         </div>
-        <div>
+        <div class="md:order-4 xl:order-3">
             <img src="https://www.hair-charm.com/images/HAIR/wefts/5.jpg" class="" alt="">
         </div>
-        <div class="bg-charm-cream-200 flex flex-col px-10 py-20 justify-center items-center">
-            <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-50 drop-shadow-lg" alt="">
-            <span class="font-[Alex_Brush] text-7xl drop-shadow-lg font-black">charm hair</span>
-            <span class="text-xl font-[Oswald] tracking-wider text-charm-brown-600 drop-shadow-lg -mt-2 uppercase">
-                stylish hair company
-            </span>
+        <div class="md:order-3 bg-charm-cream-200 flex-col px-10 py-10 justify-center items-center">
+            <x-section.company />
         </div>
-        <div>
+        <div class="md:order-5">
             <img src="https://www.hair-charm.com/images/HAIR/wefts/2.jpg" class="" alt="">
         </div>
-        <div class="bg-charm-brown-600 flex justify-center items-center p-20">
+        <div class="md:order-6 bg-charm-brown-600 flex justify-center items-center px-10 py-20 lg:p-20">
             <span class="font-[Oswald] tracking-wider text-charm-cream-200 text-2xl">
                 <span class="uppercase block text-center font-black animate-pulse">Warning!</span>
                 <span class="mt-5 block">
@@ -113,7 +105,7 @@ name('products.wefts');
         </div>
     </section>
 
-    <section class="bg-charm-cream-100 py-20">
+    <section class="bg-charm-cream-100 px-10 py-20">
         <div class="max-w-6xl mx-auto flex flex-col">
             <div class="font-[Boldonse] text-2xl text-charm-dark-300">Thick wefts</div>
             <div class="max-w-xl font-[Lora] text-lg leading-6 text-charm-dark-200 mt-2.5">
@@ -130,7 +122,7 @@ name('products.wefts');
         </x-product>
     </section>
 
-    <section class="bg-charm-cream-200 py-20">
+    <section class="bg-charm-cream-200 px-10 py-20">
         <div class="max-w-6xl mx-auto flex flex-col">
             <div class="font-[Boldonse] text-2xl text-charm-dark-300">Standard wefts</div>
             <div class="max-w-xl font-[Lora] text-lg leading-6 text-charm-dark-200 mt-2.5">
@@ -147,7 +139,7 @@ name('products.wefts');
         </x-product>
     </section>
 
-    <section class="bg-charm-cream-100 py-20">
+    <section class="bg-charm-cream-100 px-10 py-20">
         <div class="max-w-6xl mx-auto flex flex-col">
             <div class="font-[Boldonse] text-2xl text-charm-dark-300">Micro wefts</div>
             <div class="max-w-xl font-[Lora] text-lg leading-6 text-charm-dark-200 mt-2.5">
@@ -166,46 +158,57 @@ name('products.wefts');
 
     <x-section.products />
 
-    <section class="grid lg:grid-cols-6">
+    <section class="grid md:grid-cols-6">
         <div
-            class="col-span-full lg:col-span-3 bg-charm-cream-100 px-10 py-20 lg:p-20 2xl:px-50 flex justify-center items-center">
-            <span class="font-[Lora] text-xl font-medium ">
+            class="col-span-full md:col-span-3 bg-charm-cream-100 px-10 py-20 xl:px-20 xl:py-40 2xl:px-40 flex justify-center items-center relative">
+            <div class="absolute top-10 left-10 flex gap-x-2.5">
+                <span class="rounded-full bg-charm-dark-500/80 block size-5"></span>
+                <span class="rounded-full bg-charm-cream-600 block size-5"></span>
+                <span class="rounded-full bg-charm-brown-600/60 block size-5"></span>
+                <span class="rounded-full bg-charm-cream-600/60 block size-5"></span>
+            </div>
+            <div class="font-[Lora] leading-6 lg:leading-7 text-lg lg:text-xl font-medium">
                 Our handtied wefts are expertly made by us are very practical and do not require special care. They can
                 easily tolerate heat, and you can create any styling with a hairdryer and a curling iron. Another advantage
                 of using a natural material in manufacture is the ease of coloring. As well as their own curls, wefts can be
                 dyed.
+            </div>
+            <span
+                class="font-[Alex_Brush] opacity-6 text-charm-brown-700 text-shadow-sm text-5xl absolute bottom-5 right-8 font-black">
+                {{ env('APP_NAME') }}
             </span>
         </div>
         <div
-            class="col-span-full lg:col-span-3 bg-charm-cream-200 px-10 py-20 lg:px-30 2xl:px-50 flex justify-center items-center">
-            <span class="font-[Lora] text-xl font-medium">
+            class="col-span-full md:col-span-3 bg-charm-dark-400 px-10 py-20 md:px-10 xl:py-40 xl:px-20 2xl:px-40 flex justify-center items-center">
+            <div class="font-[Lora] text-xl font-medium text-charm-cream-300">
                 We have been working in this field for a long time, therefore we have the necessary experience and knowledge
                 necessary for producing hand-tied wefts. Our own workshop and high-class equipment allow us to cope with
                 large volumes of orders. Also we offer the highest quality of final products.
-            </span>
+            </div>
         </div>
+    </section>
+
+    <section class="grid md:grid-cols-6">
         <div
-            class="col-span-full lg:col-span-2 bg-charm-cream-100 lg:bg-charm-cream-200 px-10 py-20 lg:p-20 flex justify-center items-center">
-            <span class="font-[Lora] font-medium text-charm-dark-500 text-xl">
+            class="col-span-full md:col-span-3 bg-charm-cream-100 md:bg-charm-cream-200 px-10 py-20 md:px-10 xl:py-40 xl:px-20 2xl:px-40 flex justify-center items-center">
+            <div class="font-[Lora] font-medium leading-6 lg:leading-7 text-charm-dark-500 text-lg lg:text-xl">
                 It does not matter which initial hair structure you have, we are able to choose exactly that variant that
                 will organically complement your own hair and be natural at the same time. With us you will find products of
                 any shade and length, therefore using hand-made wefts from the company
                 <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> your hairdo acquires a natural volume, will also
                 look natural and attractive.
-            </span>
+            </div>
         </div>
         <div
-            class="col-span-full lg:col-span-4 bg-charm-cream-300 px-10 py-20 lg:py-20 lg:ps-10 lg:pe-20 2xl:pe-40 flex justify-center items-center gap-2.5">
-            <img src="{{ Vite::asset('resources/images/icons/female-hairs.svg') }}"
-                class="hidden lg:block w-35 drop-shadow-lg" alt="">
-            <span class="font-[Lora] text-2xl border-s-2 ps-10">
+            class="col-span-full md:col-span-3 bg-charm-cream-300 px-10 py-20 md:px-10 xl:py-40 xl:px-20 2xl:px-40 flex justify-center items-center gap-10">
+            <div class="font-[Lora] font-medium leading-6 lg:leading-7 text-lg lg:text-xl">
                 As you can see, <x-marker variant="cream">{{ env('APP_NAME') }}</x-marker> company's products meet the
                 highest requirements and will please you for a long time. For additional advice and ordering of the goods,
                 write to us on <span class="font-medium">Viber</span> or <span class="font-medium">WhatsApp</span> or you
                 can contact with us by e-mail: <span class="font-medium">infohaircharm@gmail.com</span>. Contacting us in
                 the showroom, you will not have any difficulties with the terms of order fulfillment and you can always
                 count on the perfect quality of the goods purchased!
-            </span>
+            </div>
         </div>
     </section>
 @endsection

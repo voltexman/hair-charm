@@ -18,18 +18,9 @@ name('products.gray-russian-hair-wholesale');
 @endsection
 
 @section('content')
-    <section class="bg-charm-cream-200 py-20 lg:py-30 flex justify-center">
-        <div class="max-w-xl mx-auto px-5 lg:px-0 relative">
-            <span
-                class="font-[Alex_Brush] text-charm-dark text-4xl xl:text-5xl absolute -top-0 left-1/2 -translate-1/2 opacity-5 drop-shadow-lg font-bold">
-                {{ env('APP_NAME') }}
-            </span>
-            <div
-                class="text-xl xl:text-3xl text-charm-dark-500 drop-shadow-lg leading-8 xl:leading-10 text-center uppercase">
-                Special product for sale<br>GRAY RUSSIAN HAIR.
-                </h2>
-            </div>
-    </section>
+    <x-section.header>
+        Special product for sale<br>GRAY RUSSIAN HAIR.
+    </x-section.header>
 
     <section class="grid sm:grid-cols-6">
         <div

@@ -9,7 +9,7 @@
     };
 @endphp
 
-<span {{ $attributes->class([$variantClass, 'px-0.5 inline-block']) }}>
+<span {{ $attributes->class([$variantClass, 'px-1 inline-block']) }}>
     @if ($logo)
         <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-5 inline-block" alt="">
     @endif

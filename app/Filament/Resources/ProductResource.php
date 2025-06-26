@@ -38,7 +38,7 @@ class ProductResource extends Resource
                 TextInput::make('name')->required()->label('Назва товару'),
 
                 Select::make('category')
-                    ->options(ProductCategory::all())
+                    ->options(ProductCategory::class)
                     ->native(false)
                     ->required()
                     ->label('Категорія'),
@@ -70,9 +70,10 @@ class ProductResource extends Resource
                 SpatieMediaLibraryImageColumn::make('image')->collection('product')->label(false),
 
                 TextColumn::make('name')->searchable()->label('Назва товару'),
-                TextColumn::make('category')->sortable()->label('Категорія'),
 
-                IconColumn::make('is_active')->boolean()->alignEnd()->sortable()->label('Статус'),
+                TextColumn::make('category')->badge(ProductCategory::class),
+
+                IconColumn::make('active')->boolean()->alignEnd()->sortable()->label('Статус'),
             ])
             ->filters([
                 //
