@@ -1,6 +1,6 @@
 @props(['images'])
 
-<div {{ $attributes->class('relative w-full min-h120 h-full overflow-hidden') }}>
+<div {{ $attributes->class('relative size-full overflow-hidden') }}>
     <!-- Фонове зображення -->
     <img src="{{ $images[0] }}" class="size-full object-cover object-center z-0 animate-scale-pulse" alt="" />
 
@@ -19,7 +19,7 @@
                 ]) alt="" />
             @else
                 <img src="{{ $images[0] }}"
-                    class="w-3/4 object-cover object-center backdrop-blur-xs relative z-20 shadow-xl shadow-charm-cream-900/35 border border-charm-cream-300 p-2.5 md:p-5"
+                    class="w-3/4 object-cover object-center backdrop-blur-sm relative z-20 shadow-xl shadow-charm-cream-900/35 bg-charm-dark-200/10 border border-charm-cream-300/60 p-2.5 md:p-5"
                     alt="" />
             @endif
         @endforeach

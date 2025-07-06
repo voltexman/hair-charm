@@ -1,5 +1,9 @@
 @props(['text'])
 
+@php
+    $array = [$text, $text, $text, $text, $text];
+@endphp
+
 <div class="bg-charm-dark-500 marquees relative">
     <img src="{{ Vite::asset('resources/images/icons/female-hairs.svg') }}" class="size-[50%] absolute left-10 top-10"
         alt="">
@@ -26,14 +30,14 @@
     </section>
 
     <section class="bg-charm-brown-700 text-charm-cream-300 font-[Oswald] marquee marquee--left">
-        <div class="marquee--track">
-            <div class="marquee--content">
-                {{ $text }} * {{ $text }}
+        @foreach ($array as $item)
+            <div class="marquee--track flex justify-center items-center">
+                <div class="marquee--content">
+                    {{ $text }}
+                </div>
+                <span class="block size-3 bg-charm-brown-500 rounded-full"></span>
             </div>
-            <div class="marquee--content" aria-hidden="true">
-                {{ $text }} * {{ $text }}
-            </div>
-        </div>
+        @endforeach
     </section>
 
     <section class="bg-charm-brown900 text-charm-brown-200 font-[Oswald] marquee marquee--right">
