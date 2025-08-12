@@ -12,7 +12,7 @@
                 {{ env('APP_NAME') }}
             </span>
             <h2
-                class="text-2xl md:text-3xl lg:text-4xl font-bold leading-7 md:leading-8 lg:leading-10 text-charm-dark-300 drop-shadow-lg text-center text-balance uppercase text-shadow-lg/5">
+                class="font-[Poppins] text-2xl md:text-3xl lg:text-4xl font-normal leading-7 md:leading-8 lg:leading-10 text-charm-dark-300 drop-shadow-lg text-center text-balance uppercase text-shadow-lg/5">
                 {{ $slot }}
             </h2>
         </div>

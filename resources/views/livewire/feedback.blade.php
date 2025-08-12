@@ -8,30 +8,32 @@ use App\Models\Feedback;
 state(['name', 'contact', 'message']);
 
 rules([
-    'name' => 'max:20',
-    'contact' => 'max:120',
+    'name' => 'nullable|min:2|max:20',
+    'contact' => 'nullable|min:5|max:120',
     'message' => 'required|string|min:5|max:1500',
 ])->messages([
+    'name.min' => 'Name is too short',
+    'contact.min' => 'Please provide more information',
     'message.required' => 'Enter your message',
 ]);
 
-// session()->flash('success');
-
 $submit = function () {
-    // sleep(3);
     $validated = $this->validate();
 
-    // Feedback::create($validated);
+    Feedback::create($validated);
 
-    // Notification::route('mail', 'voltexman@gmail.com')->notify(new FeedbackSubmitted((object) $validated));
+    Notification::routes([
+        'mail' => env('ADMIN_EMAIL'),
+        'telegram' => env('TELEGRAM_CHAT_ID'),
+    ])->notify(new FeedbackSubmitted((object) $validated));
 
-    session()->flash('success');
+    session()->flash('feedback-success');
 };
 
 ?>
 
 <div>
-    @session('success')
+    @session('feedback-success')
         <div class="flex justify-center items-center size-full">
             <div class="flex flex-col items-center size-full">
                 <x-lucide-check-circle-2 class="size-25 stroke-charm-brown-600" stroke-width="1" />
@@ -45,13 +47,13 @@ $submit = function () {
         <form wire:submit.prevent="submit">
             <div class="flex flex-col">
                 <x-form.label for="name" label="Your name" />
-                <x-form.input type="text" wire:model="name" id="name" placeholder="Enter your name" />
+                <x-form.input type="text" wire:model="name" id="name" placeholder="What is your name" />
                 @error('name')
                     <x-form.error>{{ $message }}</x-form.error>
                 @enderror
 
                 <x-form.label for="contact" label="Email or phone" class="mt-5" />
-                <x-form.input type="text" wire:model="contact" id="contact" placeholder="mail@example.com or phone" />
+                <x-form.input type="text" wire:model="contact" id="contact" placeholder="example@gmail.com or phone" />
                 @error('contact')
                     <x-form.error>{{ $message }}</x-form.error>
                 @enderror

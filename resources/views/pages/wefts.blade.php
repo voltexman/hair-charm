@@ -54,8 +54,8 @@ name('products.wefts');
             <x-list>
                 <x-slot:caption>So, what do you get by contacting us?</x-slot>
                 <x-list.item>
-                    Product will look great, because they are produced only from natural Russian double-drawn bundles, which
-                    have the greatest value
+                    Products will look great, because they are produced only from natural Russian double-drawn bundles,
+                    which have the greatest value
                 </x-list.item>
                 <x-list.item>
                     During manufacturing goods we don't use silicone and other components harmful to hair tresses
@@ -82,8 +82,8 @@ name('products.wefts');
         </div>
         <div class="md:col-span-1 md:order-2 bg-charm-cream-100 px-10 py-20 lg:p-20 flex justify-center items-center">
             <span class="font-[Oswald] font-bold uppercase text-charm-dark-300 text-2xl">
-                Hand tied wefts are used for production of wigs and a variety of extension methods. They can be divided into
-                three types: thick, standart, micro.
+                Hand tied wefts are used in the production of wigs and a variety of extension methods. They can be divided
+                into three types: thick, standard, micro.
             </span>
         </div>
         <div class="md:order-4 xl:order-3">
@@ -115,11 +115,13 @@ name('products.wefts');
             </div>
         </div>
 
-        <x-product class="mt-5">
-            @foreach ($products as $product)
-                <x-product.card :product="$product" />
-            @endforeach
-        </x-product>
+        @isset($products)
+            <x-product class="mt-5">
+                @foreach ($products->where('type', 'Thick wefts') as $product)
+                    <x-product.card :product="$product" />
+                @endforeach
+            </x-product>
+        @endisset
     </section>
 
     <section class="bg-charm-cream-200 px-10 py-20">
@@ -132,11 +134,13 @@ name('products.wefts');
             </div>
         </div>
 
-        <x-product class="mt-5">
-            @foreach ($products as $product)
-                <x-product.card :product="$product" />
-            @endforeach
-        </x-product>
+        @isset($products)
+            <x-product class="mt-5">
+                @foreach ($products->where('type', 'Standard wefts') as $product)
+                    <x-product.card :product="$product" />
+                @endforeach
+            </x-product>
+        @endisset
     </section>
 
     <section class="bg-charm-cream-100 px-10 py-20">
@@ -149,11 +153,13 @@ name('products.wefts');
             </div>
         </div>
 
-        <x-product class="mt-5">
-            @foreach ($products as $product)
-                <x-product.card :product="$product" />
-            @endforeach
-        </x-product>
+        @isset($products)
+            <x-product class="mt-5">
+                @foreach ($products->where('type', 'Micro wefts') as $product)
+                    <x-product.card :product="$product" />
+                @endforeach
+            </x-product>
+        @endisset
     </section>
 
     <x-section.products />

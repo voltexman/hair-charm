@@ -1,5 +1,9 @@
 import.meta.glob(["../images/**", "../fonts/**"]);
 import "./bootstrap";
-// import { Livewire } from "../../vendor/livewire/livewire/dist/livewire.esm";
 
-// Livewire.start();
+// import Alpine from "alpinejs";
+import { Livewire, Alpine } from "../../vendor/livewire/livewire/dist/livewire.esm";
+
+// Alpine.start();
+
+Livewire.start();
