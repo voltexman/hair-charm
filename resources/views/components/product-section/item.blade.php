@@ -3,9 +3,23 @@
 <div {{ $attributes->class('relative bg-[image:var(--bg-image)] bg-center bg-no-repeat bg-cover flex justify-center items-center transition-all duration-300 group overflow-hidden group-data-[variant=section]:border-b group-data-[variant=sidebar]:border-b md:group-data-[variant=section]:border-e border-charm-dark-400 last:border-b-0 md:last:border-e-0 shadow-lg shadow-black') }}
     @click="setActive({{ $index }})"
     :class="[
-        isActive({{ $index }}) ? 'md:w-full h-150 group-data-[variant=sidebar]:h-full' :
-        'md:w-1/8 group-data-[variant=section]:h-50 group-data-[variant=sidebar]:h-1/8 group-data-[variant=sidebar]:w-full',
-        (active !== null && !isActive({{ $index }})) && 'grayscale-60'
+        // Базові класи для анімації та поведінки flex
+        'flex transition-all duration-500 ease-in-out overflow-hidden h-full',
+    
+        // --- ЛОГІКА ДЛЯ SECTION (Горизонтальне розкриття на десктопі) ---
+        'group-data-[variant=section]:flex-col md:group-data-[variant=section]:flex-row',
+        isActive({{ $index }}) ?
+        'group-data-[variant=section]:md:w-full group-data-[variant=section]:h-[500px] md:group-data-[variant=section]:h-full' :
+        'group-data-[variant=section]:md:w-1/8 group-data-[variant=section]:h-32 md:group-data-[variant=section]:h-full',
+    
+        // --- ЛОГІКА ДЛЯ SIDEBAR (Тільки вертикальне розкриття) ---
+        'group-data-[variant=sidebar]:flex-col group-data-[variant=sidebar]:w-full',
+        isActive({{ $index }}) ?
+        'group-data-[variant=sidebar]:flex-1 group-data-[variant=sidebar]:min-h-[300px]' :
+        'group-data-[variant=sidebar]:h-20 group-data-[variant=sidebar]:md:h-24',
+    
+        // Ефект затінення для неактивних
+        (active !== null && !isActive({{ $index }})) && 'grayscale-60 opacity-80'
     ]"
     style="--bg-image: image-set(
         url('{{ Vite::asset("resources/images/main-$category->value.webp") }}') type('image/webp'),
