@@ -1,0 +1,410 @@
+{
+  "_scroll-CjqQOYf8.js": {
+    "file": "assets/scroll-CjqQOYf8.js",
+    "name": "scroll"
+  },
+  "_split-C1Fih-qJ.js": {
+    "file": "assets/split-C1Fih-qJ.js",
+    "name": "split",
+    "imports": [
+      "_scroll-CjqQOYf8.js"
+    ]
+  },
+  "_stagger-NRfGYYT9.js": {
+    "file": "assets/stagger-NRfGYYT9.js",
+    "name": "stagger",
+    "imports": [
+      "_scroll-CjqQOYf8.js"
+    ]
+  },
+  "_timeline-DKOD6d0T.js": {
+    "file": "assets/timeline-DKOD6d0T.js",
+    "name": "timeline",
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_stagger-NRfGYYT9.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-UvUr-CIA.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/images/50-percent-off.svg": {
+    "file": "assets/50-percent-off-CftWEoBX.svg",
+    "src": "resources/images/50-percent-off.svg"
+  },
+  "resources/images/bg-blog-header.png": {
+    "file": "assets/bg-blog-header-PSSTWBb-.png",
+    "src": "resources/images/bg-blog-header.png"
+  },
+  "resources/images/bg-blog-header.webp": {
+    "file": "assets/bg-blog-header-D1_ykbpt.webp",
+    "src": "resources/images/bg-blog-header.webp"
+  },
+  "resources/images/bg-children-section-1.png": {
+    "file": "assets/bg-children-section-1-DkMRjPBp.png",
+    "src": "resources/images/bg-children-section-1.png"
+  },
+  "resources/images/bg-children-section.png": {
+    "file": "assets/bg-children-section-BmPbWkAS.png",
+    "src": "resources/images/bg-children-section.png"
+  },
+  "resources/images/bg-contact-header.png": {
+    "file": "assets/bg-contact-header-Cm8OeCgt.png",
+    "src": "resources/images/bg-contact-header.png"
+  },
+  "resources/images/bg-contact-header.webp": {
+    "file": "assets/bg-contact-header-CKDtWUGc.webp",
+    "src": "resources/images/bg-contact-header.webp"
+  },
+  "resources/images/bg-footer.png": {
+    "file": "assets/bg-footer-DV0C7See.png",
+    "src": "resources/images/bg-footer.png"
+  },
+  "resources/images/bg-gallery-header.png": {
+    "file": "assets/bg-gallery-header-DrTtGUWu.png",
+    "src": "resources/images/bg-gallery-header.png"
+  },
+  "resources/images/bg-gallery-header.webp": {
+    "file": "assets/bg-gallery-header-DMhwhtOB.webp",
+    "src": "resources/images/bg-gallery-header.webp"
+  },
+  "resources/images/bg-payment-and-delivery.png": {
+    "file": "assets/bg-payment-and-delivery-Bz4yunUo.png",
+    "src": "resources/images/bg-payment-and-delivery.png"
+  },
+  "resources/images/bg-section-categories.png": {
+    "file": "assets/bg-section-categories-CTET_24k.png",
+    "src": "resources/images/bg-section-categories.png"
+  },
+  "resources/images/bg-section-top.png": {
+    "file": "assets/bg-section-top-UV4FKHEJ.png",
+    "src": "resources/images/bg-section-top.png"
+  },
+  "resources/images/bg-section-top_old.png": {
+    "file": "assets/bg-section-top_old-DdIoFmw1.png",
+    "src": "resources/images/bg-section-top_old.png"
+  },
+  "resources/images/bg-section-top_old_2.png": {
+    "file": "assets/bg-section-top_old_2-BGIzV9HR.png",
+    "src": "resources/images/bg-section-top_old_2.png"
+  },
+  "resources/images/bg-support-section.png": {
+    "file": "assets/bg-support-section-Cpa-k7y2.png",
+    "src": "resources/images/bg-support-section.png"
+  },
+  "resources/images/icons/badge-for-female-hair-salon.svg": {
+    "file": "assets/badge-for-female-hair-salon-05aUEGAd.svg",
+    "src": "resources/images/icons/badge-for-female-hair-salon.svg"
+  },
+  "resources/images/icons/badge-with-scissors.svg": {
+    "file": "assets/badge-with-scissors-CRmKi5fi.svg",
+    "src": "resources/images/icons/badge-with-scissors.svg"
+  },
+  "resources/images/icons/brush-tool.svg": {
+    "file": "assets/brush-tool-Blhthi0Q.svg",
+    "src": "resources/images/icons/brush-tool.svg"
+  },
+  "resources/images/icons/commercial-signal-light.svg": {
+    "file": "assets/commercial-signal-light-CaQAGyhs.svg",
+    "src": "resources/images/icons/commercial-signal-light.svg"
+  },
+  "resources/images/icons/curled-black-long-female-hair-shape.svg": {
+    "file": "assets/curled-black-long-female-hair-shape-BWEG6RTx.svg",
+    "src": "resources/images/icons/curled-black-long-female-hair-shape.svg"
+  },
+  "resources/images/icons/discount-shape.svg": {
+    "file": "assets/discount-shape-P_YmJ4PQ.svg",
+    "src": "resources/images/icons/discount-shape.svg"
+  },
+  "resources/images/icons/female-hair-with-hat.svg": {
+    "file": "assets/female-hair-with-hat-BffgqyiA.svg",
+    "src": "resources/images/icons/female-hair-with-hat.svg"
+  },
+  "resources/images/icons/female-hairs.svg": {
+    "file": "assets/female-hairs-CytC6aBS.svg",
+    "src": "resources/images/icons/female-hairs.svg"
+  },
+  "resources/images/icons/female-long-dark-hair-wig.svg": {
+    "file": "assets/female-long-dark-hair-wig-DEFku4J9.svg",
+    "src": "resources/images/icons/female-long-dark-hair-wig.svg"
+  },
+  "resources/images/icons/female-long-hair-with-ponytails-light.svg": {
+    "file": "assets/female-long-hair-with-ponytails-light-BNLy-ICn.svg",
+    "src": "resources/images/icons/female-long-hair-with-ponytails-light.svg"
+  },
+  "resources/images/icons/female-wig.svg": {
+    "file": "assets/female-wig-kFIZIUt1.svg",
+    "src": "resources/images/icons/female-wig.svg"
+  },
+  "resources/images/icons/juvenile-female-hair-with-two-ponytails-hanging-at-both-sides.svg": {
+    "file": "assets/juvenile-female-hair-with-two-ponytails-hanging-at-both-sides-CS0oXfgB.svg",
+    "src": "resources/images/icons/juvenile-female-hair-with-two-ponytails-hanging-at-both-sides.svg"
+  },
+  "resources/images/icons/logo-dark.svg": {
+    "file": "assets/logo-dark-gB9592j0.svg",
+    "src": "resources/images/icons/logo-dark.svg"
+  },
+  "resources/images/icons/logo-light.svg": {
+    "file": "assets/logo-light-Bd48IBIi.svg",
+    "src": "resources/images/icons/logo-light.svg"
+  },
+  "resources/images/icons/long-hair-wig-light.svg": {
+    "file": "assets/long-hair-wig-light-D6SqSUUk.svg",
+    "src": "resources/images/icons/long-hair-wig-light.svg"
+  },
+  "resources/images/icons/long-hair-wig.svg": {
+    "file": "assets/long-hair-wig-q7dIY-NI.svg",
+    "src": "resources/images/icons/long-hair-wig.svg"
+  },
+  "resources/images/icons/male-long-hair-with-hat.svg": {
+    "file": "assets/male-long-hair-with-hat-DmpL4gLR.svg",
+    "src": "resources/images/icons/male-long-hair-with-hat.svg"
+  },
+  "resources/images/icons/salon-circular-badge.svg": {
+    "file": "assets/salon-circular-badge-Be9LQ279.svg",
+    "src": "resources/images/icons/salon-circular-badge.svg"
+  },
+  "resources/images/icons/scissors-opened-tool-shape.svg": {
+    "file": "assets/scissors-opened-tool-shape-rIwTOpfG.svg",
+    "src": "resources/images/icons/scissors-opened-tool-shape.svg"
+  },
+  "resources/images/icons/scissors.svg": {
+    "file": "assets/scissors-CrU_1rJv.svg",
+    "src": "resources/images/icons/scissors.svg"
+  },
+  "resources/images/icons/social/facebook-light.svg": {
+    "file": "assets/facebook-light-CD31OllQ.svg",
+    "src": "resources/images/icons/social/facebook-light.svg"
+  },
+  "resources/images/icons/social/instagram-light.svg": {
+    "file": "assets/instagram-light-Doo4oLcS.svg",
+    "src": "resources/images/icons/social/instagram-light.svg"
+  },
+  "resources/images/icons/social/whatsapp-light.svg": {
+    "file": "assets/whatsapp-light-BbwPrrUu.svg",
+    "src": "resources/images/icons/social/whatsapp-light.svg"
+  },
+  "resources/images/icons/spray-bottle-and-can.svg": {
+    "file": "assets/spray-bottle-and-can-CeO_mp2_.svg",
+    "src": "resources/images/icons/spray-bottle-and-can.svg"
+  },
+  "resources/images/icons/spray-bottles.svg": {
+    "file": "assets/spray-bottles-DI8uZfLv.svg",
+    "src": "resources/images/icons/spray-bottles.svg"
+  },
+  "resources/images/icons/video-play.svg": {
+    "file": "assets/video-play-COUbJ_TV.svg",
+    "src": "resources/images/icons/video-play.svg"
+  },
+  "resources/images/icons/woman-hair-cut.svg": {
+    "file": "assets/woman-hair-cut-BtG7biUU.svg",
+    "src": "resources/images/icons/woman-hair-cut.svg"
+  },
+  "resources/images/icons/woman-hair-extended-in-front-of-the-head-dark.svg": {
+    "file": "assets/woman-hair-extended-in-front-of-the-head-dark-BfACjzIz.svg",
+    "src": "resources/images/icons/woman-hair-extended-in-front-of-the-head-dark.svg"
+  },
+  "resources/images/icons/woman-hair-extended-in-front-of-the-head-light.svg": {
+    "file": "assets/woman-hair-extended-in-front-of-the-head-light-CHOrsbxj.svg",
+    "src": "resources/images/icons/woman-hair-extended-in-front-of-the-head-light.svg"
+  },
+  "resources/images/main-bg-section-categories.webp": {
+    "file": "assets/main-bg-section-categories-h4sBrXIM.webp",
+    "src": "resources/images/main-bg-section-categories.webp"
+  },
+  "resources/images/main-bleached-russian-hair.png": {
+    "file": "assets/main-bleached-russian-hair-BcNkM_dP.png",
+    "src": "resources/images/main-bleached-russian-hair.png"
+  },
+  "resources/images/main-bleached-russian-hair.webp": {
+    "file": "assets/main-bleached-russian-hair-DBUEzkT1.webp",
+    "src": "resources/images/main-bleached-russian-hair.webp"
+  },
+  "resources/images/main-clip-ins.png": {
+    "file": "assets/main-clip-ins-BdFvdRK2.png",
+    "src": "resources/images/main-clip-ins.png"
+  },
+  "resources/images/main-clip-ins.webp": {
+    "file": "assets/main-clip-ins-8iWKqg_8.webp",
+    "src": "resources/images/main-clip-ins.webp"
+  },
+  "resources/images/main-gray-russian-hair-wholesale.png": {
+    "file": "assets/main-gray-russian-hair-wholesale-C_01sr5q.png",
+    "src": "resources/images/main-gray-russian-hair-wholesale.png"
+  },
+  "resources/images/main-gray-russian-hair-wholesale.webp": {
+    "file": "assets/main-gray-russian-hair-wholesale-D3aB19CT.webp",
+    "src": "resources/images/main-gray-russian-hair-wholesale.webp"
+  },
+  "resources/images/main-pre-bonded-hair.png": {
+    "file": "assets/main-pre-bonded-hair-tyDV-74a.png",
+    "src": "resources/images/main-pre-bonded-hair.png"
+  },
+  "resources/images/main-pre-bonded-hair.webp": {
+    "file": "assets/main-pre-bonded-hair-aD1s9jIs.webp",
+    "src": "resources/images/main-pre-bonded-hair.webp"
+  },
+  "resources/images/main-super-double-drawn-russian-hair.png": {
+    "file": "assets/main-super-double-drawn-russian-hair-Dry5R5IA.png",
+    "src": "resources/images/main-super-double-drawn-russian-hair.png"
+  },
+  "resources/images/main-super-double-drawn-russian-hair.webp": {
+    "file": "assets/main-super-double-drawn-russian-hair-lQQ541t7.webp",
+    "src": "resources/images/main-super-double-drawn-russian-hair.webp"
+  },
+  "resources/images/main-tape-hair.png": {
+    "file": "assets/main-tape-hair-DrSynQzx.png",
+    "src": "resources/images/main-tape-hair.png"
+  },
+  "resources/images/main-tape-hair.webp": {
+    "file": "assets/main-tape-hair-D4RtocUq.webp",
+    "src": "resources/images/main-tape-hair.webp"
+  },
+  "resources/images/main-training.png": {
+    "file": "assets/main-training-DvWJbiuH.png",
+    "src": "resources/images/main-training.png"
+  },
+  "resources/images/main-training.webp": {
+    "file": "assets/main-training-BjSlndH2.webp",
+    "src": "resources/images/main-training.webp"
+  },
+  "resources/images/main-virgin-russian-hair.png": {
+    "file": "assets/main-virgin-russian-hair-BHTO36zv.png",
+    "src": "resources/images/main-virgin-russian-hair.png"
+  },
+  "resources/images/main-virgin-russian-hair.webp": {
+    "file": "assets/main-virgin-russian-hair-Cdys-PaY.webp",
+    "src": "resources/images/main-virgin-russian-hair.webp"
+  },
+  "resources/images/main-wefts.png": {
+    "file": "assets/main-tape-hair-DrSynQzx.png",
+    "src": "resources/images/main-tape-hair.png"
+  },
+  "resources/images/main-wefts.webp": {
+    "file": "assets/main-wefts-zEpc26MQ.webp",
+    "src": "resources/images/main-wefts.webp"
+  },
+  "resources/images/scissors-badge.svg": {
+    "file": "assets/scissors-badge-ynTMrIQW.svg",
+    "src": "resources/images/scissors-badge.svg"
+  },
+  "resources/images/scissors-cutting-hair-lines.svg": {
+    "file": "assets/scissors-cutting-hair-lines-nj9aRwWB.svg",
+    "src": "resources/images/scissors-cutting-hair-lines.svg"
+  },
+  "resources/images/slideshow-1.png": {
+    "file": "assets/slideshow-1-CbdMpnl3.png",
+    "src": "resources/images/slideshow-1.png"
+  },
+  "resources/images/slideshow-2.png": {
+    "file": "assets/slideshow-2-CNbIRk00.png",
+    "src": "resources/images/slideshow-2.png"
+  },
+  "resources/images/slideshow-3.png": {
+    "file": "assets/slideshow-3-B0d89N8V.png",
+    "src": "resources/images/slideshow-3.png"
+  },
+  "resources/images/wefts-without-numbers.png": {
+    "file": "assets/wefts-without-numbers-CVUNzKOw.png",
+    "src": "resources/images/wefts-without-numbers.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-C_Na1NMv.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_split-C1Fih-qJ.js",
+      "_stagger-NRfGYYT9.js",
+      "_timeline-DKOD6d0T.js"
+    ]
+  },
+  "resources/js/pages/bleached-russian-hair.js": {
+    "file": "assets/bleached-russian-hair-DDRb0gnE.js",
+    "name": "bleached-russian-hair",
+    "src": "resources/js/pages/bleached-russian-hair.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_split-C1Fih-qJ.js",
+      "_stagger-NRfGYYT9.js",
+      "_timeline-DKOD6d0T.js"
+    ]
+  },
+  "resources/js/pages/contact.js": {
+    "file": "assets/contact-O1SLhy8o.js",
+    "name": "contact",
+    "src": "resources/js/pages/contact.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js"
+    ]
+  },
+  "resources/js/pages/gray-russian-hair-wholesale.js": {
+    "file": "assets/gray-russian-hair-wholesale-iMXJ0eBi.js",
+    "name": "gray-russian-hair-wholesale",
+    "src": "resources/js/pages/gray-russian-hair-wholesale.js",
+    "isEntry": true
+  },
+  "resources/js/pages/main.js": {
+    "file": "assets/main-jSVznfoG.js",
+    "name": "main",
+    "src": "resources/js/pages/main.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_stagger-NRfGYYT9.js",
+      "_timeline-DKOD6d0T.js"
+    ],
+    "css": [
+      "assets/main-CM1at7uL.css"
+    ]
+  },
+  "resources/js/pages/pre-bonded-hair.js": {
+    "file": "assets/pre-bonded-hair-CdHGQcPV.js",
+    "name": "pre-bonded-hair",
+    "src": "resources/js/pages/pre-bonded-hair.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js"
+    ]
+  },
+  "resources/js/pages/tape-hair.js": {
+    "file": "assets/tape-hair-B1CYOuQi.js",
+    "name": "tape-hair",
+    "src": "resources/js/pages/tape-hair.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_stagger-NRfGYYT9.js"
+    ]
+  },
+  "resources/js/pages/training.js": {
+    "file": "assets/training-BpalPfR2.js",
+    "name": "training",
+    "src": "resources/js/pages/training.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_split-C1Fih-qJ.js",
+      "_stagger-NRfGYYT9.js"
+    ]
+  },
+  "resources/js/pages/wefts.js": {
+    "file": "assets/wefts-BpbGCZF9.js",
+    "name": "wefts",
+    "src": "resources/js/pages/wefts.js",
+    "isEntry": true,
+    "imports": [
+      "_scroll-CjqQOYf8.js",
+      "_stagger-NRfGYYT9.js"
+    ]
+  }
+}

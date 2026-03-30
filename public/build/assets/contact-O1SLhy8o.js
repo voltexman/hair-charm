@@ -1,0 +1,1 @@
+import{c as e,f as t,t as n}from"./scroll-CjqQOYf8.js";e(t(`.scissors`),{rotate:[`-110deg`,`20deg`],transformOrigin:[`0px 0px`,`50% 50%`],autoplay:n({sync:1,enter:`bottom`,leave:`top`})});

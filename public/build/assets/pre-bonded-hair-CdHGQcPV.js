@@ -1,0 +1,1 @@
+import{c as e,f as t,t as n}from"./scroll-CjqQOYf8.js";e(t(`.ghost-image`),{y:[`0%`,`50%`],autoplay:n({target:t(`.section-3`),sync:1,enter:`10px`,leave:`10px`})});

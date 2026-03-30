@@ -1,0 +1,1 @@
+import{c as e,f as t,t as n}from"./scroll-CjqQOYf8.js";import{r,t as i}from"./stagger-NRfGYYT9.js";t(`.chess-board-item`).forEach((t,a)=>{e(t,{scale:[.5,1],rotate:[a%6==0?r(-25,50):r(-50,50),`0deg`],ease:`outCirc`,duration:1500,delay:i(250),autoplay:n({target:t})})});

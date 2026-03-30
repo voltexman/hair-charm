@@ -1,0 +1,1 @@
+import{c as e,f as t,t as n}from"./scroll-CjqQOYf8.js";import{t as r}from"./stagger-NRfGYYT9.js";t(`.box-number`).forEach(t=>{e(t,{scale:[.5,1],ease:`outBack`,duration:1500,autoplay:n({target:t})})}),t(`.chess`).forEach((t,i)=>{e(t,{scale:[.75,1],rotate:[(i%3==0?-15:15)+`deg`,`0deg`],ease:`outCirc`,duration:1500,delay:r(250),autoplay:n({target:t})})});
