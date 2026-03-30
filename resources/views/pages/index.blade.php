@@ -17,7 +17,7 @@ name('main');
         <div
             class="order-3 lg:order-1 h-full w-full lg:w-1/2 flex flex-col justify-between bg-charm-dark-500/20 lg:bg-charm-dark-500/30 lg:backdrop-blur-xs lg:border-e-6 border-double overflow-hidden relative panel-left halftone">
             <div class="hidden lg:block ms-auto my-10 bg-charm-brown-800/70 p-2.5 relative z-10 logo-left-box">
-                <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Charm</span>
+                <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Slavena</span>
             </div>
             <div class="px-5 lg:px-10 md:max-w-xl lg:max-w-2xl my-auto relative z-10">
                 <template x-for="(slide, index) in slides">
