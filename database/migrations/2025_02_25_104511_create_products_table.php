@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -17,16 +14,13 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->enum('category', ProductCategory::all());
-            $table->enum('type', ['Thick wefts', 'Standard wefts', 'Micro wefts'])->nullable();
+            $table->string('type')->nullable();
             $table->json('options')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');

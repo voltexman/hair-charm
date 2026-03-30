@@ -7,5 +7,7 @@
         </div>
     @endisset
 
-    <div>{{ $slot }}</div>
+    <ul data-variant="{{ $attributes->get('variant') }}" data-size="{{ $attributes->get('size') }}" class="group">
+        {{ $slot }}
+    </ul>
 </div>

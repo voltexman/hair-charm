@@ -1,17 +1,22 @@
-@props(['variant' => 'light', 'logo' => false])
+@props(['variant' => 'marker', 'color' => 'light'])
 
 @php
     $variantClass = match ($variant) {
-        'dark' => 'bg-charm-dark-500 text-charm-cream-100',
-        'light' => 'bg-charm-cream-100 text-charm-dark-400',
-        'cream' => 'bg-charm-cream-500 text-charm-dark-400',
-        default => 'bg-transparent text-charm-dark-400',
+        'marker' => 'before:absolute before:-inset-1 before:block before:-skew-y-3',
+        'font' => 'font-[Pacifico]',
+        default => '',
+    };
+
+    $colorClass = match ($color) {
+        'light' => 'before:bg-charm-cream-400 text-charm-dark-600',
+        'dark' => 'before:bg-charm-dark-300 text-charm-cream-100',
+        'black' => 'before:bg-charm-dark-400 text-charm-cream-200',
+        default => 'text-inherit',
     };
 @endphp
 
-<span {{ $attributes->class([$variantClass, 'px-1 inline-block']) }}>
-    @if ($logo)
-        <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-5 inline-block" alt="">
-    @endif
-    {{ $slot }}
+<span {{ $attributes->class(['relative inline-block', $variantClass, $variant === 'marker' ? $colorClass : null]) }}>
+    <span class="{{ $variant !== 'marker' ? $colorClass : '' }} relative">
+        {{ $slot }}
+    </span>
 </span>

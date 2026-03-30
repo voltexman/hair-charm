@@ -1,70 +1,79 @@
 <?php
-
 use function Laravel\Folio\name;
-use App\Models\Product;
 use App\Enums\ProductCategory;
-
 name('products.gray-russian-hair-wholesale');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header image="https://www.hair-charm.com/templates/jblank/images/bg/blocks/Bleached-Russian-hair.jpg">
-        <x-slot:title>
-            Gray Russian<br>hair wholesale
-        </x-slot>
+    <x-page-header :image="ProductCategory::GRAY_RUSSIAN_HAIR_WHOLESALE->value">
+        <x-slot:title>Gray Russian <br> hair wholesale</x-slot>
+        <x-slot:caption>Special product for sale<br>GRAY RUSSIAN HAIR.</x-slot>
     </x-page-header>
 @endsection
 
 @section('content')
-    <x-section.header>
-        Special product for sale<br>GRAY RUSSIAN HAIR.
-    </x-section.header>
-
-    <section class="grid sm:grid-cols-6">
-        <div
-            class="sm:col-span-3 bg-charm-cream-100 px-10 py-20 xl:p-20 2xl:px-40 flex flex-col lg:flex-row items-center gap-10">
-            <img src="{{ Vite::asset('resources/images/icons/hair-style-salon-circular-badge.svg') }}" class="size-35"
-                alt="">
-            <span class="font-[Lora] text-xl font-medium flex items-center">
-                The company {{ env('APP_NAME') }} is a supplier of Slavic gray hair, which is cut off by our employees in
-                territory of Ukraine and Russia. Donors are elderly people of Slavic appearance.
-            </span>
+    <x-section class="bg-charm-cream-100 relative overflow-hidden section-1">
+        <div class="md:max-w-lg mx-auto space-y-5">
+            <x-section.title class="md:text-center">
+                <x-slot:first>Natural</x-slot>
+                Slavic<br>Gray Hair
+                <x-slot:last><x-marker color="black">Supply</x-marker></x-slot>
+            </x-section.title>
+            <x-section.content class="md:text-center">
+                The company <x-marker variant="font">{{ env('APP_NAME') }}</x-marker> is a supplier of Slavic gray hair,
+                which is cut off by our employees in territory of <span class="font-semibold">Ukraine</span> and
+                <span class="font-semibold">Russia</span>. Donors are elderly people of Slavic appearance.
+            </x-section.content>
         </div>
-        <div
-            class="sm:col-span-3 bg-charm-cream-300 px-10 py-20 xl:p-20 2xl:px-40 flex flex-col lg:flex-row items-center gap-10">
-            <img src="{{ Vite::asset('resources/images/icons/brush-tool.svg') }}" class="size-35" alt="">
-            <span class="font-[Lora] text-xl font-medium">
+    </x-section>
+
+    <x-section class="bg-charm-cream-200 section-2">
+        <div class="md:max-w-lg mx-auto flex flex-col items-center space-y-5">
+            <img src="{{ Vite::asset('resources/images/icons/logo-dark.svg') }}" class="size-30" alt="">
+            <div class="font-[Lora] text-xl md:text-2xl font-medium text-center box-content">
                 This type of hair has a fine structure, soft and silky to touch. Gray hair is purchased by enterprises in
                 large volumes for industrial clarification <i>(bleaching)</i>.
-            </span>
+            </div>
         </div>
-        <div class="sm:col-span-3 lg:col-span-2 bg-charm-cream-200 px-10 py-20 xl:p-20 2xl:p-40 flex items-center">
-            <span class="font-[Oswald] text-xl 2xl:text-2xl uppercase">
-                Due to its light shade, it quickly and easily acquires a snow-white color, while not losing quality. Then
-                used for hair extension in beauty salons.
-            </span>
+    </x-section>
+
+    {{-- <x-section.marquee text="Gray Russian hair wholesale" /> --}}
+
+    <x-section class="bg-charm-cream-100 overflow-hidden section-3">
+        <div class="max-w-2xl mx-auto space-y-5">
+            <div class="font-[Oswald] text-xl md:text-4xl lg:text-4xl/10 md:font-light uppercase text-balance box-text">
+                Due to its light shade, it <span class="font-bold">quickly</span> and easily acquires a snow-white color,
+                while not losing quality. Then used for <span class="font-bold">hair extension</span> in beauty salons.
+            </div>
         </div>
-        <div class="sm:col-span-3 lg:col-span-2 bg-charm-cream-400 px-10 py-20 xl:p-20 2xl:p-40 flex items-center relative">
-            <img src="{{ Vite::asset('resources/images/icons/juvenile-female-hair-with-two-ponytails-hanging-at-both-sides.svg') }}"
-                class="absolute top-1/2 left-1/2 -translate-1/2 size-45 2xl:size-55 z-0 opacity-10" alt="">
-            <span class="font-[Oswald] text-xl 2xl:text-2xl uppercase relative z-10">
-                Gray hair is also used in the manufacture of wigs for older people.
-            </span>
+    </x-section>
+
+    <x-section.categories />
+
+    <x-section class="bg-charm-cream-200 overflow-hidden section-4">
+        <div class="max-w-2xl lg:max-w-3xl mx-auto grid md:grid-cols-2 justify-items-center gap-5">
+            <img src="{{ Vite::asset('resources/images/icons/female-long-dark-hair-wig.svg') }}"
+                class="size-60 md:size-100 drop-shadow-xl box-image" alt="">
+            <div
+                class="font-[Oswald] text-2xl md:text-5xl lg:text-6xl md:font-light uppercase text-center md:text-end text-balance box-text">
+                <span class="font-bold">Gray hair</span> is also used in the manufacture of wigs for
+                <span class="font-bold">older</span> people.
+            </div>
         </div>
-        <div
-            class="hidden sm:col-span-3 lg:hidden lg:col-span-2 bg-charm-cream-300 sm:flex flex-col px-10 py-20 justify-center items-center">
-            <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-50 drop-shadow-lg" alt="">
-            <span class="font-[Alex_Brush] text-7xl drop-shadow-lg font-black">charm hair</span>
-            <span class="text-xl font-[Oswald] tracking-wider text-charm-brown-600 drop-shadow-lg -mt-2 uppercase">
-                stylish hair company
-            </span>
+    </x-section>
+
+    <x-section class="bg-charm-cream-100 overflow-hidden">
+        <div class="max-w-2xl mx-auto space-y-5">
+            <div
+                class="font-[Oswald] text-xl md:text-4xl lg:text-4xl lg:font-light text-end uppercase text-balance ms-auto section-5-text">
+                <span class="font-bold">Minimum</span> wholesale order of such type of hair is
+                <span class="font-bold">3 kg</span>, which includes length
+                <span class="font-bold">from 45 to 70 cm</span>.
+            </div>
         </div>
-        <div class="sm:col-span-3 lg:col-span-2 bg-charm-cream-200 px-10 py-20 xl:p-20 2xl:p-40 flex items-center">
-            <span class="font-[Oswald] text-xl 2xl:text-2xl uppercase">
-                Minimum wholesale order of such type of hair is 3 kg, which includes length from 45 to 70 cm.
-            </span>
-        </div>
-    </section>
+    </x-section>
 @endsection
+
+@vite('resources/js/pages/gray-russian-hair-wholesale.js')

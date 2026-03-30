@@ -1,39 +1,34 @@
 <?php
 use function Laravel\Folio\name;
-
+use App\Enums\ProductCategory;
 name('products.clip-ins');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header image="https://www.hair-charm.com/templates/jblank/images/bg/blocks/clip-ins.jpg">
-        <x-slot:title>
-            Clip-Ins
+    <x-page-header :image="ProductCategory::CLIP_INS->value">
+        <x-slot:title>Clip-Ins</x-slot>
+        <x-slot:caption>
+            One of the interesting solutions for quickly giving volume and length to your hairstyle is clip-in hair
+            extensions. We use Virgin Russian hair clip-ins for sale.
         </x-slot>
     </x-page-header>
 @endsection
 
 @section('content')
-    <x-section.header>
-        One of the interesting solutions for quickly giving volume and length to your hairstyle is clip-in hair
-        extensions. We use Virgin Russian hair clip-ins for sale.
+    <x-section.header class="bg-charm-cream-100">
+        This product is suitable for those customers who have not yet decided to have
+        <span class="font-bold text-charm-brown-600">permanent hair</span> extension and want to
+        <span class="font-bold text-charm-brown-600">experiment</span> with their appearance.
     </x-section.header>
 
-    <section class="grid sm:grid-cols-2">
-        <div class="bg-charm-cream-100 flex justify-center items-center px-10 py-20">
-            <div class="max-w-lg">
-                <div class="font-[Oswald] text-center text-xl sm:text-2xl lg:text-3xl tracking-wide uppercase text-balance">
-                    This product is suitable for those customers who have not yet decided to have
-                    <span class="font-bold text-charm-brown-600">permanent hair</span> extension and want to
-                    <span class="font-bold text-charm-brown-600">experiment</span> with their appearance.
-                </div>
+    <x-section class="bg-charm-cream-200">
+        <div class="max-w-xl lg:max-w-4xl mx-auto grid lg:grid-cols-2 gap-5 md:gap-10">
+            <div class="font-[Boldonse] text-2xl lg:text-4xl/14 text-nowrap lg:text-end">
+                There a lot <br> of advantages <br> of this kind <br> of goods
             </div>
-        </div>
-        <div class="bg-charm-cream-300 px-10 py-20">
-            <x-list class="max-w-xl mx-auto">
-                <x-slot:caption>There a lot of advantages of this kind of goods</x-slot>
-
+            <x-list variant="dark">
                 <x-list.item>
                     You can always fix and remove the hair, there is nothing complicated in this process
                 </x-list.item>
@@ -45,106 +40,122 @@ name('products.clip-ins');
                 </x-list.item>
             </x-list>
         </div>
-    </section>
+    </x-section>
 
-    <section class="bg-charm-dark-400 py-20 lg:py-30">
-        <div
-            class="font-[Lora] max-w-xl lg:max-w-3xl mx-auto text-charm-cream-100 text-xl md:text-2xl lg:text-3xl px-5 lg:px-0 text-center uppercase">
-            What are the advantages of goods from {{ env('APP_NAME') }} company?
+    <x-section.marquee :text="ProductCategory::CLIP_INS->getLabel()" bg="from-charm-cream-200 to-charm-cream-100" />
+
+    <x-section class="bg-charm-cream-100">
+        <div class="md:max-w-md mx-auto mb-10">
+            <div class="font-[Lora] italic text-2xl font-semibold lg:font-medium text-center">
+                What are the <x-marker>advantages</x-marker> of goods from {{ env('APP_NAME') }} company?
+            </div>
         </div>
-    </section>
-
-    <section class="grid sm:grid-cols-2">
-        <div class="bg-charm-cream-200 px-10 py-20 flex justify-center">
-            <div class="max-w-xl flex flex-col justify-center gap-y-5">
-                <div class="font-[Oswald] font-medium text-xl md:text-2xl tracking-wide uppercase">
+        <div class="md:max-w-xl lg:max-w-3xl mx-auto space-y-10">
+            <div class="grid lg:grid-cols-2 gap-5 md:gap-x-10 md:gap-y-5">
+                <div class="order-1 font-[Boldonse] text-2xl/10 lg:text-end">
                     Firstly, all our goods are made by hand and have the highest quality.
                 </div>
-                <span class="block w-1/2 h-0.5 bg-charm-dark-500"></span>
-                <div class="font-[Lora] text-lg md:text-xl font-medium italic">
-                    Strands are sewn onto thin hand-tied wefts, then special hairpins are attached to them. Creating perfect
-                    clip-in that are increased easy to use.
+                <div class="font-[Lora] text-xl md:text-2xl font-medium italic order-2">
+                    Strands are sewn onto thin hand-tied wefts, then special hairpins are attached to them. Creating
+                    perfect clip-in that are increased easy to use.
                 </div>
             </div>
-        </div>
-        <div class="bg-charm-cream-100 px-10 py-20 flex justify-center items-center">
-            <x-list class="max-w-xl">
-                <x-slot:caption>
+            <div class="grid lg:grid-cols-2 gap-5 md:gap-x-10 md:gap-y-5">
+                <div class="order-1 md:order-2 font-[Boldonse] text-2xl/10">
                     Since we produce products individually, to order, you can choose several options
-                </x-slot>
-
-                <x-list.item>
-                    It can be a product of 5 parts, which are distributed over the entire surface of the head
-                    <span class="text-charm-brown-600 italic">(for example 2 temple parts, 3 occiput parts)</span>
-                </x-list.item>
-                <x-list.item>
-                    One entire product <span class="text-charm-brown-600 italic">(all in one)</span>.
-                    Achieving a full-head look is created using one piece
-                </x-list.item>
-            </x-list>
+                </div>
+                <x-list variant="dark" class="order-2 lg:order-1 lg:text-end">
+                    <x-list.item>
+                        It can be a product of 5 parts, which are distributed over the entire surface of the head
+                        <span class="text-charm-brown-600 italic">(for example 2 temple parts, 3 occiput parts)</span>
+                    </x-list.item>
+                    <x-list.item>
+                        One entire product <span class="text-charm-brown-600 italic">(all in one)</span>.
+                        Achieving a full-head look is created using one piece
+                    </x-list.item>
+                </x-list>
+            </div>
         </div>
-    </section>
+    </x-section>
 
     <section class="grid lg:grid-cols-2">
-        <div class="bg-charm-cream-300 order-1 px-10 py-20 flex justify-center h-full">
-            <div class="max-w-xl flex flex-col justify-center gap-y-5">
-                <div class="font-[Oswald] text-xl md:text-2xl font-medium uppercase tracking-wide">
+        <div class="bg-charm-cream-200 order-1 px-8 py-20 lg:p-0 flex justify-center h-full">
+            <div class="max-w-md flex flex-col justify-center gap-y-5">
+                <x-section.title class="text-2xl/7! font-medium!">
                     When ordering goods from {{ env('APP_NAME') }} salon, you can choose the desired shade, structure and
                     weight of product, appropriate length and width of product.
-                </div>
-                <span class="w-1/2 h-0.5 bg-charm-dark-500"></span>
-                <div class="font-[Lora] text-lg md:text-xl font-medium italic">
+                </x-section.title>
+                <x-section.content>
                     Our specialists take customer's requirements seriously, so your wishes will be taken into account during
                     the execution of order. Contacting to our company, you always get exactly the products wich you wish.
-                </div>
+                </x-section.content>
             </div>
         </div>
-        <div class="order-2">
+        <div class="order-2 h-100 md:h-150 lg:h-170">
             <x-section.image :images="['https://www.hair-charm.com/images/2.jpg']" alt="" />
         </div>
     </section>
 
     <section class="grid lg:grid-cols-2">
-        <div class="order-2 lg:order-1">
+        <div class="order-2 lg:order-1 h-100 md:h-150 lg:h-170">
             <x-section.image :images="['https://www.hair-charm.com/images/3.jpg']" alt="" />
         </div>
-        <div class="bg-charm-cream-200 order-1 lg:order-2 px-10 py-20 flex justify-center items-center h-full">
-            <div class="font-[Lora] text-lg lg:text-xl font-medium max-w-xl">
+        <div class="bg-charm-dark-400 order-1 lg:order-2 px-8 py-20 lg:p-0 flex justify-center items-center h-full">
+            <x-section.content class="max-w-md text-charm-cream-100!">
                 Another important point, which is necessary to mention, is the material used.
-                <span class="font-black">We prefer virgin Slavic hair that is not colored</span>, so you get the hairs most
-                natural characteristics. They do not require complicated care, silicone is not used during processing, Hair
-                does not tangled, and will always look as if you just visited a salon. Our company is one of the few ones
-                that offer children's strands. Such material has the greatest value and looks great on the head.
-            </div>
+                <span class="font-semibold">We prefer virgin Slavic hair that is not colored</span>, so you get the hairs
+                most natural characteristics. They do not require complicated care, silicone is not used during processing,
+                Hair does not tangled, and will always look as if you just visited a salon. Our company is one of the few
+                ones that offer children's strands. Such material has the greatest value and looks great on the head.
+            </x-section.content>
         </div>
     </section>
 
-    <x-section.marquee text="Clip-Ins" />
+    {{-- <x-section.categories /> --}}
 
-    <x-section.products />
-
-    <section class="grid md:grid-cols-2">
-        <div class="col-span-full bg-charm-cream-100 px-10 py-20 md:py-30 flex justify-center items-center">
-            <div class="max-w-3xl font-[Lora] text-lg md:text-center md:text-xl text-pretty font-medium">
+    <x-section class="bg-charm-cream-200">
+        <div class="max-w-xl mx-auto space-y-5">
+            <x-section.title class="md:text-center">
+                <x-slot:first>Reliable</x-slot>
+                <br>Wholesale
+                <x-slot:last><x-marker color="dark">Solutions</x-marker></x-slot:last>
+            </x-section.title>
+            <x-section.content class="md:text-center">
                 It is possible to buy 1-2 items, and also large order. Working with large orders, we are always ready to
                 provide you with excellent discounts and offer the best conditions for cooperation. Be sure that in future
                 you no longer have to look for new suppliers, because our company will become your reliable regular partner.
                 In addition, we work quickly and do not violate the deadlines, so it is not necessary to wait for delivery
                 for weeks.
+            </x-section.content>
+        </div>
+    </x-section>
+
+    <x-section class="relative bg-fixed bg-right xl:bg-center bg-no-repeat bg-cover"
+        style="background-image: url('{{ Vite::asset('resources/images/bg-support-section.png') }}')">
+        <div class="absolute inset-0 bg-charm-cream-300/60 backdrop-blur-xs"></div>
+        <div class="relative max-w-xl mx-auto">
+            <div class="font-[Oswald] text-2xl md:text-3xl md:font-light text-center text-balance">
+                Our employees are ready at any time to consult you on purchasing the right products and advise clients
+                the best value for money. Contact us using
+                <span class="font-bold">WhatsApp</span>,
+                <span class="font-bold">Viber</span>,
+                or by <span class="font-bold">email</span>.
             </div>
         </div>
-        <div class="bg-charm-cream-200 px-10 py-20 md:py-30 flex justify-center items-center">
-            <div class="max-w-xl font-[Lora] text-lg md:text-center md:text-xl text-pretty font-medium">
-                Our employees are ready at any time to consult you on purchasing the right products and advise clients the
-                best value for money. Contact us using WhatsApp or Viber, or by email.
-            </div>
+    </x-section>
+
+    <x-section class="bg-charm-cream-200">
+        <div class="max-w-xl grid gap-5 md:gap-10 mx-auto">
+            <x-section.title class="md:text-center">
+                <x-slot:first>Premium</x-slot>
+                Virgin <br> Hair
+                <x-slot:last><x-marker color="black">Quality</x-marker></x-slot>
+            </x-section.title>
+            <x-section.content class="md:text-center">
+                If you need clip-ins made from virgin Slavic hair that will serve for a long time and meet world
+                standards of quality, <x-marker variant="font">{{ env('APP_NAME') }}</x-marker> company is a reasonable
+                choice. Please contact us and our managers will choose the best option for you!
+            </x-section.content>
         </div>
-        <div class="bg-charm-cream-300 px-10 py-20 md:py-30 flex justify-center items-center">
-            <div class="max-w-xl font-[Lora] text-lg md:text-center md:text-xl text-pretty font-medium">
-                If you need clip-ins made from virgin Slavic hair that will serve for a long time and meet world standards
-                of quality, {{ env('APP_NAME') }} company is a reasonable choice. Please contact us and our managers will
-                choose the best option for you!
-            </div>
-        </div>
-    </section>
+    </x-section>
 @endsection

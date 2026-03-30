@@ -1,44 +1,47 @@
-@props(['image', 'link' => '#', 'title' => '', 'caption' => ''])
+@props(['category', 'index'])
 
-<div
-    class="relative group overflow-hidden border border-charm-dark-300 shadow-lg transition-all duration-500 ease-in-out w-full lg:w-1/8 hover:lg:w-1/2 h-50 lg:h-full">
+<div {{ $attributes->class('relative bg-[image:var(--bg-image)] bg-center bg-no-repeat bg-cover flex justify-center items-center transition-all duration-300 group overflow-hidden group-data-[variant=section]:border-b group-data-[variant=sidebar]:border-b md:group-data-[variant=section]:border-e border-charm-dark-400 last:border-b-0 md:last:border-e-0 shadow-lg shadow-black') }}
+    @click="setActive({{ $index }})"
+    :class="[
+        isActive({{ $index }}) ? 'md:w-full h-150 group-data-[variant=sidebar]:h-full' :
+        'md:w-1/8 group-data-[variant=section]:h-50 group-data-[variant=sidebar]:h-1/8 group-data-[variant=sidebar]:w-full',
+        (active !== null && !isActive({{ $index }})) && 'grayscale-60'
+    ]"
+    style="--bg-image: image-set(
+        url('{{ Vite::asset("resources/images/main-$category->value.webp") }}') type('image/webp'),
+        url('{{ Vite::asset("resources/images/main-$category->value.png") }}') type('image/png')
+    );">
+    {{-- Overlay --}}
+    <div class="absolute inset-0 z-10 pointer-events-none transition-colors duration-500"
+        :class="isActive({{ $index }}) ? 'bg-charm-brown-900/50' : 'bg-charm-brown-900/30'"></div>
 
-    <!-- Зображення -->
-    <img src="{{ $image }}" alt="{{ $title }}" class="absolute inset-0 size-full object-cover" />
-
-    <!-- Фіксований затемнений фон -->
-    <div
-        class="hidde lg:block absolute top-0 left-0 size-full bg-black/60 z-10 mask-t-from-25% lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out">
+    <div class="max-w-md self-center absolute z-20 flex flex-col px-8" x-cloak x-show="!isActive({{ $index }})">
+        <div
+            class="md:group-data-[variant=section]:[writing-mode:vertical-lr] drop-shadow-xl text-charm-cream-200 font-[Oswald] text-2xl">
+            {{ $category->getLabel() }}
+        </div>
     </div>
 
-    <!-- Вертикальний заголовок -->
-    <div
-        class="hidden lg:flex absolute inset-0 z-20 justify-center items-center text-center text-white uppercase text-2xl lg:text-3xl drop-shadow-lg lg:[writing-mode:vertical-lr] group-hover:-translate-x-full duration-700 transition-transform ease-out">
-        {{ $title }}
+    <div class="max-w-md self-center absolute z-20 flex flex-col px-8" x-cloak x-show="isActive({{ $index }})"
+        x-transition>
+        <div class="font-[Oswald] text-3xl text-charm-cream-100">
+            {{ $category->getLabel() }}
+        </div>
+
+        <div class="font-[Poppins] text-base text-charm-cream-100/80 mt-1.5 line-clamp-4">
+            {{ $category->description() }}
+        </div>
+
+        <x-button variant="light" link="{{ $category->link() }}" class="mt-5 w-fit" aria-label="Details">
+            <span class="me-1.5">Details</span>
+            <x-lucide-move-right class="size-4" stroke-width="1.5" />
+        </x-button>
     </div>
 
-    <!-- Контент (текст + кнопка) -->
-    <div
-        class="absolute inset-0 size-full z-30 flex flex-col justify-center px-10 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 ease-out">
-
-        <h3
-            class="text-charm-cream-100 font-[Oswald] text-2xl lg:text-3xl uppercase mb-4 lg:opacity-0 lg:-translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-500 ease-in-out">
-            {{ $title }}
-        </h3>
-
-        <p
-            class="text-charm-cream-300 font-[Lora] text-base lg:text-lg mb-6 scale-0 group-hover:scale-100 transition-transform duration-500 delay-500 ease-in-out w-full max-w-sm">
-            {{ $caption }}
-        </p>
-
-        <a href="{{ $link }}"
-            class="inline-block rounded-full bg-white px-5 py-2.5 font-medium text-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-700 ease-out me-auto">
-            Open
-        </a>
-    </div>
-
-    <!-- Іконка (мобільна) -->
-    <span class="lg:hidden absolute bottom-2 left-1/2 -translate-x-1/2 z-40">
-        <x-lucide-chevron-down class="size-8 stroke-charm-cream-200" stroke-width="1.5" />
-    </span>
+    {{-- mobile toggle --}}
+    <button type="button"
+        class="absolute bottom-0.5 left-1/2 -translate-x-1/2 z-20 md:hidden flex flex-col items-center">
+        <x-lucide-chevron-down class="size-5 stroke-charm-cream-100 transition-transform"
+            x-bind:class="{ 'rotate-180': isActive({{ $index }}) }" stroke-width="1.5" />
+    </button>
 </div>

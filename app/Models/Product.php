@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\ProductCategory;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Enums\Fit;
@@ -26,5 +29,23 @@ class Product extends Model implements HasMedia
             ->addMediaConversion('admin')
             ->fit(Fit::Contain, 200, 200)
             ->nonQueued();
+    }
+
+    #[Scope]
+    protected function active(Builder $query): void
+    {
+        $query->where('active', true);
+    }
+
+    #[Scope]
+    protected function category(Builder $query, ProductCategory $category): void
+    {
+        $query->where('category', $category);
+    }
+
+    #[Scope]
+    protected function type(Builder $query, ?string $type): void
+    {
+        $query->where('type', $type);
     }
 }

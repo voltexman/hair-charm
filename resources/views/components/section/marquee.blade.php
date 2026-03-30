@@ -1,110 +1,75 @@
-@props(['text'])
+@props(['variant' => 'double', 'text', 'bg'])
 
 @php
-    $array = [$text, $text, $text, $text, $text];
+    $items = array_fill(0, 24, $text);
 @endphp
 
-<div class="bg-charm-dark-500 marquees relative">
-    <img src="{{ Vite::asset('resources/images/icons/female-hairs.svg') }}" class="size-[50%] absolute left-10 top-10"
-        alt="">
-    <section class="bg-charm-brown-700 text-charm-brown-100 font-[Oswald] marquee marquee--left">
-        <div class="marquee--track">
-            <div class="marquee--content">
-                {{ $text }} * {{ $text }}
-            </div>
-            <div class="marquee--content" aria-hidden="true">
-                {{ $text }} * {{ $text }}
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-charm-brown800 text-charm-cream-200 font-[Oswald] marquee marquee--right">
-        <div class="marquee--track reverse">
-            <div class="marquee--content">
-                {{ $text }} * {{ $text }}
-            </div>
-            <div class="marquee--content" aria-hidden="true">
-                {{ $text }} * {{ $text }}
+@if ($variant === 'line')
+    <div class="relative w-full overflow-hidden bg-charm-brown-600 py-2">
+        <div class="whitespace-nowrap">
+            <div class="inline-flex items-center gap-5 will-change-transform" id="t-line">
+                @foreach ($items as $item)
+                    <span class="font-[Oswald] text-charm-cream-200 capitalize font-light italic">
+                        {{ $item }}
+                    </span>
+                    <img src="{{ Vite::asset('resources/images/icons/logo-light.svg') }}" class="size-5" alt="">
+                @endforeach
             </div>
         </div>
-    </section>
+    </div>
+@else
+    <div {{ $attributes->class('relative z-10 w-full -my-10') }}>
+        <div class="absolute inset-0 bg-linear-to-b {{ $bg }}"></div>
 
-    <section class="bg-charm-brown-700 text-charm-cream-300 font-[Oswald] marquee marquee--left">
-        @foreach ($array as $item)
-            <div class="marquee--track flex justify-center items-center">
-                <div class="marquee--content">
-                    {{ $text }}
+        <div class="relative">
+            <div class="whitespace-nowrap -rotate-3 bg-charm-cream-900 py-1 drop-shadow-lg">
+                <div class="inline-flex items-center gap-5 will-change-transform" id="t1">
+                    @foreach ($items as $item)
+                        <span
+                            class="font-[Oswald] text-charm-cream-100 capitalize text-lg font-light">{{ $item }}</span>
+                        <span class="size-2 bg-charm-cream-400 rounded-full"></span>
+                    @endforeach
                 </div>
-                <span class="block size-3 bg-charm-brown-500 rounded-full"></span>
             </div>
-        @endforeach
-    </section>
 
-    <section class="bg-charm-brown900 text-charm-brown-200 font-[Oswald] marquee marquee--right">
-        <div class="marquee--track reverse">
-            <div class="marquee--content">
-                {{ $text }} * {{ $text }}
-            </div>
-            <div class="marquee--content" aria-hidden="true">
-                {{ $text }} * {{ $text }}
+            <div class="whitespace-nowrap rotate-3 bg-charm-brown-500 py-1 drop-shadow-lg">
+                <div class="inline-flex items-center gap-5 will-change-transform" id="t2">
+                    @foreach ($items as $item)
+                        <span class="font-[Oswald] text-charm-cream-100 capitalize text-lg font-light">
+                            {{ env('APP_NAME') }} - Hair Style Shop
+                        </span>
+                        <img src="{{ Vite::asset('resources/images/icons/logo-light.svg') }}" class="size-5"
+                            alt="">
+                    @endforeach
+                </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+@endif
 
-<style>
-    .marquees {
-        display: grid;
-        gap: 2rem;
-        padding: 1.5rem 0;
-        overflow: hidden;
-    }
+<script>
+    function marquee(track, speed = 0.6) {
+        const clone = track.cloneNode(true);
+        while (clone.children.length) track.appendChild(clone.children[0]);
 
-    .marquee {
-        overflow: hidden;
-        transform: rotate(-3deg);
-        /* background-color: #f3bb0b; */
-        /* color: #000; */
-        mix-blend-mode: screen;
-        height: 4.5rem;
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        font-size: clamp(1.5rem, 4vw, 3rem);
-        font-weight: bold;
-        line-height: 1;
-        padding: 0 1rem;
-    }
+        let x = 0;
+        const half = () => track.scrollWidth / 2;
 
-    .marquee--right {
-        transform: rotate(3deg);
-        /* background-color: #000; */
-        /* color: #f3bb0b; */
-    }
-
-    .marquee--track {
-        display: flex;
-        width: max-content;
-        animation: scroll-left 20s linear infinite;
-    }
-
-    /* для чорних (reverse) рядів – просто інвертована анімація */
-    .marquee--track.reverse {
-        animation: scroll-left 20s linear infinite reverse;
-    }
-
-    .marquee--content {
-        padding: 0 2rem;
-        white-space: nowrap;
-    }
-
-    @keyframes scroll-left {
-        0% {
-            transform: translateX(0%);
+        function loop() {
+            x -= speed;
+            if (x <= -half()) x += half();
+            track.style.transform = `translateX(${x}px)`;
+            requestAnimationFrame(loop);
         }
-
-        100% {
-            transform: translateX(-50%);
-        }
+        loop();
     }
-</style>
+
+    const t1 = document.getElementById("t1");
+    if (t1) marquee(t1, 0.9);
+
+    const t2 = document.getElementById("t2");
+    if (t2) marquee(t2, 0.5);
+
+    const tLine = document.getElementById("t-line");
+    if (tLine) marquee(tLine, 0.7);
+</script>

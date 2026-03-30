@@ -26,7 +26,8 @@ class ProductFactory extends Factory
     public function configure(): static
     {
         return $this->afterMaking(function (Product $product) {
-            $product->addMediaFromUrl('https://picsum.photos/1024/768')
+            $product->addMedia(collect(glob(resource_path('images/*.png')))->random())
+                ->preservingOriginal()
                 ->toMediaCollection('product');
         });
     }

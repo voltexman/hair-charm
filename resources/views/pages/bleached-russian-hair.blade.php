@@ -1,127 +1,163 @@
 <?php
-
 use function Laravel\Folio\name;
-use App\Models\Product;
 use App\Enums\ProductCategory;
-
 name('products.bleached-russian-hair');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header image="https://www.hair-charm.com/templates/jblank/images/bg/blocks/Bleached-Russian-hair.jpg">
-        <x-slot:title>
-            Bleached Russian hair
+    <x-page-header :image="ProductCategory::BLEACHED_RUSSIAN_HAIR->value">
+        <x-slot:title>Bleached <br> Russian hair</x-slot>
+        <x-slot:caption>
+            Today, Russian blonde hair extensions are very popular. Charm Hair company offers for wholesale a special
+            product - Bleached Slavic bulk hair.
         </x-slot>
     </x-page-header>
 @endsection
 
 @section('content')
-    <x-section.header>
-        Today, Russian blonde hair extensions are very popular. Charm Hair company offers for wholesale a special
-        product - Bleached Slavic bulk hair.
-    </x-section.header>
-
-    <section class="grid sm:grid-cols-4 xl:grid-cols-3">
-        <div class="sm:col-span-2 xl:col-span-1 bg-charm-cream-100 px-10 py-20 2xl:px-30 flex items-center">
-            <x-list>
-                <x-list.item>
+    <x-section class="bg-charm-cream-100">
+        <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto grid lg:grid-cols-2 gap-y-5 gap-x-10">
+            <div class="font-[Lora] text-4xl md:text-5xl lg:text-7xl/19 font-medium md:font-normal lg:text-end list-caption">
+                <span class="">Exceptional</span><br class="hidden lg:block">
+                <span class="font-semibold">Hair</span><br class="hidden md:block">
+                Quality,<br class="hidden"> <span class="italic">Expertly</span> Processed
+            </div>
+            <x-list variant="dark">
+                <x-list.item index="01" class="text-xl! md:text-2xl! font-medium!">
                     Base: Virgin Russian hair, which has been bleached
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="02" class="text-xl! md:text-2xl! font-medium!">
                     Result: Vanilla blonde, Platinum blonde
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="03" class="text-xl! md:text-2xl! font-medium!">
                     Soft, thin, silky texture
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="04" class="text-xl! md:text-2xl! font-medium!" brown>
                     Intact healthy cuticles
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="05" class="text-xl! md:text-2xl! font-medium!">
                     When processing, we do not use silicone or other harmful substances
                 </x-list.item>
             </x-list>
         </div>
-        <div class="sm:col-span-2 xl:col-span-1 bg-charm-cream-300 px-10 py-20 2xl:px-30 flex items-center">
-            <span class="font-[Lora] text-lg lg:text-xl font-medium">
+    </x-section>
+
+    <x-section.marquee :text="ProductCategory::BLEACHED_RUSSIAN_HAIR->getLabel()" bg="from-charm-cream-100 to-charm-cream-200" />
+
+    <x-section class="bg-charm-cream-200">
+        <div class="max-w-xl lg:max-w-2xl mx-auto space-y-5">
+            <x-section.title class="md:text-center">
+                <x-slot:first>Why</x-slot>
+                Natural Russian<br>Blonde Is
+                <x-slot:last><x-marker color="black">Rare</x-marker></x-slot>
+            </x-section.title>
+            <x-section.content class="md:text-center text-balance">
                 As it is known, the most popular shades of braids are blond and very light brown. Many customers want to
                 purchase Russian natural blonde. However, this type of raw material is quite rare and scarce in the market.
                 Collecting it in the right quantities is more and more difficult, which affects its price. Many consumers,
                 for this reason, prefer bleached Uzbek or Asian bulks.
-            </span>
+            </x-section.content>
         </div>
-        <div class="sm:col-span-2 xl:hidden bg-charm-cream-200 flex flex-col px-10 py-20 justify-center items-center">
-            <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-50 drop-shadow-lg" alt="">
-            <span class="font-[Alex_Brush] text-7xl drop-shadow-lg font-black">charm hair</span>
-            <span class="text-xl font-[Oswald] tracking-wider text-charm-brown-600 drop-shadow-lg -mt-2 uppercase">
-                stylish hair company
-            </span>
-        </div>
-        <div class="sm:col-span-2 xl:col-span-1 bg-charm-cream-100 px-10 py-20 lg:p-20 flex items-center">
-            <span class="font-[Oswald] text-xl sm:text-2xl tracking-wide">
-                Unlike most companies in {{ env('APP_NAME') }} prefer only Russian hair. Therefore, we offer a profitable
-                solution - the acquisition of lightened Slavic strands. They perfectly retain a thin healthy structure, and
-                also remain soft, shiny and silky.
-            </span>
-        </div>
-    </section>
+    </x-section>
 
-    <x-section.products />
+    <x-section class="bg-charm-dark-400">
+        <div class="max-w-2xl mx-auto flex flex-col items-center space-y-5">
+            <div
+                class="font-[Lora] text-2xl md:text-2xl lg:text-3xl md:font-light text-center text-charm-cream-100 text-balance">
+                Unlike most companies in {{ env('APP_NAME') }} prefer only <b>Russian hair</b>. Therefore, we offer a
+                profitable solution - the acquisition of lightened <b>Slavic strands</b>. They perfectly retain a thin
+                healthy structure, and also remain soft, shiny and silky.
+            </div>
+        </div>
+    </x-section>
 
-    <section class="grid sm:grid-cols-6">
-        <div class="sm:col-span-3 bg-charm-cream-100 px-10 py-20 xl:p-20 2xl:px-40 flex items-center">
-            <span class="font-[lora] text-lg xl:text-xl font-medium">
+    <x-section class="bg-charm-cream-100">
+        <div class="max-w-xl lg:max-w-2xl mx-auto space-y-5">
+            <x-section.title class="md:text-center">
+                <x-slot:first>Technology</x-slot>
+                That<br>Protects Hair
+                <x-slot:last><x-marker color="black">Beauty</x-marker></x-slot>
+            </x-section.title>
+            <x-section.content class="md:text-center text-balance">
                 Thanks to modern staining technology, you get strands with intact cuticles that will last you a long time.
                 When processing materials, we rule out the use of silicone and other harmful substances. Our hair itself
                 looks great and doesn’t require special care. Our own customized production allows us to control quality of
                 products at all stages of production.
-            </span>
+            </x-section.content>
         </div>
-        <div class="sm:col-span-3 bg-charm-cream-200 px-10 py-20 lg:p-20 2xl:px-30 flex flex-col justify-center gap-y-5">
-            <x-list>
-                <x-slot:caption>
-                    It can be as bleached strands
-                </x-slot>
-                <x-list.item>
+    </x-section>
+
+    <x-section.categories />
+
+    <section class="bg-charm-cream-200 px-8 py-20 lg:px-0 md:py-30">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+            <x-section.title
+                class="text-4xl! md:text-5xl! lg:text-7xl/16! font-medium md:font-thin! md:text-end list-caption">
+                <span class="italic">It can</span> be <br> as <span class="font-semibold">bleached</span> <br>
+                <span class="italic">strands</span>
+            </x-section.title>
+            <x-list variant="dark">
+                <x-list.item index="01" class="text-2xl! lg:text-5xl! font-medium! lg:font-thin!">
                     without a shade
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="02" class="text-2xl! lg:text-5xl! font-medium! lg:font-thin!" brown>
                     platinum blonde
                 </x-list.item>
-                <x-list.item>
+                <x-list.item index="03" class="text-2xl! lg:text-5xl! font-medium! lg:font-thin!">
                     vanilla blonde
                 </x-list.item>
             </x-list>
-
-            <span class="w-1/2 h-0.5 bg-charm-dark-500 block"></span>
-            <span class="block font-[Lora] text-sm uppercase tracking-wide font-bold text-charm-brown-700 drop-shadow-lg">
-                Whatever option you choose, it will be quality and healthy.
-            </span>
-        </div>
-        <div
-            class="hidden sm:col-span-3 xl:col-span-2 bg-charm-cream-100 xl:bg-charm-cream-200 xl:flex flex-col px-10 py-20 justify-center items-center">
-            <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="size-50 drop-shadow-lg" alt="">
-            <span class="font-[Alex_Brush] text-7xl drop-shadow-lg font-black">charm hair</span>
-            <span class="text-xl font-[Oswald] tracking-wider text-charm-brown-600 drop-shadow-lg -mt-2 uppercase">
-                stylish hair company
-            </span>
-        </div>
-        <div
-            class="sm:col-span-3 xl:col-span-2 bg-charm-cream-100 xl:bg-charm-cream-300 sm:bg-charm-cream-200 px-10 py-20 2xl:px-30 flex items-center">
-            <span class="font-[lora] text-lg 2xl:text-xl font-medium">
-                If you decide to purchase a truly exclusive product, then contacting us is the best solution. Great
-                experience of our employees, efficiency in work, own workshops and equipment, unique technology and
-                professional materials - all these advantages you will feel in cooperation with us.
-            </span>
-        </div>
-        <div
-            class="sm:col-span-3 xl:col-span-2 bg-charm-cream-300 xl:bg-charm-cream-100 px-10 py-20 2xl:px-30 flex items-center">
-            <span class="font-[lora] text-lg 2xl:text-xl font-medium">
-                Our company works both with retail orders and wholesale buyers. For regular customers, we always provide
-                discounts and special conditions. Hope that our company will become your reliable partner for a long time,
-                and you will appreciate the advantage of working with professionals in this field!
-            </span>
+            <div class="col-span-full mx-auto font-[Poppins] text-charm-dark-300 leading-5 font-medium text-center hint">
+                Whatever option you choose, <br>it will be quality and healthy.
+            </div>
         </div>
     </section>
+
+    <x-section class="bg-charm-cream-100 overflow-hidden section-6">
+        <div class="max-w-3xl mx-auto grid md:grid-cols-3 gap-5 relative md:static">
+            <div class="md:col-span-2 space-y-5">
+                <x-section.title>
+                    <x-slot:first>Where</x-slot>
+                    Exclusivity <br> Meets
+                    <x-slot:last><x-marker color="black">Expertise</x-marker></x-slot>
+                </x-section.title>
+                <x-section.content>
+                    If you decide to purchase a truly exclusive product, then contacting us is the best solution. Great
+                    experience of our employees, efficiency in work, own workshops and equipment, unique technology and
+                    professional materials - all these advantages you will feel in cooperation with us.
+                </x-section.content>
+            </div>
+            <div class="md:relative">
+                <img src="{{ Vite::asset('resources/images/icons/badge-for-female-hair-salon.svg') }}"
+                    class="absolute top-0 left-1/2 -translate-x-1/2 size-[95%] md:size-60 opacity-5 md:opacity-100 drop-shadow-lg z-0 section-image-right"
+                    alt="">
+            </div>
+        </div>
+    </x-section>
+
+    <x-section class="bg-charm-cream-200">
+        <div class="max-w-3xl mx-auto grid md:grid-cols-3 gap-5 relative md:static">
+            <div class="md:relative">
+                <img src="{{ Vite::asset('resources/images/icons/salon-circular-badge.svg') }}"
+                    class="absolute top-0 left-1/2 -translate-x-1/2 size-[90%] md:size-60 opacity-5 md:opacity-100 drop-shadow-lg z-0 section-image-left"
+                    alt="">
+            </div>
+            <div class="md:col-span-2 space-y-5">
+                <x-section.title>
+                    <x-slot:first>Your</x-slot>
+                    Reliable <br>Long-Term
+                    <x-slot:last><x-marker color="black">Partner</x-marker></x-slot>
+                </x-section.title>
+                <x-section.content>
+                    Our company works both with retail orders and wholesale buyers. For regular customers, we always provide
+                    discounts and special conditions. Hope that our company will become your reliable partner for a long
+                    time, and you will appreciate the advantage of working with professionals in this field!
+                </x-section.content>
+            </div>
+        </div>
+    </x-section>
 @endsection
+
+@vite('resources/js/pages/bleached-russian-hair.js')

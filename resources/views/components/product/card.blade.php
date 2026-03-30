@@ -1,31 +1,30 @@
 @props(['product'])
 
-<div class="flex flex-col shadow-lg shadow-charm-brown-100/50 border border-charm-cream-500 relative">
-    <div class="absolute top-2 right-2 p-2 lg:p-1.5 bg-charm-cream-100/50 backdrop-blur-xs rounded-sm">
-        <x-lucide-eye class="size-5 lg:size-4 stroke-charm-dark-200" />
-    </div>
-    <img src="{{ $product->getFirstMediaUrl('product') }}" class="object-cover h-50 w-full" alt="">
-    <div class="bg-charm-cream-300 h-full px-10 py-5 md:p-5 lg:px-10">
-        <div class="mb-5 text-center">
-            <span class="font-[Oswald] text-charm-dark-600 leading-5 block font-semibold text-lg">
-                {{ $product->name }}
-            </span>
+<div class="bg-charm-cream-300 flex flex-col shadow-lg shadow-charm-brown-100/50 border border-charm-cream-500 relative">
+    <button type="button" aria-label="open full product image"
+        class="absolute top-2 right-2 p-2 lg:p-1.5 bg-charm-cream-100/60 backdrop-blur-xs rounded-md cursor-pointer">
+        <x-lucide-eye class="size-5 lg:size-4 stroke-black " />
+    </button>
+    <img src="{{ $product->getFirstMediaUrl('product') }}" class="object-cover h-40 w-full" alt="">
+    <div class="p-4 xl:px-8">
+        <div class="mb-5 text-center font-[Oswald] drop-shadow-lg text-charm-dark-400 block font-semibold text-lg/5">
+            {{ $product->name }}
         </div>
 
         @isset($product->options)
             @foreach ($product->options as $option)
-                <div class="flex justify-between ">
-                    <div class="font-[Oswald] text-charm-dark-500">
+                <div class="flex justify-between border-b border-charm-cream-600/70 border-dashed last:border-0 group">
+                    <div class="font-[Oswald] group-hover:scale-115 transition-transform duration300">
                         <span class="">{{ $option['length'] }}</span>
-                        <span class="text-charm-dark-100">inch</span>
+                        <span class="text-charm-dark-200 text-sm">inch</span>
                     </div>
-                    <div class="font-[Oswald] text-charm-dark-500">
-                        <span class="text-charm-dark-100">$</span>
+                    <div class="font-[Oswald] group-hover:scale-115 transition-transform duration300">
+                        <span class="text-charm-dark-200 text-sm">$</span>
                         <span class="">{{ $option['price'] }}</span>
                     </div>
-                    <div class="font-[Oswald] text-charm-dark-500">
+                    <div class="font-[Oswald] group-hover:scale-115 transition-transform duration300">
                         <span class="">{{ $option['weight'] }}</span>
-                        <span class="text-charm-dark-100">gr</span>
+                        <span class="text-charm-dark-200 text-sm">gr</span>
                     </div>
                 </div>
             @endforeach
