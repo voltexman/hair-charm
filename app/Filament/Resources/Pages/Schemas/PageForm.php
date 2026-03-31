@@ -14,7 +14,7 @@ class PageForm
         return $schema
             ->columns(1)
             ->components([
-                TextInput::make('name')->required()->label('Назва сторінки'),
+                TextInput::make('name')->disabled()->required()->label('Назва сторінки'),
 
                 TextInput::make('meta_title')->label('Meta Title'),
 
