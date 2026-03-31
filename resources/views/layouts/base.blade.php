@@ -116,42 +116,37 @@
         class="bg-cover bg-right md:bg-center flex flex-col justify-between relative overflow-hidden shrink-0"
         style="background-image: url('{{ Vite::asset('resources/images/bg-footer.png') }}')">
         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-black/20"></div>
-        <div class="grid md:grid-cols-3 max-w-5xl px-8 w-full mx-auto my-20 md:my-30 gap-10 md:gap-0 relative z-10">
-            <div class="flex flex-col font-[Poppins] text-sm text-center md:text-left gap-y-1.5 text-white">
-                <div class="text-2xl font-[Oswald]">{{ env('APP_NAME') }}</div>
-                <div class="text-sm">Premium Slavic Virgin<br class="lg:hidden">Hair from Ukraine</div>
-                <div class="text-sm">Trusted by salons worldwide</div>
-                <div class="text-2xl font-[Oswald]">Ukraine</div>
+        <div class="grid md:grid-cols-3 max-w-5xl px-8 w-full mx-auto my-10 md:my-30 relative z-10">
+            <div class="flex justify-center md:justify-start">
+                <img src="{{ Vite::asset('resources/images/logo.png') }}" class="size-45 md:size-35" alt="">
             </div>
-            {{-- <div class="flex justify-center md:justify-start">
-                <img src="{{ Vite::asset('resources/images/icons/commercial-signal-light.svg') }}"
-                    class="size-45 md:size-35 mb-5" alt="">
-            </div> --}}
+            <div class="flex flex-col font-[Poppins] text-sm text-center md:text-left gap-y-1.5 text-white">
+                <div class="text-3xl font-[Lora]">{{ env('APP_NAME') }}</div>
+                <div class="text-sm">Premium Slavic Hair from Ukraine</div>
+            </div>
 
-            <x-menu.footer class="mx-auto justify-center items-center">
+            <x-menu.footer class="hidden lg:flex flex-col mx-auto justify-center items-center">
                 <x-menu.footer.item link="gallery">Photos</x-menu.footer.item>
                 <x-menu.footer.item link="posts">Blog</x-menu.footer.item>
             </x-menu.footer>
 
+            <div class="bg-linear-to-r from-transparent via-white/50 to-transparent h-px w-full my-5 px-10"></div>
+
             <div class="flex flex-col items-center md:items-end">
-                <div class="text- font-[Oswald] text-white">Contact us on WhatsApp for fast response</div>
-                @isset($settings->phone)
-                    <span class="font-[Oswald] font-black text-2xl md:text-3xl tracking-wider text-charm-cream-200">
-                        {{ $settings->phone }}
-                    </span>
-                @endisset
-                @isset($settings->email)
-                    <span class="font-[Oswald] text-xl tracking-wide text-charm-cream-200">
-                        {{ $settings->email }}
-                    </span>
-                @endisset
-                <div class="mt-5 flex gap-x-2.5">
+                <div class="flex gap-x-2.5">
                     <img src="{{ Vite::asset('resources/images/icons/social/facebook-light.svg') }}"
                         class="size-10 lg:size-12" alt="">
                     <img src="{{ Vite::asset('resources/images/icons/social/whatsapp-light.svg') }}"
                         class="size-10 lg:size-12" alt="">
                     <img src="{{ Vite::asset('resources/images/icons/social/instagram-light.svg') }}"
                         class="size-10 lg:size-12" alt="">
+                </div>
+
+                <div class="mt-5 text-center text-xs text-charm-cream-100">
+                    Contact us on WhatsApp for fast response
+                </div>
+                <div class="text-center font-semibold text-xs text-charm-cream-100">
+                    Ukraine
                 </div>
             </div>
         </div>

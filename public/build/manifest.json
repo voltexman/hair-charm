@@ -26,7 +26,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-B5NkBjUk.css",
+    "file": "assets/app-DLJoISho.css",
     "name": "app",
     "names": [
       "app.css"
@@ -214,6 +214,10 @@
     "file": "assets/woman-hair-extended-in-front-of-the-head-light-CHOrsbxj.svg",
     "src": "resources/images/icons/woman-hair-extended-in-front-of-the-head-light.svg"
   },
+  "resources/images/logo.png": {
+    "file": "assets/logo-BpP2_Hre.png",
+    "src": "resources/images/logo.png"
+  },
   "resources/images/main-bg-section-categories.webp": {
     "file": "assets/main-bg-section-categories-h4sBrXIM.webp",
     "src": "resources/images/main-bg-section-categories.webp"
@@ -259,7 +263,7 @@
     "src": "resources/images/main-super-double-drawn-slavic-hair.webp"
   },
   "resources/images/main-tape-hair.png": {
-    "file": "assets/main-tape-hair-DrSynQzx.png",
+    "file": "assets/main-wefts-DrSynQzx.png",
     "src": "resources/images/main-tape-hair.png"
   },
   "resources/images/main-tape-hair.webp": {
@@ -283,7 +287,7 @@
     "src": "resources/images/main-virgin-slavic-hair.webp"
   },
   "resources/images/main-wefts.png": {
-    "file": "assets/main-tape-hair-DrSynQzx.png",
+    "file": "assets/main-wefts-DrSynQzx.png",
     "src": "resources/images/main-tape-hair.png"
   },
   "resources/images/main-wefts.webp": {
