@@ -1,7 +1,19 @@
 <?php
 use function Laravel\Folio\name;
+use App\Models\Slide;
+use App\Models\Page;
 name('about-us');
 ?>
+
+@php
+    $page = Page::where('slug', 'about-us')->firstOrFail();
+@endphp
+
+@push('meta')
+    <title>{{ $page->meta_title ?: 'About Us' }}</title>
+    <meta name="description" content="{{ $page->meta_description }}">
+    <meta name="robots" content="{{ $page->robots }}">
+@endpush
 
 @extends('layouts.base')
 

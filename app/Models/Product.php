@@ -12,29 +12,22 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+use Illuminate\Database\Eloquent\Attributes\Table;
+
+#[Table(timestamps: false)]
 class Product extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $fillable = ['name', 'description', 'category', 'type', 'active', 'options'];
+    protected $fillable = ['name', 'description', 'category', 'type', 'is_active', 'options'];
 
-    protected $casts = [
-        'options' => 'array',
-    ];
-
-    public function registerMediaConversions(?Media $media = null): void
-    {
-        $this
-            ->addMediaConversion('admin')
-            ->fit(Fit::Contain, 200, 200)
-            ->nonQueued();
-    }
+    protected $casts = ['is_active' => 'boolean', 'options' => 'array'];
 
     #[Scope]
     protected function active(Builder $query): void
     {
-        $query->where('active', true);
+        $query->where('is_active', true);
     }
 
     #[Scope]
@@ -47,5 +40,13 @@ class Product extends Model implements HasMedia
     protected function type(Builder $query, ?string $type): void
     {
         $query->where('type', $type);
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('admin')
+            ->fit(Fit::Contain, 200, 200)
+            ->nonQueued();
     }
 }

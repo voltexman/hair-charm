@@ -6,6 +6,7 @@ use App\Enums\ProductCategory;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\Products\Pages\ListProducts;
 use App\Models\Product;
+use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -26,7 +27,13 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 2;
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationLabel = 'Товари';
+
+    protected static ?string $title = 'Товари';
 
     public static function form(Schema $schema): Schema
     {

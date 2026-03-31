@@ -1,15 +1,15 @@
 <?php
 use function Laravel\Folio\name;
 use App\Enums\ProductCategory;
-name('products.gray-russian-hair-wholesale');
+name('products.gray-slavic-hair-wholesale');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header :image="ProductCategory::GRAY_RUSSIAN_HAIR_WHOLESALE->value">
-        <x-slot:title>Gray Russian <br> hair wholesale</x-slot>
-        <x-slot:caption>Special product for sale<br>GRAY RUSSIAN HAIR.</x-slot>
+    <x-page-header :image="ProductCategory::GRAY_SLAVIC_HAIR_WHOLESALE->value">
+        <x-slot:title>Gray Slavic <br> hair wholesale</x-slot>
+        <x-slot:caption>Special product for sale<br>GRAY SLAVIC HAIR.</x-slot>
     </x-page-header>
 @endsection
 

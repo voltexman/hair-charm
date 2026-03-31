@@ -1,14 +1,14 @@
 <?php
 use function Laravel\Folio\name;
 use App\Enums\ProductCategory;
-name('products.bleached-russian-hair');
+name('products.bleached-slavic-hair');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header :image="ProductCategory::BLEACHED_RUSSIAN_HAIR->value">
-        <x-slot:title>Bleached <br> Russian hair</x-slot>
+    <x-page-header :image="ProductCategory::BLEACHED_SLAVIC_HAIR->value">
+        <x-slot:title>Bleached <br> Slavic hair</x-slot>
         <x-slot:caption>
             Today, Russian blonde hair extensions are very popular. Charm Hair company offers for wholesale a special
             product - Bleached Slavic bulk hair.
@@ -44,7 +44,7 @@ name('products.bleached-russian-hair');
         </div>
     </x-section>
 
-    <x-section.marquee :text="ProductCategory::BLEACHED_RUSSIAN_HAIR->getLabel()" bg="from-charm-cream-100 to-charm-cream-200" />
+    <x-section.marquee :text="ProductCategory::BLEACHED_SLAVIC_HAIR->getLabel()" bg="from-charm-cream-100 to-charm-cream-200" />
 
     <x-section class="bg-charm-cream-200">
         <div class="max-w-xl lg:max-w-2xl mx-auto space-y-5">

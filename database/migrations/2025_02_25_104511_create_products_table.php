@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->json('options')->nullable();
             $table->boolean('active')->default(true);
-            $table->timestamps();
         });
     }
 

@@ -10,25 +10,22 @@ use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Attributes\Table;
 
-class Gallery extends Model implements HasMedia
+#[Table(timestamps: false)]
+class Photo extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $table = 'images';
+    protected $fillable = ['title', 'description', 'is_active', 'meta_alt', 'meta_title'];
 
-    protected static function booted()
-    {
-        static::creating(function ($model) {
-            $model->type = 'gallery';
-        });
-    }
+    protected $casts = ['is_active' => 'boolean'];
 
     #[Scope]
     protected function active(Builder $query): void
     {
-        $query->where('active', true);
+        $query->where('is_active', true);
     }
 
     public function registerMediaConversions(?Media $media = null): void

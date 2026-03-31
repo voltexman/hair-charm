@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    @stack('meta')
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
         rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('styles')
 </head>
 
 <body x-data="{ showProductsButton: false, loading: true }" @load.window="loading = false">
@@ -46,7 +47,7 @@
                     <x-menu.main.item icon="home" link="main">Home Page</x-menu.main.item>
                     <x-menu.main.item icon="badge-info" link="about-us">About Us</x-menu.main.item>
                     <x-menu.main.item icon="newspaper" link="posts">Blog</x-menu.main.item>
-                    <x-menu.main.item icon="image" link="gallery">Gallery</x-menu.main.item>
+                    <x-menu.main.item icon="image" link="gallery">Photos</x-menu.main.item>
                     <x-menu.main.item icon="user-circle" link="contact">Contacts</x-menu.main.item>
                 </x-menu.main>
             </div>
@@ -115,26 +116,35 @@
         class="bg-cover bg-right md:bg-center flex flex-col justify-between relative overflow-hidden shrink-0"
         style="background-image: url('{{ Vite::asset('resources/images/bg-footer.png') }}')">
         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-black/20"></div>
-        <div class="grid md:grid-cols-3 max-w-4xl px-8 w-full mx-auto my-20 md:my-30 gap-10 md:gap-0 relative z-10">
-            <div class="flex justify-center md:justify-start">
+        <div class="grid md:grid-cols-3 max-w-5xl px-8 w-full mx-auto my-20 md:my-30 gap-10 md:gap-0 relative z-10">
+            <div class="flex flex-col font-[Poppins] text-sm text-center md:text-left gap-y-1.5 text-white">
+                <div class="text-2xl font-[Oswald]">{{ env('APP_NAME') }}</div>
+                <div class="text-sm">Premium Slavic Virgin<br class="lg:hidden">Hair from Ukraine</div>
+                <div class="text-sm">Trusted by salons worldwide</div>
+                <div class="text-2xl font-[Oswald]">Ukraine</div>
+            </div>
+            {{-- <div class="flex justify-center md:justify-start">
                 <img src="{{ Vite::asset('resources/images/icons/commercial-signal-light.svg') }}"
                     class="size-45 md:size-35 mb-5" alt="">
-            </div>
+            </div> --}}
 
-            <x-menu.footer>
-                <x-menu.footer.item link="about-us">About Us</x-menu.footer.item>
-                <x-menu.footer.item link="gallery">Gallery</x-menu.footer.item>
-                <x-menu.footer.item link="posts">Articles</x-menu.footer.item>
-                <x-menu.footer.item link="contact">Contacts</x-menu.footer.item>
+            <x-menu.footer class="mx-auto justify-center items-center">
+                <x-menu.footer.item link="gallery">Photos</x-menu.footer.item>
+                <x-menu.footer.item link="posts">Blog</x-menu.footer.item>
             </x-menu.footer>
 
             <div class="flex flex-col items-center md:items-end">
-                <span class="font-[Oswald] font-black text-2xl md:text-3xl tracking-wider text-charm-cream-200">
-                    +380931501651
-                </span>
-                <span class="font-[Oswald] text-xl tracking-wide text-charm-cream-200">
-                    infohaircharm@gmail.com
-                </span>
+                <div class="text- font-[Oswald] text-white">Contact us on WhatsApp for fast response</div>
+                @isset($settings->phone)
+                    <span class="font-[Oswald] font-black text-2xl md:text-3xl tracking-wider text-charm-cream-200">
+                        {{ $settings->phone }}
+                    </span>
+                @endisset
+                @isset($settings->email)
+                    <span class="font-[Oswald] text-xl tracking-wide text-charm-cream-200">
+                        {{ $settings->email }}
+                    </span>
+                @endisset
                 <div class="mt-5 flex gap-x-2.5">
                     <img src="{{ Vite::asset('resources/images/icons/social/facebook-light.svg') }}"
                         class="size-10 lg:size-12" alt="">
@@ -147,7 +157,7 @@
         </div>
         <div class="h-12 w-full flex items-center mt-auto border-t border-white/5 relative z-10">
             <div class="max-w-6xl mx-auto text-xs text-charm-cream-200/50">
-                All rights reserved. {{ env('APP_NAME') }} &copy; {{ date('Y') }}
+                {{ env('APP_NAME') }} &copy; {{ date('Y') }} All rights reserved.
             </div>
         </div>
     </footer>

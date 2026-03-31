@@ -1,16 +1,16 @@
 <?php
 use function Laravel\Folio\name;
 use App\Enums\ProductCategory;
-name('products.super-double-drawn-russian-hair');
+name('products.super-double-drawn-slavic-hair');
 ?>
 
 @extends('layouts.base')
 
 @section('header')
-    <x-page-header :image="ProductCategory::SUPER_DOUBLE_DRAWN_RUSSIAN_HAIR->value">
-        <x-slot:title>Super double drawn<br>russian hair</x-slot>
+    <x-page-header :image="ProductCategory::SUPER_DOUBLE_DRAWN_SLAVIC_HAIR->value">
+        <x-slot:title>Super double drawn<br>slavic hair</x-slot>
         <x-slot:caption>
-            {{ env('APP_NAME') }} company offers for sale a special product - Russian virgin double drawn hair
+            {{ env('APP_NAME') }} company offers for sale a special product - Slavic virgin double drawn hair
             extensions.
         </x-slot>
     </x-page-header>
@@ -34,7 +34,7 @@ name('products.super-double-drawn-russian-hair');
         </div>
     </x-section>
 
-    <x-section.marquee :text="ProductCategory::SUPER_DOUBLE_DRAWN_RUSSIAN_HAIR->getLabel()" bg="from-charm-cream-100 to-charm-cream-200" />
+    <x-section.marquee :text="ProductCategory::SUPER_DOUBLE_DRAWN_SLAVIC_HAIR->getLabel()" bg="from-charm-cream-100 to-charm-cream-200" />
 
     <x-section class="bg-charm-cream-200">
         <div class="max-w-2xl mx-auto space-y-5">

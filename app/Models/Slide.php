@@ -10,25 +10,20 @@ use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Attributes\Table;
 
+#[Table(timestamps: false)]
 class Slide extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $table = 'images';
-
-    protected static function booted()
-    {
-        static::creating(function ($model) {
-            $model->type = 'slide';
-        });
-    }
+    protected $fillable = ['text', 'is_active', 'meta_alt', 'meta_title'];
 
     #[Scope]
     protected function active(Builder $query): void
     {
-        $query->where('active', true);
+        $query->where('is_active', true);
     }
 
     public function registerMediaConversions(?Media $media = null): void

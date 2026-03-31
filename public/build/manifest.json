@@ -26,7 +26,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-BQ2k2A9i.css",
+    "file": "assets/app-B5NkBjUk.css",
     "name": "app",
     "names": [
       "app.css"
@@ -183,7 +183,7 @@
     "src": "resources/images/icons/social/facebook-light.svg"
   },
   "resources/images/icons/social/instagram-light.svg": {
-    "file": "assets/instagram-light-Doo4oLcS.svg",
+    "file": "assets/instagram-light-CXNwlgcO.svg",
     "src": "resources/images/icons/social/instagram-light.svg"
   },
   "resources/images/icons/social/whatsapp-light.svg": {
@@ -218,13 +218,13 @@
     "file": "assets/main-bg-section-categories-h4sBrXIM.webp",
     "src": "resources/images/main-bg-section-categories.webp"
   },
-  "resources/images/main-bleached-russian-hair.png": {
-    "file": "assets/main-bleached-russian-hair-BcNkM_dP.png",
-    "src": "resources/images/main-bleached-russian-hair.png"
+  "resources/images/main-bleached-slavic-hair.png": {
+    "file": "assets/main-bleached-slavic-hair-BcNkM_dP.png",
+    "src": "resources/images/main-bleached-slavic-hair.png"
   },
-  "resources/images/main-bleached-russian-hair.webp": {
-    "file": "assets/main-bleached-russian-hair-DBUEzkT1.webp",
-    "src": "resources/images/main-bleached-russian-hair.webp"
+  "resources/images/main-bleached-slavic-hair.webp": {
+    "file": "assets/main-bleached-slavic-hair-DBUEzkT1.webp",
+    "src": "resources/images/main-bleached-slavic-hair.webp"
   },
   "resources/images/main-clip-ins.png": {
     "file": "assets/main-clip-ins-BdFvdRK2.png",
@@ -234,13 +234,13 @@
     "file": "assets/main-clip-ins-8iWKqg_8.webp",
     "src": "resources/images/main-clip-ins.webp"
   },
-  "resources/images/main-gray-russian-hair-wholesale.png": {
-    "file": "assets/main-gray-russian-hair-wholesale-C_01sr5q.png",
-    "src": "resources/images/main-gray-russian-hair-wholesale.png"
+  "resources/images/main-gray-slavic-hair-wholesale.png": {
+    "file": "assets/main-gray-slavic-hair-wholesale-C_01sr5q.png",
+    "src": "resources/images/main-gray-slavic-hair-wholesale.png"
   },
-  "resources/images/main-gray-russian-hair-wholesale.webp": {
-    "file": "assets/main-gray-russian-hair-wholesale-D3aB19CT.webp",
-    "src": "resources/images/main-gray-russian-hair-wholesale.webp"
+  "resources/images/main-gray-slavic-hair-wholesale.webp": {
+    "file": "assets/main-gray-slavic-hair-wholesale-D3aB19CT.webp",
+    "src": "resources/images/main-gray-slavic-hair-wholesale.webp"
   },
   "resources/images/main-pre-bonded-hair.png": {
     "file": "assets/main-pre-bonded-hair-tyDV-74a.png",
@@ -250,13 +250,13 @@
     "file": "assets/main-pre-bonded-hair-aD1s9jIs.webp",
     "src": "resources/images/main-pre-bonded-hair.webp"
   },
-  "resources/images/main-super-double-drawn-russian-hair.png": {
-    "file": "assets/main-super-double-drawn-russian-hair-Dry5R5IA.png",
-    "src": "resources/images/main-super-double-drawn-russian-hair.png"
+  "resources/images/main-super-double-drawn-slavic-hair.png": {
+    "file": "assets/main-super-double-drawn-slavic-hair-Dry5R5IA.png",
+    "src": "resources/images/main-super-double-drawn-slavic-hair.png"
   },
-  "resources/images/main-super-double-drawn-russian-hair.webp": {
-    "file": "assets/main-super-double-drawn-russian-hair-lQQ541t7.webp",
-    "src": "resources/images/main-super-double-drawn-russian-hair.webp"
+  "resources/images/main-super-double-drawn-slavic-hair.webp": {
+    "file": "assets/main-super-double-drawn-slavic-hair-lQQ541t7.webp",
+    "src": "resources/images/main-super-double-drawn-slavic-hair.webp"
   },
   "resources/images/main-tape-hair.png": {
     "file": "assets/main-tape-hair-DrSynQzx.png",
@@ -274,13 +274,13 @@
     "file": "assets/main-training-BjSlndH2.webp",
     "src": "resources/images/main-training.webp"
   },
-  "resources/images/main-virgin-russian-hair.png": {
-    "file": "assets/main-virgin-russian-hair-BHTO36zv.png",
-    "src": "resources/images/main-virgin-russian-hair.png"
+  "resources/images/main-virgin-slavic-hair.png": {
+    "file": "assets/main-virgin-slavic-hair-BHTO36zv.png",
+    "src": "resources/images/main-virgin-slavic-hair.png"
   },
-  "resources/images/main-virgin-russian-hair.webp": {
-    "file": "assets/main-virgin-russian-hair-Cdys-PaY.webp",
-    "src": "resources/images/main-virgin-russian-hair.webp"
+  "resources/images/main-virgin-slavic-hair.webp": {
+    "file": "assets/main-virgin-slavic-hair-Cdys-PaY.webp",
+    "src": "resources/images/main-virgin-slavic-hair.webp"
   },
   "resources/images/main-wefts.png": {
     "file": "assets/main-tape-hair-DrSynQzx.png",
@@ -315,7 +315,7 @@
     "src": "resources/images/wefts-without-numbers.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-C_Na1NMv.js",
+    "file": "assets/app-oXaEpUZ_.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
