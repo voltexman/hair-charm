@@ -596,10 +596,7 @@ name('main');
         document.addEventListener('livewire:init', () => {
             Alpine.data('slideshow', (dbSlides = []) => ({
                 autoplayIntervalTime: 12000,
-                slides: dbSlides.length > 0 ? dbSlides : [{
-                    src: "{{ Vite::asset('resources/images/placeholder.png') }}",
-                    description: 'No slides available',
-                }],
+                slides: dbSlides.length > 0 ? dbSlides : null,
                 currentSlideIndex: 1,
                 isPaused: false,
                 autoplayTimer: null,
