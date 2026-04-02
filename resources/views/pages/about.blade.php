@@ -4,7 +4,7 @@ use App\Models\Page;
 name('about');
 render(
     fn($view) => $view->with([
-        'page' => Page::where('slug', 'about-us')->firstOrFail(),
+        'page' => Page::where('slug', 'about')->firstOrFail(),
     ]),
 );
 ?>
