@@ -1,90 +1,86 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
 use App\Models\Slide;
 use App\Models\Page;
 name('main');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', 'main')->firstOrFail(),
+        'slides' => Slide::where('is_active', true)->get()->map(
+            fn($slide) => [
+                'src' => $slide->getFirstMediaUrl('slides'),
+                'description' => $slide->text,
+            ],
+        ),
+    ]),
+);
 ?>
 
-@php
-    $slidesData = Slide::all()->map(
-        fn($slide) => [
-            'src' => $slide->getFirstMediaUrl('slides'),
-            'description' => $slide->text,
-        ],
-    );
-
-    $page = Page::where('slug', 'main')->firstOrFail();
-@endphp
-
-@extends('layouts.base')
-
-@push('meta')
-    <title>{{ $page->meta_title ?: config('app.name') . ' - Main Page' }}</title>
-    <meta name="description" content="{{ $page->meta_description }}">
-    <meta name="robots" content="{{ $page->robots }}">
-@endpush
-
-@if ($slidesData->isNotEmpty())
-    @section('header')
-        <div x-data="slideshow({{ $slidesData->toJson() }})" x-init="autoplay"
-            class="w-full h-screen flex flex-col lg:flex-row section-header relative">
-            <template x-for="(slide, index) in slides">
-                <img x-cloak x-show="currentSlideIndex == index + 1" x-bind:src="slide.src"
-                    class="absolute left-0 top-0 object-cover size-full animate-slide-x" alt=""
-                    x-transition.opacity.duration.2000ms />
-            </template>
-            <div
-                class="order-3 lg:order-1 h-full w-full lg:w-1/2 flex flex-col justify-between bg-charm-dark-500/20 lg:bg-charm-dark-500/30 lg:backdrop-blur-xs lg:border-e-6 border-double overflow-hidden relative panel-left halftone">
-                <div class="hidden lg:block ms-auto my-10 bg-charm-brown-800/70 p-2.5 relative z-10 logo-left-box">
-                    <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Slavena</span>
+<x-layouts.base :title="$page->title" :description="$page->meta_description" :robots="$page->robots">
+    @if ($slides->isNotEmpty())
+        <x-slot:header>
+            <div x-data="slideshow({{ $slides->toJson() }})" x-init="autoplay"
+                class="w-full h-screen flex flex-col lg:flex-row section-header relative">
+                <template x-for="(slide, index) in slides">
+                    <img x-cloak x-show="currentSlideIndex == index + 1" x-bind:src="slide.src"
+                        class="absolute left-0 top-0 object-cover size-full animate-slide-x" alt=""
+                        x-transition.opacity.duration.2000ms />
+                </template>
+                <div
+                    class="order-3 lg:order-1 h-full w-full lg:w-1/2 flex flex-col justify-between bg-charm-dark-500/20 lg:bg-charm-dark-500/30 lg:backdrop-blur-xs lg:border-e-6 border-double overflow-hidden relative panel-left halftone">
+                    <div class="hidden lg:block ms-auto my-10 bg-charm-brown-800/70 p-2.5 relative z-10 logo-left-box">
+                        <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Slavena</span>
+                    </div>
+                    <div class="px-5 lg:px-10 md:max-w-xl lg:max-w-2xl my-auto relative z-10">
+                        <template x-for="(slide, index) in slides">
+                            <div x-cloak x-show="currentSlideIndex == index + 1" x-text="slide.description"
+                                class="font-[Boldonse] text-xl/10 md:text-3xl/12 lg:text-3xl/12 font-black uppercase text-charm-cream-100 tracking-wider drop-shadow-lg text-balance slide-text">
+                            </div>
+                        </template>
+                    </div>
+                    <div class="flex justify-between mb-5 px-5 lg:px-10 relative z-20">
+                        <button type="button" x-on:click="previous()" class="cursor-pointer group"
+                            aria-label="Previous Slide">
+                            <x-lucide-move-left stroke-width="0.8"
+                                class="size-14 stroke-white group-hover:-translate-x-5 drop-shadow-lg transition-transform" />
+                        </button>
+                        <a href="#top" class="cursor-pointer animate-bounce block group"
+                            aria-label="Scroll to products section">
+                            <x-lucide-move-down stroke-width="0.8"
+                                class="size-14 stroke-white group-hover:translate-y-3 drop-shadow-lg transition-transform" />
+                        </a>
+                        <button type="button" x-on:click="next()" class="cursor-pointer group" aria-label="Next Slide">
+                            <x-lucide-move-right stroke-width="0.8"
+                                class="size-14 stroke-white group-hover:translate-x-5 drop-shadow-lg transition-transform" />
+                        </button>
+                    </div>
                 </div>
-                <div class="px-5 lg:px-10 md:max-w-xl lg:max-w-2xl my-auto relative z-10">
-                    <template x-for="(slide, index) in slides">
-                        <div x-cloak x-show="currentSlideIndex == index + 1" x-text="slide.description"
-                            class="font-[Boldonse] text-xl/10 md:text-3xl/12 lg:text-3xl/12 font-black uppercase text-charm-cream-100 tracking-wider drop-shadow-lg text-balance slide-text">
-                        </div>
-                    </template>
-                </div>
-                <div class="flex justify-between mb-5 px-5 lg:px-10 relative z-20">
-                    <button type="button" x-on:click="previous()" class="cursor-pointer group" aria-label="Previous Slide">
-                        <x-lucide-move-left stroke-width="0.8"
-                            class="size-14 stroke-white group-hover:-translate-x-5 drop-shadow-lg transition-transform" />
-                    </button>
-                    <a href="#top" class="cursor-pointer animate-bounce block group"
-                        aria-label="Scroll to products section">
-                        <x-lucide-move-down stroke-width="0.8"
-                            class="size-14 stroke-white group-hover:translate-y-3 drop-shadow-lg transition-transform" />
-                    </a>
-                    <button type="button" x-on:click="next()" class="cursor-pointer group" aria-label="Next Slide">
-                        <x-lucide-move-right stroke-width="0.8"
-                            class="size-14 stroke-white group-hover:translate-x-5 drop-shadow-lg transition-transform" />
-                    </button>
-                </div>
-            </div>
 
-            <div class="order-2 lg:order-2 w-full lg:w-1/2 relative overflow-hidden">
-                <div id="stars"></div>
-                <div id="stars2"></div>
-                <div id="stars3"></div>
-                <div class="hidden lg:flex me-auto absolute top-24 p-2.5 w-auto bg-charm-brown-800/70 logo-right-box">
-                    <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Hair</span>
+                <div class="order-2 lg:order-2 w-full lg:w-1/2 relative overflow-hidden">
+                    <div id="stars"></div>
+                    <div id="stars2"></div>
+                    <div id="stars3"></div>
+                    <div
+                        class="hidden lg:flex me-auto absolute top-24 p-2.5 w-auto bg-charm-brown-800/70 logo-right-box">
+                        <span class="font-[Pacifico] text-5xl font-thin uppercase text-charm-cream-200">Hair</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 flex h-2.5 w-full overflow-hidden bg-transparent z-60"
+                    role="progressbar" aria-label="autoplay progress bar" :aria-valuenow="Math.floor(progress)"
+                    aria-valuemin="0" aria-valuemax="100">
+                    <div class="h-full bg-charm-cream-400/50" :style="`width: ${progress}%`">
+                    </div>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 flex h-2.5 w-full overflow-hidden bg-transparent z-60" role="progressbar"
-                aria-label="autoplay progress bar" :aria-valuenow="Math.floor(progress)" aria-valuemin="0"
-                aria-valuemax="100">
-                <div class="h-full bg-charm-cream-400/50" :style="`width: ${progress}%`">
-                </div>
-            </div>
-        </div>
-    @endsection
-@endif
+        </x-slot:header>
+    @endif
 
-@section('content')
-    <section id="top" class="bg-charm-dark-400 flex flex-col section-1" x-intersect:enter="showProductsButton = false"
-        x-intersect:leave="showProductsButton = true" x-init="showProductsButton = false">
-        <div class="flex md:grid md:grid-cols-[1fr_auto_2fr] lg:items-center mx-auto lg:max-w-4xl px-8 py-10 lg:px-0 gap-5">
+    <section id="top" class="bg-charm-dark-400 flex flex-col section-1"
+        x-intersect:enter="showProductsButton = false" x-intersect:leave="showProductsButton = true"
+        x-init="showProductsButton = false">
+        <div
+            class="flex md:grid md:grid-cols-[1fr_auto_2fr] lg:items-center mx-auto lg:max-w-4xl px-8 py-10 lg:px-0 gap-5">
             <div class="font-[Boldonse] text-3xl/10 lg:text-4xl/12 uppercase text-charm-cream-200 flex items-center">
                 Our<br>Products
             </div>
@@ -103,7 +99,8 @@ name('main');
 
         <x-product-section.list class="grow">
             @foreach (ProductCategory::cases() as $category)
-                <x-product-section.item class="z-{{ $loop->count - $loop->index }}" :index="$loop->index" :category="$category" />
+                <x-product-section.item class="z-{{ $loop->count - $loop->index }}" :index="$loop->index"
+                    :category="$category" />
             @endforeach
         </x-product-section.list>
 
@@ -158,15 +155,20 @@ name('main');
                 <x-slot:last><x-marker color="black">suppliers</x-marker>.</x-slot>
             </x-section.title>
             <x-section.content>
-                <p><x-marker variant="font">{{ env('APP_NAME') }}</x-marker> is one of the leaders in market for selling
-                    REAL <span class="font-semibold">raw virgin hair</span>. Our employees make various products from them.
-                    We are based in Ukraine, work directly with donors and collect "Slavic hair", which we inspect to ensure
+                <p><x-marker variant="font">{{ env('APP_NAME') }}</x-marker> is one of the leaders in market for
+                    selling
+                    REAL <span class="font-semibold">raw virgin hair</span>. Our employees make various products from
+                    them.
+                    We are based in Ukraine, work directly with donors and collect "Slavic hair", which we inspect to
+                    ensure
                     the best quality possible. If you need a direct <span class="font-semibold">Slavic hair extensions
-                        supplier</span> of quality goods, without second-hand dealers, then our company is exactly what you
+                        supplier</span> of quality goods, without second-hand dealers, then our company is exactly what
+                    you
                     were looking for.
                 </p>
                 <p>We are professionals and have high qualifications and years of experience, regularly cooperate with
-                    leading European companies and master new advanced techniques of working with material. Customers around
+                    leading European companies and master new advanced techniques of working with material. Customers
+                    around
                     the world have already appreciated quality of our work. We work with customers from England, France,
                     Italy, Poland, USA and many other countries.</p>
             </x-section.content>
@@ -188,8 +190,10 @@ name('main');
 
             <div class="order-1 md:order-1 xl:order-1 self-center p-8 chess-board-cell">
                 <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto">
-                    One of the most important pluses is working only with non-mixed strands. Our principle - "one person -
-                    one bulk hair". Therefor, we achieve a homogeneous structure of material, our goods are exclusively remy
+                    One of the most important pluses is working only with non-mixed strands. Our principle - "one person
+                    -
+                    one bulk hair". Therefor, we achieve a homogeneous structure of material, our goods are exclusively
+                    remy
                     hair extensions. As a result, we get a combed quality cut hair that fully complies with the world
                     standards and is ready to hair extension or manufacture products.
                 </div>
@@ -202,8 +206,10 @@ name('main');
 
             <div class="order-3 md:order-4 xl:order-3 self-center p-8 chess-board-cell">
                 <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto">
-                    Second important point is using only natural materials when processing. Employees disinfect strands and
-                    prepare for sale with our own technology, without using silicone and other harmful ingredients. For this
+                    Second important point is using only natural materials when processing. Employees disinfect strands
+                    and
+                    prepare for sale with our own technology, without using silicone and other harmful ingredients. For
+                    this
                     reason, your hairstyle will look attractive for many years.
                 </div>
             </div>
@@ -285,15 +291,19 @@ name('main');
                     class="font-[Oswald] text-charm-cream-300/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
                     {{ env('APP_NAME') }} company not only sells first-class materials, but also independently produces
                     products from it. We are confident that you will be able to appreciate our
-                    <span class="text-white">wigs and ponytails, wefts</span>, which are created by machine or handtied,
+                    <span class="text-white">wigs and ponytails, wefts</span>, which are created by machine or
+                    handtied,
                     hair on barrettes and ribbons, individual strands for hair extension.
                 </div>
                 <div class="font-[Poppins] text-charm-cream-200 box-right">
                     The entire production process takes place at our manufacture facilities. For production of goods, we
-                    have created our own hair extensions manufacture, which meets the highest quality standards and meets
+                    have created our own hair extensions manufacture, which meets the highest quality standards and
+                    meets
                     all correct and fair regulations. The best equipment, from miniature sewing needles to professional
-                    machines, which allows us to create a truly exclusive product! We are ready to offer clients our amazing
-                    bundles and many other interesting products - full lace wigs, lace closure, lace front wigs, topper made
+                    machines, which allows us to create a truly exclusive product! We are ready to offer clients our
+                    amazing
+                    bundles and many other interesting products - full lace wigs, lace closure, lace front wigs, topper
+                    made
                     with silk, mono top...
                 </div>
             </div>
@@ -323,40 +333,52 @@ name('main');
             <div class="swiper cards-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/1.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/2.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/4.jpg" class=""
+                            alt="" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class="" alt="" />
+                        <img src="https://www.hair-charm.com/images/main/bottom/5.jpg" class=""
+                            alt="" />
                     </div>
                 </div>
             </div>
@@ -414,7 +436,8 @@ name('main');
                 <img src="https://www.hair-charm.com/images/main/two_line/2.jpg" class="object-cover" alt="">
             </div>
             <div class="font-[Oswald] text-xl md:text-2xl lg:text-4xl font-light text-gray-800 text-balance box-right">
-                Be careful: do not fall for such tricks. In our salon "Charm Hair" use only healthy Russian bundles, with a
+                Be careful: do not fall for such tricks. In our salon "Charm Hair" use only healthy Russian bundles,
+                with a
                 thin structure, which means better quality than all other types of threads of hear.
             </div>
         </div>
@@ -428,8 +451,10 @@ name('main');
                 <span class="font-[Lora] text-4xl md:text-6xl italic font-semibold">Children`s</span> Hair
             </h2>
             <div class="max-w-xl font-[Lora] text-xl text-charm-cream-100 mx-auto text-center">
-                Our company offers a unique exclusive material - children's strands. Such goods are on top of any ratings
-                and is valued more than any other type of curls. Healthy and silky, soft with no split ends, fine structure,
+                Our company offers a unique exclusive material - children's strands. Such goods are on top of any
+                ratings
+                and is valued more than any other type of curls. Healthy and silky, soft with no split ends, fine
+                structure,
                 the highest quality - such Slavic strands you get by ordering them in "Charm Hair". Children's hair
                 extensions are very obedient and look amazing in any hairstyle.
             </div>
@@ -447,15 +472,20 @@ name('main');
                     class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
                     In our salon it is possible to choose any type of material, length and structure
                     <span class="text-black selected inline-block">(wavy, straight, curly hair)</span>.
-                    We work both in retail and wholesale. For wholesale buyers who purchase goods from one kilogram, there
+                    We work both in retail and wholesale. For wholesale buyers who purchase goods from one kilogram,
+                    there
                     are always excellent discounts and special conditions for order.
                 </div>
                 <div class="font-[Poppins] text-gray-800 box-right">
-                    There is always current stock from 14 to 32 inches, which you can be ordered at any time. For ordering
-                    goods from 40 inches, you just need to create a preliminary request, and we will execute it as soon as
-                    possible. Ordering <span class="font-normal">wholesale</span> goods, you get quality cuts from 16 to 28
+                    There is always current stock from 14 to 32 inches, which you can be ordered at any time. For
+                    ordering
+                    goods from 40 inches, you just need to create a preliminary request, and we will execute it as soon
+                    as
+                    possible. Ordering <span class="font-normal">wholesale</span> goods, you get quality cuts from 16
+                    to 28
                     inches <span class="font-normal italic">(set includes all the lengths of 16, 18 ... 26 and 28
-                        inches)</span> of different natural shades. For purchasing strands with one specific color and exact
+                        inches)</span> of different natural shades. For purchasing strands with one specific color and
+                    exact
                     length, you just need to order product at retail, telling us all the necessary requirements. Our
                     employees will help you to choose goods they match your needs.
                 </div>
@@ -473,9 +503,11 @@ name('main');
                 <div
                     class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
                     {{ env('APP_NAME') }} has been working for a long time in the industry of
-                    <span class="text-black selected inline-block">Slavic hair</span>, payment and delivery of goods are
+                    <span class="text-black selected inline-block">Slavic hair</span>, payment and delivery of goods
+                    are
                     always accurate and trustworthy. You can pay for using bank transfer or by using the
-                    <span class="text-black selected inline-block">Western Union</span> payment system. Delivery is made by
+                    <span class="text-black selected inline-block">Western Union</span> payment system. Delivery is
+                    made by
                     fast courier service. It is possible to track your order
                     <span class="text-black selected inline-block"> at any time</span>.
                 </div>
@@ -484,15 +516,18 @@ name('main');
                         clarify this question you can always by contacting us by phone +380931501651
                         <span class="font-normal italic">(we use Viber and WhatsApp)</span> or email
                         infohaircharm@gmail.com. If you have a large order and we need time to produce it, we will
-                        certainly inform you about lead time of your order. Usually, we ship products within 3-5 days from
+                        certainly inform you about lead time of your order. Usually, we ship products within 3-5 days
+                        from
                         the date of payment
                     </p>
                     <p>If you are searching of a reliable supplier of human hair
                         <span class="font-normal italic">(Slavic virgin)</span> you need
                         <x-marker variant="font">{{ env('APP_NAME') }}</x-marker>.
-                        Long-term practice, international trade experience and individual approach to each client are those
+                        Long-term practice, international trade experience and individual approach to each client are
+                        those
                         qualities that our customers value at first. In our hair shop you can buy real Slavic hair that
-                        meets the highest requirements and exclude the possibility of fakes. We hope that our company will
+                        meets the highest requirements and exclude the possibility of fakes. We hope that our company
+                        will
                         become your reliable partner. Also hope mutually beneficial cooperation will bring you a lot of
                         positive emotions!
                     </p>
@@ -500,7 +535,7 @@ name('main');
             </div>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>
 
 @push('styles')
     <style>
