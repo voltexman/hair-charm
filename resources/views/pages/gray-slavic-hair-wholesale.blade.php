@@ -1,19 +1,23 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.gray-slavic-hair-wholesale');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::GRAY_SLAVIC_HAIR_WHOLESALE)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :keywords="$page->meta_keywords">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::GRAY_SLAVIC_HAIR_WHOLESALE->value">
+            <x-slot:title>Gray Slavic <br> hair wholesale</x-slot>
+            <x-slot:caption>Special product for sale<br>GRAY SLAVIC HAIR.</x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::GRAY_SLAVIC_HAIR_WHOLESALE->value">
-        <x-slot:title>Gray Slavic <br> hair wholesale</x-slot>
-        <x-slot:caption>Special product for sale<br>GRAY SLAVIC HAIR.</x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section class="bg-charm-cream-100 relative overflow-hidden section-1">
         <div class="md:max-w-lg mx-auto space-y-5">
             <x-section.title class="md:text-center">
@@ -33,19 +37,18 @@ name('products.gray-slavic-hair-wholesale');
         <div class="md:max-w-lg mx-auto flex flex-col items-center space-y-5">
             <img src="{{ Vite::asset('resources/images/icons/logo-dark.svg') }}" class="size-30" alt="">
             <div class="font-[Lora] text-xl md:text-2xl font-medium text-center box-content">
-                This type of hair has a fine structure, soft and silky to touch. Gray hair is purchased by enterprises in
-                large volumes for industrial clarification <i>(bleaching)</i>.
+                This type of hair has a fine structure, soft and silky to touch. Gray hair is purchased by enterprises
+                in large volumes for industrial clarification <i>(bleaching)</i>.
             </div>
         </div>
     </x-section>
 
-    {{-- <x-section.marquee text="Gray Russian hair wholesale" /> --}}
-
     <x-section class="bg-charm-cream-100 overflow-hidden section-3">
         <div class="max-w-2xl mx-auto space-y-5">
             <div class="font-[Oswald] text-xl md:text-4xl lg:text-4xl/10 md:font-light uppercase text-balance box-text">
-                Due to its light shade, it <span class="font-bold">quickly</span> and easily acquires a snow-white color,
-                while not losing quality. Then used for <span class="font-bold">hair extension</span> in beauty salons.
+                Due to its light shade, it <span class="font-bold">quickly</span> and easily acquires a snow-white
+                color, while not losing quality. Then used for <span class="font-bold">hair extension</span> in beauty
+                salons.
             </div>
         </div>
     </x-section>
@@ -74,6 +77,6 @@ name('products.gray-slavic-hair-wholesale');
             </div>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>
 
 @vite('resources/js/pages/gray-russian-hair-wholesale.js')

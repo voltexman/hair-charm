@@ -1,22 +1,26 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.clip-ins');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::CLIP_INS)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :keywords="$page->meta_keywords">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::CLIP_INS->value">
+            <x-slot:title>Clip-Ins</x-slot>
+            <x-slot:caption>
+                One of the interesting solutions for quickly giving volume and length to your hairstyle is clip-in hair
+                extensions. We use Virgin Russian hair clip-ins for sale.
+            </x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::CLIP_INS->value">
-        <x-slot:title>Clip-Ins</x-slot>
-        <x-slot:caption>
-            One of the interesting solutions for quickly giving volume and length to your hairstyle is clip-in hair
-            extensions. We use Virgin Russian hair clip-ins for sale.
-        </x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section.header class="bg-charm-cream-100">
         This product is suitable for those customers who have not yet decided to have
         <span class="font-bold text-charm-brown-600">permanent hair</span> extension and want to
@@ -33,7 +37,8 @@ name('products.clip-ins');
                     You can always fix and remove the hair, there is nothing complicated in this process
                 </x-list.item>
                 <x-list.item>
-                    Сlip-in hairextensions are not harmful for your hair and there are no contraindications for using them
+                    Сlip-in hairextensions are not harmful for your hair and there are no contraindications for using
+                    them
                 </x-list.item>
                 <x-list.item>
                     Another advantage is the ability to change your image without any hassle
@@ -82,12 +87,15 @@ name('products.clip-ins');
         <div class="bg-charm-cream-200 order-1 px-8 py-20 lg:p-0 flex justify-center h-full">
             <div class="max-w-md flex flex-col justify-center gap-y-5">
                 <x-section.title class="text-2xl/7! font-medium!">
-                    When ordering goods from {{ env('APP_NAME') }} salon, you can choose the desired shade, structure and
+                    When ordering goods from {{ env('APP_NAME') }} salon, you can choose the desired shade, structure
+                    and
                     weight of product, appropriate length and width of product.
                 </x-section.title>
                 <x-section.content>
-                    Our specialists take customer's requirements seriously, so your wishes will be taken into account during
-                    the execution of order. Contacting to our company, you always get exactly the products wich you wish.
+                    Our specialists take customer's requirements seriously, so your wishes will be taken into account
+                    during
+                    the execution of order. Contacting to our company, you always get exactly the products wich you
+                    wish.
                 </x-section.content>
             </div>
         </div>
@@ -103,15 +111,16 @@ name('products.clip-ins');
         <div class="bg-charm-dark-400 order-1 lg:order-2 px-8 py-20 lg:p-0 flex justify-center items-center h-full">
             <x-section.content class="max-w-md text-charm-cream-100!">
                 Another important point, which is necessary to mention, is the material used.
-                <span class="font-semibold">We prefer virgin Slavic hair that is not colored</span>, so you get the hairs
-                most natural characteristics. They do not require complicated care, silicone is not used during processing,
-                Hair does not tangled, and will always look as if you just visited a salon. Our company is one of the few
+                <span class="font-semibold">We prefer virgin Slavic hair that is not colored</span>, so you get the
+                hairs
+                most natural characteristics. They do not require complicated care, silicone is not used during
+                processing,
+                Hair does not tangled, and will always look as if you just visited a salon. Our company is one of the
+                few
                 ones that offer children's strands. Such material has the greatest value and looks great on the head.
             </x-section.content>
         </div>
     </section>
-
-    {{-- <x-section.categories /> --}}
 
     <x-section class="bg-charm-cream-200">
         <div class="max-w-xl mx-auto space-y-5">
@@ -122,9 +131,12 @@ name('products.clip-ins');
             </x-section.title>
             <x-section.content class="md:text-center">
                 It is possible to buy 1-2 items, and also large order. Working with large orders, we are always ready to
-                provide you with excellent discounts and offer the best conditions for cooperation. Be sure that in future
-                you no longer have to look for new suppliers, because our company will become your reliable regular partner.
-                In addition, we work quickly and do not violate the deadlines, so it is not necessary to wait for delivery
+                provide you with excellent discounts and offer the best conditions for cooperation. Be sure that in
+                future
+                you no longer have to look for new suppliers, because our company will become your reliable regular
+                partner.
+                In addition, we work quickly and do not violate the deadlines, so it is not necessary to wait for
+                delivery
                 for weeks.
             </x-section.content>
         </div>
@@ -158,4 +170,4 @@ name('products.clip-ins');
             </x-section.content>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>

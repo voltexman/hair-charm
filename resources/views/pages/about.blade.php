@@ -1,33 +1,26 @@
 <?php
-use function Laravel\Folio\name;
-use App\Models\Slide;
+use function Laravel\Folio\{name, render};
 use App\Models\Page;
-name('about-us');
+name('about');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', 'about-us')->firstOrFail(),
+    ]),
+);
 ?>
 
-@php
-    $page = Page::where('slug', 'about-us')->firstOrFail();
-@endphp
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :robots="$page->robots">
+    <x-slot:header>
+        <x-page-header image="bg-section-categories">
+            <x-slot:title>About Us</x-slot>
+            <x-slot:caption>
+                Our company is located in Ukraine, in Kiev, and specializes in the trade of Slavic virgin hair. Our
+                bundles are collected on the territory of Russia and Ukraine. Slavic virgin strands are the elite
+                highest quality hair.
+            </x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@push('meta')
-    <title>{{ $page->meta_title ?: 'About Us' }}</title>
-    <meta name="description" content="{{ $page->meta_description }}">
-    <meta name="robots" content="{{ $page->robots }}">
-@endpush
-
-@extends('layouts.base')
-
-@section('header')
-    <x-page-header image="bg-section-categories">
-        <x-slot:title>About Us</x-slot>
-        <x-slot:caption>
-            Our company is located in Ukraine, in Kiev, and specializes in the trade of Slavic virgin hair. Our bundles are
-            collected on the territory of Russia and Ukraine. Slavic virgin strands are the elite highest quality hair.
-        </x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section class="bg-charm-cream-100">
         <div class="max-w-2xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 md:items-start">
             <div class="md:[writing-mode:vertical-rl] font-[Boldonse] text-3xl md:text-4xl">
@@ -74,7 +67,8 @@ name('about-us');
         style="background-image: url('{{ Vite::asset('resources/images/bg-payment-and-delivery.png') }}')">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
         <div class="relative max-w-xl mx-auto font-[Poppins] text-lg text-center text-balance text-charm-cream-100">
-            Payment of the goods can be made by bank transfer <i>(Swift)</i> or <b>Western union</b>. Shipment of your order
+            Payment of the goods can be made by bank transfer <i>(Swift)</i> or <b>Western union</b>. Shipment of your
+            order
             will be done the next day after receiving payment. If you purchase hand tied wefts, the shipment will be
             done after their manufacture. Once your order has shipped, we will send you an email with your tracking
             number. Delivery usually takes <span class="font-semibold">1-3 days</span>.
@@ -82,10 +76,11 @@ name('about-us');
     </x-section>
 
     <x-section class="bg-charm-cream-200">
-        <div class="max-w-xl mx-auto font-[Oswald] text-xl xl:text-2xl tracking-wide uppercase text-center text-balance">
+        <div
+            class="max-w-xl mx-auto font-[Oswald] text-xl xl:text-2xl tracking-wide uppercase text-center text-balance">
             If you want to visit us and see the quality of the hair before you buy, we will meet you at the airport and
             help you book the best room in Kiev hotels. Always looking for new partners, with the best wishes of Charm
             Hair company!
         </div>
     </x-section>
-@endsection
+</x-layouts.base>

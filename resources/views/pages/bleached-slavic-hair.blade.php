@@ -1,25 +1,30 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.bleached-slavic-hair');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::BLEACHED_SLAVIC_HAIR)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :keywords="$page->meta_keywords">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::BLEACHED_SLAVIC_HAIR->value">
+            <x-slot:title>Bleached <br> Slavic hair</x-slot>
+            <x-slot:caption>
+                Today, Russian blonde hair extensions are very popular. Charm Hair company offers for wholesale a
+                special product - Bleached Slavic bulk hair.
+            </x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::BLEACHED_SLAVIC_HAIR->value">
-        <x-slot:title>Bleached <br> Slavic hair</x-slot>
-        <x-slot:caption>
-            Today, Russian blonde hair extensions are very popular. Charm Hair company offers for wholesale a special
-            product - Bleached Slavic bulk hair.
-        </x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section class="bg-charm-cream-100">
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto grid lg:grid-cols-2 gap-y-5 gap-x-10">
-            <div class="font-[Lora] text-4xl md:text-5xl lg:text-7xl/19 font-medium md:font-normal lg:text-end list-caption">
+            <div
+                class="font-[Lora] text-4xl md:text-5xl lg:text-7xl/19 font-medium md:font-normal lg:text-end list-caption">
                 <span class="">Exceptional</span><br class="hidden lg:block">
                 <span class="font-semibold">Hair</span><br class="hidden md:block">
                 Quality,<br class="hidden"> <span class="italic">Expertly</span> Processed
@@ -55,9 +60,9 @@ name('products.bleached-slavic-hair');
             </x-section.title>
             <x-section.content class="md:text-center text-balance">
                 As it is known, the most popular shades of braids are blond and very light brown. Many customers want to
-                purchase Russian natural blonde. However, this type of raw material is quite rare and scarce in the market.
-                Collecting it in the right quantities is more and more difficult, which affects its price. Many consumers,
-                for this reason, prefer bleached Uzbek or Asian bulks.
+                purchase Russian natural blonde. However, this type of raw material is quite rare and scarce in the
+                market. Collecting it in the right quantities is more and more difficult, which affects its price. Many
+                consumers, for this reason, prefer bleached Uzbek or Asian bulks.
             </x-section.content>
         </div>
     </x-section>
@@ -81,10 +86,10 @@ name('products.bleached-slavic-hair');
                 <x-slot:last><x-marker color="black">Beauty</x-marker></x-slot>
             </x-section.title>
             <x-section.content class="md:text-center text-balance">
-                Thanks to modern staining technology, you get strands with intact cuticles that will last you a long time.
-                When processing materials, we rule out the use of silicone and other harmful substances. Our hair itself
-                looks great and doesn’t require special care. Our own customized production allows us to control quality of
-                products at all stages of production.
+                Thanks to modern staining technology, you get strands with intact cuticles that will last you a long
+                time. When processing materials, we rule out the use of silicone and other harmful substances. Our hair
+                itself looks great and doesn’t require special care. Our own customized production allows us to control
+                quality of products at all stages of production.
             </x-section.content>
         </div>
     </x-section>
@@ -109,7 +114,8 @@ name('products.bleached-slavic-hair');
                     vanilla blonde
                 </x-list.item>
             </x-list>
-            <div class="col-span-full mx-auto font-[Poppins] text-charm-dark-300 leading-5 font-medium text-center hint">
+            <div
+                class="col-span-full mx-auto font-[Poppins] text-charm-dark-300 leading-5 font-medium text-center hint">
                 Whatever option you choose, <br>it will be quality and healthy.
             </div>
         </div>
@@ -151,13 +157,13 @@ name('products.bleached-slavic-hair');
                     <x-slot:last><x-marker color="black">Partner</x-marker></x-slot>
                 </x-section.title>
                 <x-section.content>
-                    Our company works both with retail orders and wholesale buyers. For regular customers, we always provide
-                    discounts and special conditions. Hope that our company will become your reliable partner for a long
-                    time, and you will appreciate the advantage of working with professionals in this field!
+                    Our company works both with retail orders and wholesale buyers. For regular customers, we always
+                    provide discounts and special conditions. Hope that our company will become your reliable partner
+                    for a long time, and you will appreciate the advantage of working with professionals in this field!
                 </x-section.content>
             </div>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>
 
 @vite('resources/js/pages/bleached-russian-hair.js')

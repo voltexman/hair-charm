@@ -1,19 +1,23 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.wefts');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::WEFTS)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :robots="$page->robots">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::WEFTS->value">
+            <x-slot:title>Wefts</x-slot>
+            <x-slot:caption>One of the most popular methods is Russian hand tied wefts hair extensions.</x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::WEFTS->value">
-        <x-slot:title>Wefts</x-slot>
-        <x-slot:caption>One of the most popular methods is Russian hand tied wefts hair extensions.</x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section.header class="bg-charm-cream-100">
         Our company has a great experience in manufacturing similar products, which are deservedly respected by all
         our regular customers.
@@ -26,7 +30,8 @@ name('products.wefts');
                 <x-slot:last><x-marker color="black">Out?</x-marker></x-slot>
             </x-section.title>
             <x-section.content class="md:text-center section-content">
-                Please note our products favourably differ from other competitors in that we use natural virgin Slavic hair
+                Please note our products favourably differ from other competitors in that we use natural virgin Slavic
+                hair
                 purchased directly from donors in <span class="font-semibold">Ukraine</span> and
                 <span class="font-semibold">Russian</span>. In addition, all haircuts that are used in
                 <x-marker variant="font">{{ env('APP_NAME') }}</x-marker> company for production are with dense tips.
@@ -34,7 +39,8 @@ name('products.wefts');
                 elite <span class="text-charm-dark-400 italic">
                     (for example, giving out Asian hair for a true Slavic hair)</span>,
                 so the quality of the wefts from <x-marker variant="font">{{ env('APP_NAME') }}</x-marker>
-                will be the reference quality and will please you for a long time. After all, Slavic strands have wonderful
+                will be the reference quality and will please you for a long time. After all, Slavic strands have
+                wonderful
                 appearance, an ideal structure and ease of care.
             </x-section.content>
         </div>
@@ -105,8 +111,10 @@ name('products.wefts');
         <div class="max-w-6xl mx-auto flex flex-col">
             <div class="font-[Boldonse] text-2xl text-charm-dark-300"><x-marker>Thick</x-marker> wefts</div>
             <div class="max-w-xl font-[Lora] text-lg leading-6 text-charm-dark-200 mt-2.5 font-medium italic">
-                This type is characterized by an even greater density and thickness. It weights 50 grams. It is suitable,
-                mainly, only for hair extensions. This product is ordered from us, mainly, by customers from the UK, where
+                This type is characterized by an even greater density and thickness. It weights 50 grams. It is
+                suitable,
+                mainly, only for hair extensions. This product is ordered from us, mainly, by customers from the UK,
+                where
                 such product is extremely popular.
             </div>
             <x-products class="mt-5" :category="ProductCategory::WEFTS" type="Thick wefts" />
@@ -148,7 +156,8 @@ name('products.wefts');
                     <x-slot:last><x-marker color="light">Wefts</x-marker></x-slot:last>
                 </x-section.title>
                 <x-section.content class="text-charm-cream-200! md:text-end">
-                    Our handtied wefts are expertly made by us are very practical and do not require special care. They can
+                    Our handtied wefts are expertly made by us are very practical and do not require special care. They
+                    can
                     easily tolerate heat, and you can create any styling with a hairdryer and a curling iron. Another
                     advantage of using a natural material in manufacture is the ease of coloring. As well as their own
                     curls, wefts can be dyed.
@@ -164,7 +173,8 @@ name('products.wefts');
                 </x-section.title>
                 <x-section.content>
                     We have been working in this field for a long time, therefore we have the necessary experience and
-                    knowledge necessary for producing hand-tied wefts. Our own workshop and high-class equipment allow us to
+                    knowledge necessary for producing hand-tied wefts. Our own workshop and high-class equipment allow
+                    us to
                     cope with large volumes of orders. Also we offer the highest quality of final products.
                 </x-section.content>
         </section>
@@ -203,11 +213,11 @@ name('products.wefts');
                 <span class="font-semibold">WhatsApp</span> or you can contact with us by e-mail:
                 <span class="font-semibold">
                     <x-lucide-mail class="size-4 inline-flex -mt-0.5 me-0.5" />infohaircharm@gmail.com</span>.
-                Contacting us in the showroom, you will not have any difficulties with the terms of order fulfillment and
+                Contacting us in the showroom, you will not have any difficulties with the terms of order fulfillment
+                and
                 you can always count on the perfect quality of the goods purchased!
             </x-section.content>
         </div>
     </x-section>
-@endsection
-
+</x-layouts.base>
 @vite('resources/js/pages/wefts.js')

@@ -1,22 +1,26 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.pre-bonded-hair');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::PRE_BONDED_HAIR)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :robots="$page->robots">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::PRE_BONDED_HAIR->value">
+            <x-slot:title>Pre Bonded Hair</x-slot>
+            <x-slot:caption>
+                Are you looking for the highest quality micro ring hair extensions, pre bonded hair?
+                Our company {{ env('APP_NAME') }} will help with this.
+            </x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::PRE_BONDED_HAIR->value">
-        <x-slot:title>Pre Bonded Hair</x-slot>
-        <x-slot:caption>
-            Are you looking for the highest quality micro ring hair extensions, pre bonded hair?
-            Our company {{ env('APP_NAME') }} will help with this.
-        </x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section.header class="bg-charm-cream-100 relative">
         Such kind of product must be purchased only from
         <span class="font-bold">professionals in their field</span>, who have
@@ -46,9 +50,10 @@ name('products.pre-bonded-hair');
                     <x-slot:last><x-marker color="black">Extensions</x-marker></x-slot>
                 </x-section.title>
                 <x-section.content>
-                    Pre-tipped hair from the company <x-marker variant="font">{{ env('APP_NAME') }}</x-marker> will serve
-                    you 3-4 years and will look great. Our craftsmen do all this laborious process manually. Our employees
-                    use only strong Italian keratin. The advantage of our pre-bonded strands is hair does not shed.
+                    Pre-tipped hair from the company <x-marker variant="font">{{ env('APP_NAME') }}</x-marker> will
+                    serve you 3-4 years and will look great. Our craftsmen do all this laborious process manually. Our
+                    employees use only strong Italian keratin. The advantage of our pre-bonded strands is hair does not
+                    shed.
                 </x-section.content>
             </div>
         </div>
@@ -77,8 +82,9 @@ name('products.pre-bonded-hair');
             <div class="grid lg:grid-cols-2 gap-y-5 md:gap-x-10">
                 <x-section.title class="lg:text-end">I-tips</x-section.title>
                 <x-section.content>
-                    this method is designed for hair extensions by micro-rings. Such method is considered to be more gentle
-                    for tresses, because the process of extensions is made without the influence of high temperature.
+                    this method is designed for hair extensions by micro-rings. Such method is considered to be more
+                    gentle for tresses, because the process of extensions is made without the influence of high
+                    temperature.
                 </x-section.content>
             </div>
             <div class="grid lg:grid-cols-2 gap-y-2 md:gap-x-10">
@@ -86,8 +92,8 @@ name('products.pre-bonded-hair');
                     Nano-tips <br> <span class="text-lg italic text-charm-dark-200">(nano-rings)</span>
                 </x-section.title>
                 <x-section.content>
-                    are round keratin capsules with a special tip, which when clamped is clamped by a ring. This method is
-                    one of the latest achievements in the field of hair extensions on capsules.
+                    are round keratin capsules with a special tip, which when clamped is clamped by a ring. This method
+                    is one of the latest achievements in the field of hair extensions on capsules.
                 </x-section.content>
             </div>
         </div>
@@ -156,9 +162,9 @@ name('products.pre-bonded-hair');
                 <x-slot:last><x-marker color="black">Compromise</x-marker></x-slot>
             </x-section.title>
             <x-section.content class="md:text-center">
-                Choosing our company, you can not doubt the high quality of the products. All used material was sanitized
-                and is safe for health. In addition, cases of using mixed strands in one product are excluded, because we
-                adhere to the principle - one hair donor - one product.
+                Choosing our company, you can not doubt the high quality of the products. All used material was
+                sanitized and is safe for health. In addition, cases of using mixed strands in one product are excluded,
+                because we adhere to the principle - one hair donor - one product.
             </x-section.content>
         </div>
     </x-section>
@@ -171,6 +177,6 @@ name('products.pre-bonded-hair');
             </div>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>
 
 @vite('resources/js/pages/pre-bonded-hair.js')

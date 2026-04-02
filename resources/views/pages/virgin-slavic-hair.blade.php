@@ -1,19 +1,23 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.virgin-slavic-hair');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::VIRGIN_SLAVIC_HAIR)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :robots="$page->robots">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::VIRGIN_SLAVIC_HAIR->value">
+            <x-slot:title>Vigrin Russian <br class="lg:hidden">Hair Wholesale</x-slot>
+            <x-slot:caption>What is the most popular and valuable product to buy?</x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::VIRGIN_RUSSIAN_HAIR->value">
-        <x-slot:title>Vigrin Russian <br class="lg:hidden">Hair Wholesale</x-slot>
-        <x-slot:caption>What is the most popular and valuable product to buy?</x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section.header class="bg-charm-cream-100">
         Undoubtedly, it's Virgin Russian hair, which has all the properties of beautiful and healthy strands.
     </x-section.header>
@@ -75,7 +79,8 @@ name('products.virgin-slavic-hair');
                 alt="" />
             <div class="max-w-sm flex flex-col ms-auto">
                 <div class="text-lg lg:text-xl font-bold font-[Lora] text-end uppercase">
-                    Acquiring virgin Russian hair from <span class="font-semibold">Hair-Charm</span>, customers get goods of
+                    Acquiring virgin Russian hair from <span class="font-semibold">Hair-Charm</span>, customers get
+                    goods of
                     exceptional quality, which will serve for a long time.
                 </div>
 
@@ -85,8 +90,10 @@ name('products.virgin-slavic-hair');
                 </div>
             </div>
 
-            <div class="max-w-md text-xl lg:text-4xl font-[Oswald] lg:font-light tracking-wide text-center md:text-left">
-                Virgin Russian bulk hair fits perfectly into any hairstyle, it has a great structure and is very practical.
+            <div
+                class="max-w-md text-xl lg:text-4xl font-[Oswald] lg:font-light tracking-wide text-center md:text-left">
+                Virgin Russian bulk hair fits perfectly into any hairstyle, it has a great structure and is very
+                practical.
                 Our products can withstand many corrections, after which they look no less impressive than on the day of
                 visiting the salon.
             </div>
@@ -108,8 +115,6 @@ name('products.virgin-slavic-hair');
             </div>
         </div>
     </x-section>
-
-    {{-- <x-section.marquee text="Vigrin Russian Hair Wholesale" /> --}}
 
     <section class="bg-charm-cream-100 grid lg:grid-cols-2">
         <div class="flex items-center px-5 py-20 md:p-20">
@@ -157,4 +162,4 @@ name('products.virgin-slavic-hair');
                 "{{ env('APP_NAME') }}" company is your reliable and conscientious partner in business! </span>
             </div>
     </x-section>
-@endsection
+</x-layouts.base>

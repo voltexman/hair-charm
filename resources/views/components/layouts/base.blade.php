@@ -1,3 +1,5 @@
+@props(['title', 'description' => '', 'robots' => 'index, follow'])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
@@ -5,7 +7,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @stack('meta')
+    <title>{{ $title ?: env('APP_NAME') }}</title>
+
+    @isset($description)
+        <meta name="description" content="{{ $description }}">
+    @endisset
+
+    @isset($robots)
+        <meta name="robots" content="{{ $robots }}">
+    @endisset
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +64,8 @@
             </div>
         </div>
         <div class="grow overflow-hidden">
-            @yield('content')
+            {{-- @yield('content') --}}
+            {{ $slot }}
         </div>
     </main>
 

@@ -1,22 +1,26 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Enums\ProductCategory;
+use App\Models\Page;
 name('products.training');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', ProductCategory::TRAINING)->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :keywords="$page->meta_keywords">
+    <x-slot:header>
+        <x-page-header :image="ProductCategory::TRAINING->value">
+            <x-slot:title>{{ env('APP_NAME') }} Training</x-slot>
+            <x-slot:caption>
+                If your business is hair extension, if you use tape hair, if you have to order ready-made product and if
+                you are not completely satisfied with its quality, then this video is for you.
+            </x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header :image="ProductCategory::TRAINING->value">
-        <x-slot:title>{{ env('APP_NAME') }} Training</x-slot>
-        <x-slot:caption>
-            If your business is hair extension, if you use tape hair, if you have to order ready-made product and if you
-            are not completely satisfied with its quality, then this video is for you.
-        </x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section.header class="bg-charm-cream-100">
         <div class="max-w-3xl mx-auto">
             <div class="font-[Lora] text-2xl font-medium text-balance">
@@ -35,8 +39,9 @@ name('products.training');
                     Increase Your <x-slot:last><x-marker color="black">Income</x-marker></x-slot>
                 </x-section.title>
                 <div class="font-[Oswald] text-xl md:text-3xl/8 md:font-light tracking-wide box-static-text-left">
-                    The advantage of the training is that you will be able to make products from any strands by yourself,
-                    depending on your client needs. Your income will undoubtedly increase after completing this training.
+                    The advantage of the training is that you will be able to make products from any strands by
+                    yourself, depending on your client needs. Your income will undoubtedly increase after completing
+                    this training.
                 </div>
             </div>
             <div class="md:relative">
@@ -147,7 +152,8 @@ name('products.training');
     <section class="grid md:grid-cols-2">
         <div class="bg-charm-cream-200 px-8 py-20 md:py-30">
             <div class="max-w-lg ms-auto flex self-center">
-                <div class="font-[Oswald] text-2xl md:text-3xl text-charm-dark-300 text-center md:text-end tracking-wide">
+                <div
+                    class="font-[Oswald] text-2xl md:text-3xl text-charm-dark-300 text-center md:text-end tracking-wide">
                     Nowadays only a <span class="font-semibold">limited number</span> of factories, located in
                     <span class="font-semibold">Russia and Ukraine</span>, are engaged in this process.
                     <span class="font-semibold">{{ env('APP_NAME') }}</span> is one of the best in this field.
@@ -167,6 +173,6 @@ name('products.training');
             </div>
         </div>
     </section>
-@endsection
+</x-layouts.base>
 
 @vite('resources/js/pages/training.js')
