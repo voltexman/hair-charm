@@ -1,4 +1,4 @@
-@props(['title', 'description' => '', 'robots' => 'index, follow'])
+@props(['header', 'title', 'description' => '', 'robots' => 'index, follow'])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
@@ -29,12 +29,12 @@
 </head>
 
 <body x-data="{ showProductsButton: false, loading: true }" @load.window="loading = false">
-    @hasSection('header')
+    @isset($header)
         <header x-intersect="showProductsButton = false" x-intersect:enter="showProductsButton = false"
             x-intersect:leave="showProductsButton = true" x-cloak>
-            @yield('header')
+            {{ $header }}
         </header>
-    @endif
+    @endisset
 
     <main class="flex flex-col lg:flex-row">
         <div
@@ -55,7 +55,7 @@
                 </div>
 
                 <x-menu.main>
-                    <x-menu.main.item icon="home" link="main">Home Page</x-menu.main.item>
+                    <x-menu.main.item icon="home" link="main">Home</x-menu.main.item>
                     <x-menu.main.item icon="badge-info" link="about">About</x-menu.main.item>
                     <x-menu.main.item icon="shopping-bag" link="products">Products</x-menu.main.item>
                     <x-menu.main.item icon="layers" link="wholesale">Wholesale</x-menu.main.item>
