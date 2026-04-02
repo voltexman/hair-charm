@@ -16,7 +16,7 @@ return new class extends Migration
             $table->enum('category', ProductCategory::all());
             $table->string('type')->nullable();
             $table->json('options')->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('is_active')->default(true);
         });
     }
 
