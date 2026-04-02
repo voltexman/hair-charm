@@ -212,7 +212,7 @@ render(
                 goods, write to us on <span class="font-semibold">Viber</span> or
                 <span class="font-semibold">WhatsApp</span> or you can contact with us by e-mail:
                 <span class="font-semibold">
-                    <x-lucide-mail class="size-4 inline-flex -mt-0.5 me-0.5" />infohaircharm@gmail.com</span>.
+                    <x-lucide-mail class="size-4 inline-flex -mt-0.5 me-0.5" />{{ $settings->email }}</span>.
                 Contacting us in the showroom, you will not have any difficulties with the terms of order fulfillment
                 and
                 you can always count on the perfect quality of the goods purchased!
@@ -220,4 +220,5 @@ render(
         </div>
     </x-section>
 </x-layouts.base>
+
 @vite('resources/js/pages/wefts.js')

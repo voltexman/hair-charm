@@ -25,6 +25,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
+
 </head>
 
 <body x-data="{ showProductsButton: false, loading: true }" @load.window="loading = false">
@@ -56,15 +57,14 @@
                 <x-menu.main>
                     <x-menu.main.item icon="home" link="main">Home Page</x-menu.main.item>
                     <x-menu.main.item icon="badge-info" link="about">About</x-menu.main.item>
-                    {{-- <x-menu.main.item icon="badge-info" link="products">Products</x-menu.main.item> --}}
-                    {{-- <x-menu.main.item icon="badge-info" link="wholesale">Wholesale</x-menu.main.item> --}}
-                    {{-- <x-menu.main.item icon="badge-info" link="delivery">Delivery</x-menu.main.item> --}}
+                    <x-menu.main.item icon="shopping-bag" link="products">Products</x-menu.main.item>
+                    <x-menu.main.item icon="layers" link="wholesale">Wholesale</x-menu.main.item>
+                    <x-menu.main.item icon="truck" link="delivery">Delivery</x-menu.main.item>
                     <x-menu.main.item icon="user-circle" link="contact">Contact</x-menu.main.item>
                 </x-menu.main>
             </div>
         </div>
         <div class="grow overflow-hidden">
-            {{-- @yield('content') --}}
             {{ $slot }}
         </div>
     </main>

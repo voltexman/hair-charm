@@ -25,7 +25,10 @@ class PushData extends Command
 
         $staticPages = [
             ['name' => 'Main Page', 'slug' => 'main'],
-            ['name' => 'About Us', 'slug' => 'about-us'],
+            ['name' => 'About', 'slug' => 'about'],
+            ['name' => 'Products', 'slug' => 'products'],
+            ['name' => 'Wholesale', 'slug' => 'wholesale'],
+            ['name' => 'Delivery', 'slug' => 'delivery'],
             ['name' => 'Photos', 'slug' => 'photos'],
             ['name' => 'Contacts', 'slug' => 'contacts'],
         ];
