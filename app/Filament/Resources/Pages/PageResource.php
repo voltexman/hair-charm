@@ -21,7 +21,7 @@ class PageResource extends Resource
 
     protected static string|UnitEnum|null $navigationGroup = 'Параметри';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedQueueList;
 
     protected static ?string $navigationLabel = 'Сторінки';
 
