@@ -1,17 +1,21 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
+use App\Models\Page;
 name('gallery');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', 'photos')->firstOrFail(),
+    ]),
+);
 ?>
 
-@extends('layouts.base')
+<x-layouts.base :title="$page->title" :description="$page->description">
+    <x-slot:header>
+        <x-page-header image="gallery-header">
+            <x-slot:title>Gallery</x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@section('header')
-    <x-page-header image="{{ Vite::asset('resources/images/bg-gallery-header.png') }}">
-        <x-slot:title>Gallery</x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section class="bg-charm-cream-100 min-h-screen">
         <div class="max-w-xl mx-auto">
             <x-alert icon="frown">
@@ -20,4 +24,4 @@ name('gallery');
             </x-alert>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>

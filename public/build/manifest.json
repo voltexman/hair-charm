@@ -58,14 +58,6 @@
     "file": "assets/bg-footer-DV0C7See.png",
     "src": "resources/images/bg-footer.png"
   },
-  "resources/images/bg-gallery-header.png": {
-    "file": "assets/bg-gallery-header-DrTtGUWu.png",
-    "src": "resources/images/bg-gallery-header.png"
-  },
-  "resources/images/bg-gallery-header.webp": {
-    "file": "assets/bg-gallery-header-DMhwhtOB.webp",
-    "src": "resources/images/bg-gallery-header.webp"
-  },
   "resources/images/bg-payment-and-delivery.png": {
     "file": "assets/bg-payment-and-delivery-Bz4yunUo.png",
     "src": "resources/images/bg-payment-and-delivery.png"
@@ -233,6 +225,14 @@
   "resources/images/main-contact-header.webp": {
     "file": "assets/main-contact-header-CKDtWUGc.webp",
     "src": "resources/images/main-contact-header.webp"
+  },
+  "resources/images/main-gallery-header.png": {
+    "file": "assets/main-gallery-header-DrTtGUWu.png",
+    "src": "resources/images/main-gallery-header.png"
+  },
+  "resources/images/main-gallery-header.webp": {
+    "file": "assets/main-gallery-header-DMhwhtOB.webp",
+    "src": "resources/images/main-gallery-header.webp"
   },
   "resources/images/main-gray-slavic-hair-wholesale.png": {
     "file": "assets/main-gray-slavic-hair-wholesale-C_01sr5q.png",
