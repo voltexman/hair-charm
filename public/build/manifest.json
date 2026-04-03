@@ -222,6 +222,10 @@
     "file": "assets/main-clip-ins-8iWKqg_8.webp",
     "src": "resources/images/main-clip-ins.webp"
   },
+  "resources/images/main-contact-header.png": {
+    "file": "assets/main-contact-header-Cm8OeCgt.png",
+    "src": "resources/images/main-contact-header.png"
+  },
   "resources/images/main-contact-header.webp": {
     "file": "assets/main-contact-header-CKDtWUGc.webp",
     "src": "resources/images/main-contact-header.webp"
@@ -289,10 +293,6 @@
   "resources/images/main-wefts.webp": {
     "file": "assets/main-wefts-zEpc26MQ.webp",
     "src": "resources/images/main-wefts.webp"
-  },
-  "resources/images/maincontact-header.png": {
-    "file": "assets/maincontact-header-Cm8OeCgt.png",
-    "src": "resources/images/maincontact-header.png"
   },
   "resources/images/scissors-badge.svg": {
     "file": "assets/scissors-badge-ynTMrIQW.svg",
