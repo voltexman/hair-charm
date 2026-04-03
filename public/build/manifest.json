@@ -38,14 +38,6 @@
     "file": "assets/50-percent-off-CftWEoBX.svg",
     "src": "resources/images/50-percent-off.svg"
   },
-  "resources/images/bg-blog-header.png": {
-    "file": "assets/bg-blog-header-PSSTWBb-.png",
-    "src": "resources/images/bg-blog-header.png"
-  },
-  "resources/images/bg-blog-header.webp": {
-    "file": "assets/bg-blog-header-D1_ykbpt.webp",
-    "src": "resources/images/bg-blog-header.webp"
-  },
   "resources/images/bg-children-section-1.png": {
     "file": "assets/bg-children-section-1-DkMRjPBp.png",
     "src": "resources/images/bg-children-section-1.png"
@@ -213,6 +205,14 @@
   "resources/images/main-bleached-slavic-hair.webp": {
     "file": "assets/main-bleached-slavic-hair-DBUEzkT1.webp",
     "src": "resources/images/main-bleached-slavic-hair.webp"
+  },
+  "resources/images/main-blog-header.png": {
+    "file": "assets/main-blog-header-PSSTWBb-.png",
+    "src": "resources/images/main-blog-header.png"
+  },
+  "resources/images/main-blog-header.webp": {
+    "file": "assets/main-blog-header-D1_ykbpt.webp",
+    "src": "resources/images/main-blog-header.webp"
   },
   "resources/images/main-clip-ins.png": {
     "file": "assets/main-clip-ins-BdFvdRK2.png",

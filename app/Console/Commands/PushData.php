@@ -30,6 +30,7 @@ class PushData extends Command
             ['name' => 'Wholesale', 'slug' => 'wholesale'],
             ['name' => 'Delivery', 'slug' => 'delivery'],
             ['name' => 'Photos', 'slug' => 'photos'],
+            ['name' => 'Posts', 'slug' => 'posts'],
             ['name' => 'Contacts', 'slug' => 'contacts'],
         ];
 
