@@ -26,7 +26,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-D1OvYx29.css",
+    "file": "assets/app-xSfp64w_.css",
     "name": "app",
     "names": [
       "app.css"
@@ -53,14 +53,6 @@
   "resources/images/bg-children-section.png": {
     "file": "assets/bg-children-section-BmPbWkAS.png",
     "src": "resources/images/bg-children-section.png"
-  },
-  "resources/images/bg-contact-header.png": {
-    "file": "assets/bg-contact-header-Cm8OeCgt.png",
-    "src": "resources/images/bg-contact-header.png"
-  },
-  "resources/images/bg-contact-header.webp": {
-    "file": "assets/bg-contact-header-CKDtWUGc.webp",
-    "src": "resources/images/bg-contact-header.webp"
   },
   "resources/images/bg-footer.png": {
     "file": "assets/bg-footer-DV0C7See.png",
@@ -238,6 +230,10 @@
     "file": "assets/main-clip-ins-8iWKqg_8.webp",
     "src": "resources/images/main-clip-ins.webp"
   },
+  "resources/images/main-contact-header.webp": {
+    "file": "assets/main-contact-header-CKDtWUGc.webp",
+    "src": "resources/images/main-contact-header.webp"
+  },
   "resources/images/main-gray-slavic-hair-wholesale.png": {
     "file": "assets/main-gray-slavic-hair-wholesale-C_01sr5q.png",
     "src": "resources/images/main-gray-slavic-hair-wholesale.png"
@@ -293,6 +289,10 @@
   "resources/images/main-wefts.webp": {
     "file": "assets/main-wefts-zEpc26MQ.webp",
     "src": "resources/images/main-wefts.webp"
+  },
+  "resources/images/maincontact-header.png": {
+    "file": "assets/maincontact-header-Cm8OeCgt.png",
+    "src": "resources/images/maincontact-header.png"
   },
   "resources/images/scissors-badge.svg": {
     "file": "assets/scissors-badge-ynTMrIQW.svg",

@@ -116,7 +116,7 @@
                 </div>
             </x-slot>
             <x-product-section.list variant="sidebar">
-                @foreach (\App\Enums\ProductCategory::cases() as $category)
+                @foreach (App\Enums\ProductCategory::cases() as $category)
                     <x-product-section.item class="z-{{ $loop->count - $loop->index }}" :index="$loop->index"
                         :category="$category" />
                 @endforeach
@@ -140,7 +140,7 @@
                 <div class="text-sm">Premium Slavic Hair from Ukraine</div>
             </div>
 
-            <x-menu.footer class="hidden lg:flex flex-col mx-auto justify-center items-center">
+            <x-menu.footer class="flex-col mx-auto justify-center items-center mt-5 lg:mt-0">
                 <x-menu.footer.item link="gallery">Photos</x-menu.footer.item>
                 <x-menu.footer.item link="posts">Blog</x-menu.footer.item>
             </x-menu.footer>

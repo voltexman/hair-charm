@@ -1,29 +1,22 @@
 <?php
-use function Laravel\Folio\name;
+use function Laravel\Folio\{name, render};
 use App\Models\Slide;
 use App\Models\Page;
 name('contact');
+render(
+    fn($view) => $view->with([
+        'page' => Page::where('slug', 'contacts')->firstOrFail(),
+    ]),
+);
 ?>
 
-@php
-    $page = Page::where('slug', 'contacts')->firstOrFail();
-@endphp
+<x-layouts.base :title="$page->title" :description="$page->description">
+    <x-slot:header>
+        <x-page-header image="contact-header">
+            <x-slot:title>Contact</x-slot>
+        </x-page-header>
+    </x-slot:header>
 
-@push('meta')
-    <title>{{ $page->meta_title ?: 'Contacts' }}</title>
-    <meta name="description" content="{{ $page->meta_description }}">
-    <meta name="robots" content="{{ $page->robots }}">
-@endpush
-
-@extends('layouts.base')
-
-@section('header')
-    <x-page-header image="{{ Vite::asset('resources/images/bg-contact-header.png') }}">
-        <x-slot:title>Contact</x-slot>
-    </x-page-header>
-@endsection
-
-@section('content')
     <x-section class="bg-charm-cream-100">
         <div class="max-w-3xl mx-auto space-y-10">
             <div class="flex flex-col gap-y-10">
@@ -111,8 +104,8 @@ name('contact');
                 </div>
 
                 <div class="font-[Poppins] text-lg text-gray-800">
-                    We value your feedback and are always looking to improve. Whether you have a suggestion, a question, or
-                    a complaint, feel free to reach out to us. Your message matters, and we’ll do our best to respond
+                    We value your feedback and are always looking to improve. Whether you have a suggestion, a question,
+                    or a complaint, feel free to reach out to us. Your message matters, and we’ll do our best to respond
                     promptly and thoughtfully.
                 </div>
             </div>
@@ -126,6 +119,6 @@ name('contact');
             </div>
         </div>
     </x-section>
-@endsection
+</x-layouts.base>
 
 @vite('resources/js/pages/contact.js')
