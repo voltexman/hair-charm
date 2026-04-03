@@ -55,12 +55,14 @@
                 </div>
 
                 <x-menu.main>
-                    <x-menu.main.item icon="home" link="main">Home</x-menu.main.item>
-                    <x-menu.main.item icon="badge-info" link="about">About</x-menu.main.item>
-                    <x-menu.main.item icon="shopping-bag" link="products">Products</x-menu.main.item>
-                    <x-menu.main.item icon="layers" link="wholesale">Wholesale</x-menu.main.item>
-                    <x-menu.main.item icon="truck" link="delivery">Delivery</x-menu.main.item>
-                    <x-menu.main.item icon="user-circle" link="contact">Contact</x-menu.main.item>
+                    <x-menu.main.item icon="home" href="{{ route('main') }}" link="main">Home</x-menu.main.item>
+                    <x-menu.main.item icon="badge-info" href="#about" @click="open = false">About</x-menu.main.item>
+                    <x-menu.main.item icon="shopping-bag" href="#products"
+                        @click="open = false">Products</x-menu.main.item>
+                    <x-menu.main.item icon="layers" href="#wholesale"
+                        @click="open = false">Wholesale</x-menu.main.item>
+                    <x-menu.main.item icon="truck" href="#delivery" @click="open = false">Delivery</x-menu.main.item>
+                    <x-menu.main.item icon="user-circle" href="{{ route('contact') }}">Contact</x-menu.main.item>
                 </x-menu.main>
             </div>
         </div>
@@ -130,7 +132,8 @@
         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-black/20"></div>
         <div class="grid md:grid-cols-3 max-w-5xl px-8 w-full mx-auto my-10 md:my-30 relative z-10">
             <div class="flex justify-center md:justify-start">
-                <img src="{{ Vite::asset('resources/images/logo.png') }}" class="size-45 md:size-35" alt="">
+                <img src="{{ Vite::asset('resources/images/icons/logo-light.svg') }}" class="size-35 mb-5"
+                    alt="">
             </div>
             <div class="flex flex-col font-[Poppins] text-sm text-center md:text-left gap-y-1.5 text-white">
                 <div class="text-3xl font-[Lora]">{{ env('APP_NAME') }}</div>
@@ -146,12 +149,26 @@
 
             <div class="flex flex-col items-center md:items-end">
                 <div class="flex gap-x-2.5">
-                    <img src="{{ Vite::asset('resources/images/icons/social/facebook-light.svg') }}"
-                        class="size-10 lg:size-12" alt="">
-                    <img src="{{ Vite::asset('resources/images/icons/social/whatsapp-light.svg') }}"
-                        class="size-10 lg:size-12" alt="">
-                    <img src="{{ Vite::asset('resources/images/icons/social/instagram-light.svg') }}"
-                        class="size-10 lg:size-12" alt="">
+                    @isset($settings->facebook)
+                        <a href="{{ $settings->facebook }}" target="_blank">
+                            <img src="{{ Vite::asset('resources/images/icons/social/facebook-light.svg') }}"
+                                class="size-10 lg:size-12" alt="">
+                        </a>
+                    @endisset
+
+                    @isset($settings->whatsapp)
+                        <a href="{{ $settings->whatsapp }}" target="_blank">
+                            <img src="{{ Vite::asset('resources/images/icons/social/whatsapp-light.svg') }}"
+                                class="size-10 lg:size-12" alt="">
+                        </a>
+                    @endisset
+
+                    @isset($settings->instagram)
+                        <a href="{{ $settings->instagram }}" target="_blank">
+                            <img src="{{ Vite::asset('resources/images/icons/social/instagram-light.svg') }}"
+                                class="size-10 lg:size-12" alt="">
+                        </a>
+                    @endisset
                 </div>
 
                 <div class="mt-5 text-center text-xs text-charm-cream-100">

@@ -38,7 +38,7 @@ class PhotosTable
                     ->slideOver()
                     ->modalWidth('md')
                     ->closeModalByClickingAway(false)
-                    ->modalHeading(fn($record) => "Редагування: {$record->name}"),
+                    ->modalHeading(fn ($record) => "Редагування: {$record->name}"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

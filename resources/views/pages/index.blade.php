@@ -76,7 +76,7 @@ render(
         </x-slot:header>
     @endif
 
-    <section id="top" class="bg-charm-dark-400 flex flex-col section-1"
+    <section id="products" class="bg-charm-dark-400 flex flex-col section-1"
         x-intersect:enter="showProductsButton = false" x-intersect:leave="showProductsButton = true"
         x-init="showProductsButton = false">
         <div
@@ -145,7 +145,7 @@ render(
         </div>
     </x-section>
 
-    <x-section class="bg-charm-cream-100 justify-center items-center overflow-hidden relative section-3">
+    <x-section id="about" class="bg-charm-cream-100 justify-center items-center overflow-hidden relative section-3">
         <img src="{{ Vite::asset('resources/images/icons/woman-hair-cut.svg') }}"
             class="size-[80%] absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-5 z-0 box-image"
             alt="">
@@ -461,7 +461,7 @@ render(
         </div>
     </x-section>
 
-    <x-section class="bg-charm-cream-200 overflow-hidden dual-box section-11">
+    <x-section id="wholesale" class="bg-charm-cream-200 overflow-hidden dual-box section-11">
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto">
             <x-section.title class="mb-10 text-center">
                 <x-slot:first>Wholesale</x-slot>. Virgin<br>Slavic
@@ -493,7 +493,7 @@ render(
         </div>
     </x-section>
 
-    <x-section class="bg-charm-cream-100 overflow-hidden dual-box section-12">
+    <x-section id="delivery" class="bg-charm-cream-100 overflow-hidden dual-box section-12">
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto">
             <x-section.title class="mb-10 text-center" tag="h4">
                 <x-slot:first>About</x-slot> delivery<br />and
@@ -629,80 +629,87 @@ render(
 @push('scripts')
     <script>
         document.addEventListener('livewire:init', () => {
-            Alpine.data('slideshow', (dbSlides = []) => ({
+            Alpine.data('slideshow', (slidesData = []) => ({
+                slides: slidesData,
+                currentSlideIndex: 0, // Починаємо з 0 для зручності роботи з масивом
                 autoplayIntervalTime: 12000,
-                slides: dbSlides.length > 0 ? dbSlides : null,
-                currentSlideIndex: 1,
-                isPaused: false,
                 autoplayTimer: null,
                 startTime: null,
                 progress: 0,
+                isPaused: false,
 
-                previous() {
-                    this.resetAutoplay();
-                    animate('.slide-text', {
-                        x: '-100vw',
-                        opacity: 0,
-                        duration: 500,
-                        ease: 'linear',
-                        onComplete: () => {
-                            this.currentSlideIndex =
-                                this.currentSlideIndex > 1 ?
-                                this.currentSlideIndex - 1 :
-                                this.slides.length;
-                            animate('.slide-text', {
-                                x: '0%',
-                                opacity: 1,
-                                duration: 1500,
-                                ease: 'outElastic',
-                            });
-                        }
-                    });
+                init() {
+                    if (this.slides.length > 0) {
+                        this.startAutoplay();
+                    }
                 },
 
-                next() {
-                    this.resetAutoplay();
-                    animate('.slide-text', {
-                        x: '-100vw',
-                        opacity: 0,
-                        duration: 500,
-                        ease: 'linear',
-                        onComplete: () => {
-                            this.currentSlideIndex =
-                                this.currentSlideIndex < this.slides.length ?
-                                this.currentSlideIndex + 1 : 1;
-                            animate('.slide-text', {
-                                x: '0%',
-                                opacity: 1,
-                                duration: 1500,
-                                ease: 'outElastic',
-                            });
-                        }
-                    });
-                },
-
-                autoplay() {
+                startAutoplay() {
+                    this.stopAutoplay();
                     this.startTime = Date.now();
+                    this.progress = 0;
+
                     this.autoplayTimer = setInterval(() => {
                         if (!this.isPaused) {
                             const elapsed = Date.now() - this.startTime;
                             this.progress = Math.min((elapsed / this.autoplayIntervalTime) *
                                 100, 100);
+
                             if (elapsed >= this.autoplayIntervalTime) {
-                                this.next(); // will internally call resetAutoplay()
+                                this.next();
                             }
+                        } else {
+                            // Якщо на паузі, зміщуємо startTime, щоб прогрес не "стрибав" після зняття паузи
+                            this.startTime = Date.now() - (this.progress / 100 * this
+                                .autoplayIntervalTime);
                         }
-                    }, 100);
+                    }, 50); // 50ms для плавного прогрес-бару
                 },
 
-                resetAutoplay() {
-                    clearInterval(this.autoplayTimer);
-                    this.progress = 0;
-                    this.autoplay();
+                stopAutoplay() {
+                    if (this.autoplayTimer) {
+                        clearInterval(this.autoplayTimer);
+                        this.autoplayTimer = null;
+                    }
                 },
 
-                init() {
-                    this.autoplay()
+                async changeSlide(nextIndex) {
+                    // 1. Анімація виходу тексту
+                    await animate(".slide-text", {
+                        opacity: 0,
+                        x: -20
+                    }, {
+                        duration: 0.4
+                    }).finished;
+
+                    // 2. Зміна слайда
+                    this.currentSlideIndex = nextIndex;
+
+                    // 3. Скидання таймера
+                    this.startAutoplay();
+
+                    // 4. Анімація входу тексту (чекаємо рендеру Alpine)
+                    this.$nextTick(() => {
+                        animate(".slide-text", {
+                                opacity: [0, 1],
+                                x: [50, 0]
+                            }, {
+                                duration: 1.2,
+                                easing: [0.175, 0.885, 0.32, 1.275]
+                            } // Ефект Elastic
+                        );
+                    });
+                },
+
+                next() {
+                    let nextIndex = (this.currentSlideIndex + 1) % this.slides.length;
+                    this.changeSlide(nextIndex);
+                },
+
+                previous() {
+                    let nextIndex = (this.currentSlideIndex - 1 + this.slides.length) % this.slides
+                        .length;
+                    this.changeSlide(nextIndex);
                 }
             }));
         });

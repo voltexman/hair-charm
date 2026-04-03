@@ -16,6 +16,7 @@ class ListPhotos extends ListRecords
             CreateAction::make()
                 ->slideOver()
                 ->modalWidth('md')
+                ->closeModalByClickingAway(false)
                 ->modalHeading('Створення фотографії'),
         ];
     }

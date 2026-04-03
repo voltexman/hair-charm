@@ -44,7 +44,8 @@ class SlidesTable
                 EditAction::make()
                     ->slideOver()
                     ->modalWidth('md')
-                    ->modalHeading(fn($record) => "Редагування: {$record->name}"),
+                    ->closeModalByClickingAway(false)
+                    ->modalHeading(fn() => "Редагування слайду"),
 
                 DeleteAction::make(),
             ])

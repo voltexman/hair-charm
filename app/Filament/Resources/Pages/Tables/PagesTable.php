@@ -23,14 +23,14 @@ class PagesTable
 
                 IconColumn::make('robots')
                     ->options([
-                        'heroicon-o-check-circle' => fn($state): bool => str_contains($state, 'index') && !str_contains($state, 'noindex') && !str_contains($state, 'nofollow'),
-                        'heroicon-o-pause-circle' => fn($state): bool => str_contains($state, 'nofollow') && !str_contains($state, 'noindex'),
-                        'heroicon-o-x-circle' => fn($state): bool => str_contains($state, 'noindex'),
+                        'heroicon-o-check-circle' => fn ($state): bool => str_contains($state, 'index') && ! str_contains($state, 'noindex') && ! str_contains($state, 'nofollow'),
+                        'heroicon-o-pause-circle' => fn ($state): bool => str_contains($state, 'nofollow') && ! str_contains($state, 'noindex'),
+                        'heroicon-o-x-circle' => fn ($state): bool => str_contains($state, 'noindex'),
                     ])
                     ->colors([
-                        'success' => fn($state): bool => str_contains($state, 'index') && !str_contains($state, 'noindex') && !str_contains($state, 'nofollow'),
-                        'warning' => fn($state): bool => str_contains($state, 'nofollow') && !str_contains($state, 'noindex'),
-                        'danger' => fn($state): bool => str_contains($state, 'noindex'),
+                        'success' => fn ($state): bool => str_contains($state, 'index') && ! str_contains($state, 'noindex') && ! str_contains($state, 'nofollow'),
+                        'warning' => fn ($state): bool => str_contains($state, 'nofollow') && ! str_contains($state, 'noindex'),
+                        'danger' => fn ($state): bool => str_contains($state, 'noindex'),
                     ]),
             ])
             ->recordActions([
@@ -38,7 +38,7 @@ class PagesTable
                     ->slideOver()
                     ->modalWidth('md')
                     ->closeModalByClickingAway(false)
-                    ->modalHeading(fn($record) => "Редагування: {$record->name}"),
+                    ->modalHeading(fn ($record) => "Редагування: {$record->name}"),
             ]);
     }
 }

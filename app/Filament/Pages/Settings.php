@@ -96,7 +96,7 @@ class Settings extends Page
         return [
             Action::make('save')
                 ->label('Зберегти налаштування')
-                ->action(fn() => $this->save()),
+                ->action(fn () => $this->save()),
         ];
     }
 

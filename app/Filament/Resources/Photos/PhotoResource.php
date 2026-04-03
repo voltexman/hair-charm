@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\Photos;
 
-use App\Filament\Resources\Photos\Pages\CreatePhoto;
-use App\Filament\Resources\Photos\Pages\EditPhoto;
 use App\Filament\Resources\Photos\Pages\ListPhotos;
 use App\Filament\Resources\Photos\Schemas\PhotoForm;
 use App\Filament\Resources\Photos\Tables\PhotosTable;

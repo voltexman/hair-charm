@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (! app()->runningInConsole() && Schema::hasTable('settings')) {
 
-            $settings = Cache::rememberForever('settings', fn() => Setting::first() ?? new Setting);
+            $settings = Cache::rememberForever('settings', fn () => Setting::first() ?? new Setting);
 
             View::share('settings', $settings);
 

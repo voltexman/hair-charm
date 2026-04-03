@@ -1,7 +1,7 @@
 @props(['icon' => null, 'link' => null])
 
-<a href="{{ route($link) }}"
-    class="flex flex-col items-center lg:flex-row border rounded-lg lg:border-0 border-charm-cream-200/10 bg-charm-brown-600/50 lg:bg-transparent p-5 lg:p-0 gap-2.5 group main-menu-item">
+<a
+    {{ $attributes->class('flex flex-col items-center lg:flex-row border rounded-lg lg:border-0 border-charm-cream-200/10 bg-charm-brown-600/50 lg:bg-transparent p-5 lg:p-0 gap-2.5 group main-menu-item') }}>
     @if ($icon)
         <x-dynamic-component :component="'lucide-' . $icon"
             class="size-10 flex-none text-charm-cream-200 group-hover:text-charm-cream-600 transition-colors duration-300"
