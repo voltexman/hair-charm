@@ -322,20 +322,20 @@ render(
             <div>
                 <x-section.title class="mb-5">
                     <x-slot:first>About</x-slot>
-                    hand<br>tied
-                    <x-slot:last><x-marker color="dark">wefts</x-marker></x-slot>
+                    hand<br>tied <x-slot:last><x-marker color="dark">wefts</x-marker></x-slot>
                 </x-section.title>
-                <p class="font-[Poppins] text-gray-800 mb-5">
-                    The service of making wefts is very popular among our customers. This is quite a complicated job,
-                    which requires high qualification, as well as taking into account all requirements of customer. For
-                    example, some of our partners prefer dense thick wefts, about 50 grams in one hand tied weft
-                    <span class="italic">(such products are mainly shipped to the UK)</span>.
-                </p>
-                <p class="font-[Poppins] text-gray-800">
-                    For customers from the United States we selected fine tresses, which are ideal for the producing
-                    hairpieces and wigs. Our specialists are able to fulfill any of your requirements. The advantage of
-                    our hand tied wefts is the hair does not shed.
-                </p>
+                <p>Hand-tied wefts are among the most sought-after products by professional stylists.</p>
+
+                <p>Each weft is crafted with precision and tailored to meet specific client requirements — from dense,
+                    full bundles to fine, lightweight options.</p>
+
+                <p>We offer various structures and weights to suit your needs, making our wefts ideal for extensions,
+                    wigs, and custom hairpieces.</p>
+
+                <p>Our hand-tied wefts are durable, natural-looking, and designed to prevent shedding — ensuring
+                    long-lasting performance.</p>
+
+                <p>Designed for professionals who expect consistency and premium quality.</p>
             </div>
             <div class="swiper cards-swiper">
                 <div class="swiper-wrapper">
