@@ -1,18 +1,17 @@
 <?php
 use function Laravel\Folio\{name, render};
-use App\Enums\ProductCategory;
 use App\Models\Page;
 name('products.training');
 render(
     fn($view) => $view->with([
-        'page' => Page::where('slug', ProductCategory::TRAINING)->firstOrFail(),
+        'page' => Page::where('slug', 'training')->firstOrFail(),
     ]),
 );
 ?>
 
 <x-layouts.base :title="$page->meta_title" :description="$page->meta_description" :keywords="$page->meta_keywords">
     <x-slot:header>
-        <x-page-header :image="ProductCategory::TRAINING->value">
+        <x-page-header image="training">
             <x-slot:title>Professional Training for Hair Extension Specialists</x-slot>
             <x-slot:caption>
                 Learn how to work with premium Slavic hair and create high-quality hair extension products your clients
@@ -71,7 +70,7 @@ render(
         </div>
     </x-section>
 
-    <x-section.marquee :text="ProductCategory::TRAINING->getLabel()" bg="from-charm-cream-200 to-charm-cream-100" />
+    <x-section.marquee text="Training" bg="from-charm-cream-200 to-charm-cream-100" />
 
     <x-section class="bg-charm-cream-100 section">
         <div class="max-w-lg lg:max-w-xl mx-auto space-y-5">

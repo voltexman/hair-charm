@@ -14,7 +14,6 @@ enum ProductCategory: string implements HasLabel
     case BLEACHED_SLAVIC_HAIR = 'bleached-slavic-hair';
     case SUPER_DOUBLE_DRAWN_SLAVIC_HAIR = 'super-double-drawn-slavic-hair';
     case GRAY_SLAVIC_HAIR_WHOLESALE = 'gray-slavic-hair-wholesale';
-    case TRAINING = 'training';
 
     public function getLabel(): string
     {
@@ -27,7 +26,6 @@ enum ProductCategory: string implements HasLabel
             self::BLEACHED_SLAVIC_HAIR => 'Bleached Slavic Hair',
             self::SUPER_DOUBLE_DRAWN_SLAVIC_HAIR => 'Super Double Drawn Slavic Hair',
             self::GRAY_SLAVIC_HAIR_WHOLESALE => 'Gray Slavic Hair Wholesale',
-            self::TRAINING => 'Training',
         };
     }
 
@@ -42,7 +40,6 @@ enum ProductCategory: string implements HasLabel
             self::BLEACHED_SLAVIC_HAIR => 'High-quality Slavic hair expertly lightened while preserving strength. Perfect for blonde shades, toning, and custom coloring.',
             self::SUPER_DOUBLE_DRAWN_SLAVIC_HAIR => 'Extra-thick from root to tip for maximum fullness. Ideal for luxurious, high-density hairstyles.',
             self::GRAY_SLAVIC_HAIR_WHOLESALE => 'Naturally gray hair sourced for professional colorists and salons. Available in bulk for consistent supply and quality.',
-            self::TRAINING => 'Professional education for stylists working with extensions. Learn techniques, tools, and best practices from experts.',
         };
     }
 
@@ -57,7 +54,6 @@ enum ProductCategory: string implements HasLabel
             self::BLEACHED_SLAVIC_HAIR => 'products.bleached-slavic-hair',
             self::SUPER_DOUBLE_DRAWN_SLAVIC_HAIR => 'products.super-double-drawn-slavic-hair',
             self::GRAY_SLAVIC_HAIR_WHOLESALE => 'products.gray-slavic-hair-wholesale',
-            self::TRAINING => 'products.training',
         };
     }
 

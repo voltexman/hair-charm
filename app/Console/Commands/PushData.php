@@ -32,6 +32,7 @@ class PushData extends Command
             ['name' => 'Photos', 'slug' => 'photos'],
             ['name' => 'Posts', 'slug' => 'posts'],
             ['name' => 'Contacts', 'slug' => 'contacts'],
+            ['name' => 'Training', 'slug' => 'training'],
         ];
 
         foreach ($staticPages as $page) {
