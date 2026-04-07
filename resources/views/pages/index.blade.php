@@ -89,12 +89,10 @@ render(
                     class="size-full object-cover" alt="">
             </div>
             <div class="hidden md:flex flex-col gap-y-5">
-                <div class="font-[Lora] text-charm-cream-100 textxl italic">
+                <div class="font-[Lora] text-charm-cream-100 italic">
                     <p>Want to work with premium Slavic hair at a professional level?</p>
-
                     <p>We offer professional training for hair extension specialists — learn how to select, apply and
                         maintain high-quality Slavic hair for the best results.</p>
-
                     <p>Contact us to learn more about our training program.</p>
                 </div>
                 <x-button variant="light" link="products.training" class="w-fit">Training</x-button>
@@ -457,15 +455,14 @@ render(
         <div class="absolute inset-0 backdrop-blur-xs bg-black/60 z-0"></div>
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto space-y-5 relative z-10">
             <h2 class="text-charm-cream-100 font-[Boldonse] text-3xl md:text-5xl mb-5 text-center">
-                <span class="font-[Lora] text-4xl md:text-6xl italic font-semibold">Children`s</span> Hair
+                Baby Fine <br><span class="font-[Lora] text-4xl md:text-6xl italic font-semibold">Slavic Hair</span>
             </h2>
             <div class="max-w-xl font-[Lora] text-xl text-charm-cream-100 mx-auto text-center">
-                Our company offers a unique exclusive material - children's strands. Such goods are on top of any
-                ratings
-                and is valued more than any other type of curls. Healthy and silky, soft with no split ends, fine
-                structure,
-                the highest quality - such Slavic strands you get by ordering them in "Charm Hair". Children's hair
-                extensions are very obedient and look amazing in any hairstyle.
+                We offer exclusive ultra-fine Slavic hair — one of the most valuable and sought-after types available.
+                Naturally soft, silky, and lightweight, with a delicate structure and no split ends. Known for
+                exceptional quality, durability, and natural movement.
+                Blends perfectly and looks flawless in any hairstyle — ideal for premium hair extensions and wigs.
+                The finest Slavic hair. Available wholesale and retail worldwide.
             </div>
         </div>
     </x-section>
@@ -474,29 +471,22 @@ render(
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto">
             <x-section.title class="mb-10 text-center">
                 <x-slot:first>Wholesale</x-slot>. Virgin<br>Slavic
-                <x-slot:last><x-marker color="dark">hair</x-marker></x-slot>
+                <x-slot:last><x-marker color="dark">hair Supplier</x-marker></x-slot>
             </x-section.title>
             <div class="grid lg:grid-cols-2 gap-5">
                 <div
-                    class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
-                    In our salon it is possible to choose any type of material, length and structure
-                    <span class="text-black selected inline-block">(wavy, straight, curly hair)</span>.
-                    We work both in retail and wholesale. For wholesale buyers who purchase goods from one kilogram,
-                    there
-                    are always excellent discounts and special conditions for order.
+                    class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance">
+                    We offer premium virgin Slavic hair for both wholesale and retail clients.
+                    Choose from a wide range of textures and structures:
+                    straight · wavy · curly We work directly with raw virgin hair, allowing us to provide consistent
+                    quality, natural appearance, and long-lasting results.
                 </div>
                 <div class="font-[Poppins] text-gray-800 box-right">
-                    There is always current stock from 14 to 32 inches, which you can be ordered at any time. For
-                    ordering
-                    goods from 40 inches, you just need to create a preliminary request, and we will execute it as soon
-                    as
-                    possible. Ordering <span class="font-normal">wholesale</span> goods, you get quality cuts from 16
-                    to 28
-                    inches <span class="font-normal italic">(set includes all the lengths of 16, 18 ... 26 and 28
-                        inches)</span> of different natural shades. For purchasing strands with one specific color and
-                    exact
-                    length, you just need to order product at retail, telling us all the necessary requirements. Our
-                    employees will help you to choose goods they match your needs.
+                    For wholesale orders (from 1 kg), we offer special pricing, flexible conditions, and reliable
+                    supply. Available lengths in stock: 14–32 inches
+                    Custom orders (40+ inches) available upon request.
+                    We also provide curated sets of natural shades and lengths, as well as custom selection based on
+                    your specific requirements. Reliable supply. Premium quality. Direct from Ukraine.
                 </div>
             </div>
         </div>
@@ -510,36 +500,31 @@ render(
             </x-section.title>
             <div class="grid lg:grid-cols-2 gap-5">
                 <div
-                    class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
-                    {{ env('APP_NAME') }} has been working for a long time in the industry of
-                    <span class="text-black selected inline-block">Slavic hair</span>, payment and delivery of goods
-                    are
-                    always accurate and trustworthy. You can pay for using bank transfer or by using the
-                    <span class="text-black selected inline-block">Western Union</span> payment system. Delivery is
-                    made by
-                    fast courier service. It is possible to track your order
-                    <span class="text-black selected inline-block"> at any time</span>.
+                    class="font-[Oswald] text-black/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance">
+                    Slavena Hair provides reliable worldwide shipping and secure payment options.
+                    We work directly with clients, ensuring a smooth and transparent process from order to delivery.
                 </div>
                 <div class="font-[Poppins] text-gray-800 box-right">
-                    <p>We send paid goods next day after receiving your payment, if it is available at the moment. To
-                        clarify this question you can always by contacting us by phone +380931501651
-                        <span class="font-normal italic">(we use Viber and WhatsApp)</span> or email
-                        infohaircharm@gmail.com. If you have a large order and we need time to produce it, we will
-                        certainly inform you about lead time of your order. Usually, we ship products within 3-5 days
-                        from
-                        the date of payment
-                    </p>
-                    <p>If you are searching of a reliable supplier of human hair
-                        <span class="font-normal italic">(Slavic virgin)</span> you need
-                        <x-marker variant="font">{{ env('APP_NAME') }}</x-marker>.
-                        Long-term practice, international trade experience and individual approach to each client are
-                        those
-                        qualities that our customers value at first. In our hair shop you can buy real Slavic hair that
-                        meets the highest requirements and exclude the possibility of fakes. We hope that our company
-                        will
-                        become your reliable partner. Also hope mutually beneficial cooperation will bring you a lot of
-                        positive emotions!
-                    </p>
+                    Payment methods:
+                    Bank transfer · PayPal · Wise
+
+                    Delivery:
+                    Orders are shipped via trusted international courier services with full tracking at every stage.
+
+                    Dispatch time:
+                    1–3 business days after payment confirmation, depending on availability.
+
+                    For large or custom orders, production time may be required — we will inform you in advance.
+
+                    Estimated delivery time:
+                    3–5 business days within Europe
+                    5–10 business days worldwide
+
+                    For inquiries or custom requests, contact us:
+                    WhatsApp / Viber: +380737857777
+                    Email: slavenahair@gmail.com
+
+                    Slavena Hair — premium Slavic hair from Ukraine, trusted by professionals worldwide.
                 </div>
             </div>
         </div>
