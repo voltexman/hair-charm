@@ -411,20 +411,20 @@ render(
     </x-section>
 
     <x-section class="bg-charm-dark-400 section-8">
-        <div class="max-w-xl lg:max-w-3xl xl:max-w-3xl mx-auto grid md:grid-cols-3">
-            <div class="md:col-span-2 space-y-10">
-                <div
-                    class="text-center lg:text-left font-[Boldonse] text-xl md:text-3xl/10 text-charm-cream-100 text-balance box-top">
-                    Separately it is necessary allocate manufacturing strands on a tape hair.
-                </div>
-                <div
-                    class="text-center lg:text-left font-[Oswald] text-3xl/8 md:text-5xl/10 lg:text-6xl/12 text-charm-cream-100 font-light md:font-thin text-balance box-bottom">
-                    Tape in hair extensions are very popular.
-                </div>
+        <div class="max-w-xl lg:max-w-3xl xl:max-w-3xl mx-auto text-center text-charm-cream-100">
+            <h2 class="text-charm-cream-100 font-[Boldonse] text-2xl md:text-4xl mb-5 text-center">
+                Tape-In Hair Extensions
+            </h2>
+            <div class="font-[Boldonse] text-lg mb-5">
+                Tape-in hair extensions are one of the most popular solutions among professional stylists worldwide.
+                They provide a natural look, fast application, and comfortable wear for clients.
             </div>
-            <div class="mt-10 md:mt-0">
-                <img src="{{ Vite::asset('resources/images/icons/long-hair-wig-light.svg') }}"
-                    class="size-50 md:size-70 mx-auto box-image" alt="">
+
+            <div class="max-w-md mx-auto">
+                Our tape-in extensions are made from 100% virgin Slavic hair — soft, durable, and designed for
+                long-lasting results.
+                Perfect for salons and professionals who value quality, speed, and consistency.
+                Seamless blend. Invisible finish. Flawless results.
             </div>
         </div>
     </x-section>
