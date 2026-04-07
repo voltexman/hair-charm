@@ -39,17 +39,17 @@ class PostForm
                     ->maxLength(255)
                     ->unique(ignoreRecord: true)
                     ->columnSpanFull()
-                    ->disabled(fn(Get $get) => $get('is_slug_locked'))
+                    ->disabled(fn (Get $get) => $get('is_slug_locked'))
                     ->dehydrated()
                     ->suffixAction(
                         Action::make('toggleSlugLock')
-                            ->label(fn(Get $get) => $get('is_slug_locked') ? 'Розблокувати' : 'Заблокувати')
-                            ->icon(fn(Get $get) => $get('is_slug_locked') ? 'heroicon-m-lock-open' : 'heroicon-m-lock-closed')
-                            ->color(fn(Get $get) => $get('is_slug_locked') ? 'success' : 'danger')
+                            ->label(fn (Get $get) => $get('is_slug_locked') ? 'Розблокувати' : 'Заблокувати')
+                            ->icon(fn (Get $get) => $get('is_slug_locked') ? 'heroicon-m-lock-open' : 'heroicon-m-lock-closed')
+                            ->color(fn (Get $get) => $get('is_slug_locked') ? 'success' : 'danger')
                             ->action(function (Set $set, Get $get) {
                                 $currentlyLocked = $get('is_slug_locked');
-                                $set('is_slug_locked', !$currentlyLocked);
-                                if (!$currentlyLocked) {
+                                $set('is_slug_locked', ! $currentlyLocked);
+                                if (! $currentlyLocked) {
                                     $set('slug', Str::slug($get('title') ?? ''));
                                 }
                             })
@@ -96,7 +96,7 @@ class PostForm
                 Section::make('SEO — Мета-дані')
                     ->description('Інформація для пошукових систем та соціальних мереж')
                     ->collapsible()
-                    ->collapsed(fn(string $operation) => $operation === 'create')
+                    ->collapsed(fn (string $operation) => $operation === 'create')
                     ->schema([
                         TextInput::make('meta_description')
                             ->label('Мета-опис')
@@ -107,11 +107,11 @@ class PostForm
                         Select::make('robots')
                             ->label('Robots meta tag')
                             ->options([
-                                'index,follow'     => 'Index, Follow',
-                                'noindex,follow'   => 'Noindex, Follow',
-                                'index,nofollow'   => 'Index, Nofollow',
+                                'index,follow' => 'Index, Follow',
+                                'noindex,follow' => 'Noindex, Follow',
+                                'index,nofollow' => 'Index, Nofollow',
                                 'noindex,nofollow' => 'Noindex, Nofollow',
-                                'none'             => 'None (noindex + nofollow)',
+                                'none' => 'None (noindex + nofollow)',
                             ])
                             ->default('index,follow')
                             ->helperText('Вказує пошуковим роботам, як обробляти цю сторінку')

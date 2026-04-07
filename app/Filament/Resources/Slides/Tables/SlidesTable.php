@@ -45,7 +45,7 @@ class SlidesTable
                     ->slideOver()
                     ->modalWidth('md')
                     ->closeModalByClickingAway(false)
-                    ->modalHeading(fn() => "Редагування слайду"),
+                    ->modalHeading(fn () => 'Редагування слайду'),
 
                 DeleteAction::make(),
             ])

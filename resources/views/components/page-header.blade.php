@@ -8,7 +8,7 @@
         class="flex justify-center items-center backdrop-blur-xs bg-black/45 size-full page-header-halftone relative z-20">
         <div class="w-full md:max-w-xl mx-auto px-5 py-2.5 md:p-0 relative z-30 space-y-5">
             <h1
-                class="font-[Lora] font-semibold uppercase text-4xl lg:text-5xl text-charm-cream-100 text-center page-header-title">
+                class="font-[Lora] font-semibold uppercase text-2xl lg:text-4xl text-charm-cream-100 text-center page-header-title">
                 {{ $title }}
             </h1>
             @isset($caption)
@@ -22,6 +22,7 @@
                     {{ $description }}
                 </div>
             @endisset
+            {{ $slot }}
         </div>
     </div>
 </div>

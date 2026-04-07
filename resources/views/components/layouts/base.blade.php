@@ -182,6 +182,8 @@
         <div class="h-12 w-full flex items-center mt-auto border-t border-white/5 relative z-10">
             <div class="max-w-6xl mx-auto text-xs text-charm-cream-200/50">
                 {{ env('APP_NAME') }} &copy; {{ date('Y') }} All rights reserved.
+                Developed by <a href="https://portolio-beta-rose.vercel.app/" class="font-bold"
+                    target="_blank">LEV</a>
             </div>
         </div>
     </footer>

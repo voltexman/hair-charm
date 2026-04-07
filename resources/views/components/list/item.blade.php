@@ -9,7 +9,7 @@
         ])>{{ $index }}</span>
     @endisset
     <li
-        {{ $attributes->class('text-lg font-semibold font-[Lora] lg:stracking-wide group-data-[variant=light]:text-white group-data-[variant=dark]:text-charm-dark-400') }}>
+        {{ $attributes->class('text-lg uppercase font-semibold font-[Lora] lg:stracking-wide group-data-[variant=light]:text-white group-data-[variant=dark]:text-charm-dark-400') }}>
         <span @class([
             'ms-7.5' => isset($index),
             'text-charm-brown-600' => isset($brown),
