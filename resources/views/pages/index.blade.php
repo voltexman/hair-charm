@@ -243,44 +243,51 @@ render(
             alt="">
         <div class="max-w-xl xl:max-w-2xl mx-auto space-y-5 relative z-10">
             <h2 class="font-[Boldonse] text-2xl md:text-4xl/12 mb-5 split-words">
-                <span class="font-[Lora] text-4xl md:text-6xl italic font-medium">Main</span>
-                virgin shades.<br>Exclusive <span class="inline-block origin-left rotate-6">blond</span>
+                <span class="font-[Lora] text-4xl md:text-6xl italic font-medium">Natural</span>
+                Slavic Hair Extensions <span class="inline-block origin-left rotate-6">Shades</span>
             </h2>
             <x-section.content>
-                A great advantage of our company is a wide choice of various shades of strands. There is an opportunity
-                to choose from the main virgin shades - this is:
+                Choose from the most sought-after natural Slavic hair shades — from deep dark brown to natural light
+                blonde.
             </x-section.content>
+            <div class="font-[Boldonse] uppercase text-xl md:text-2xl/12 mb-5 text-center">Available shades:</div>
             <div class="color-list">
                 <div class="flex justify-between pb-2.5 border-b border-dashed border-zinc-400 color-list-item">
                     <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">5/0</span>
                     <span class="ms-auto size-7 me-2.5 bg-[#3B2A23] rounded-full color-circle"></span>
-                    <span class="font-[Boldonse] text-lg md:text-xl uppercase">dark brown</span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">dark brown</span>
                 </div>
                 <div class="flex justify-between py-2.5 border-b border-dashed border-zinc-400 color-list-item">
                     <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">6/0</span>
                     <span class="ms-auto size-7 me-2.5 bg-[#5A3E2B] rounded-full color-circle"></span>
-                    <span class="font-[Boldonse] text-lg md:text-xl uppercase">medium brown</span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">medium brown</span>
                 </div>
                 <div class="flex justify-between py-2.5 border-b border-dashed border-zinc-400 color-list-item">
                     <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">7/0</span>
                     <span class="ms-auto size-7 me-2.5 bg-[#7A5A3A] rounded-full color-circle"></span>
-                    <span class="font-[Boldonse] text-lg md:text-xl uppercase">light brown</span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">light brown</span>
                 </div>
                 <div class="flex justify-between py-2.5 border-b border-dashed border-zinc-400 color-list-item">
                     <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">8/0</span>
                     <span class="ms-auto size-7 me-2.5 bg-[#B08A5A] rounded-full color-circle"></span>
-                    <span class="font-[Boldonse] text-lg md:text-xl uppercase">dark blond</span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">dark blond</span>
                 </div>
-                <div class="flex justify-between pt-2.5 color-list-item">
+                <div class="flex justify-between py-2.5 border-b border-dashed border-zinc-400 color-list-item">
                     <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">9/0</span>
                     <span class="ms-auto size-7 me-2.5 bg-[#E2C28B] rounded-full color-circle"></span>
-                    <span class="font-[Boldonse] text-lg md:text-xl uppercase">blond</span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">blond</span>
+                </div>
+                <div class="flex justify-between pt-2.5 color-list-item">
+                    <span class="font-[Boldonse] text-xl text-charm-dark-300 font-black">10/0</span>
+                    <span class="ms-auto size-7 me-2.5 bg-[#CCCCCC] rounded-full color-circle"></span>
+                    <span class="font-[Boldonse] text-sm md:text-xl uppercase">Natural Light Blonde</span>
                 </div>
                 <div class="max-w-lg font-[Boldonse] text-xs leading-5 uppercase tracking-wide mt-10 color-hint">
-                    In addition, we offer light blonde hair for extensions (#10), prepared using our own production -
-                    healthy, <span
-                        class="bg-black/80 px-1.5 py-0.5 text-white text-nowrap uppercase inline-block select-word">no
-                        silicone</span>.
+                    100% virgin Slavic hair — no bleaching, no silicone, no artificial coatings.
+                    Only real, natural Slavic hair.
+                    <span class="bg-black/80 px-1.5 py-0.5 text-white text-nowrap uppercase inline-block select-word">
+                        Wholesale & retail available worldwide
+                    </span>.
                 </div>
             </div>
         </div>
