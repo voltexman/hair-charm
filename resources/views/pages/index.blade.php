@@ -290,28 +290,23 @@ render(
         <div class="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto">
             <x-section.title class="text-charm-cream-100! mb-10 md:text-center" tag="h2">
                 <x-slot:first>Hair</x-slot>
-                extensions <br />
-                <x-slot:last><x-marker color="light">manufacture</x-marker></x-slot>
+                extensions <br /> <x-slot:last><x-marker color="light">manufacture</x-marker></x-slot>
             </x-section.title>
             <div class="grid lg:grid-cols-2 gap-5 items-stretch mt-5">
                 <div
-                    class="font-[Oswald] text-charm-cream-300/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance text-justify">
-                    {{ env('APP_NAME') }} company not only sells first-class materials, but also independently produces
-                    products from it. We are confident that you will be able to appreciate our
-                    <span class="text-white">wigs and ponytails, wefts</span>, which are created by machine or
-                    handtied,
-                    hair on barrettes and ribbons, individual strands for hair extension.
+                    class="font-[Oswald] text-charm-cream-300/60 uppercase text-lg lg:text-xl font-bold md:text-end box-left text-balance">
+                    Slavena Hair produces premium Slavic hair extensions in-house — from raw virgin hair to finished
+                    products.
+                    We control every step of the process to ensure consistent quality, durability, and a natural look.
                 </div>
                 <div class="font-[Poppins] text-charm-cream-200 box-right">
-                    The entire production process takes place at our manufacture facilities. For production of goods, we
-                    have created our own hair extensions manufacture, which meets the highest quality standards and
-                    meets
-                    all correct and fair regulations. The best equipment, from miniature sewing needles to professional
-                    machines, which allows us to create a truly exclusive product! We are ready to offer clients our
-                    amazing
-                    bundles and many other interesting products - full lace wigs, lace closure, lace front wigs, topper
-                    made
-                    with silk, mono top...
+                    <b>Products include:</b>
+                    Wefts · Tape Hair · Pre-Bonded · Clip-Ins · Ponytails · Custom solutions for professionals
+
+                    Modern equipment and skilled craftsmanship allow us to create high-end hair extensions trusted by
+                    clients across Europe and the USA.
+
+                    <b>In-house production. Full quality control. Premium results.</b>
                 </div>
             </div>
         </div>
