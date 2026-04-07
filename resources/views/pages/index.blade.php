@@ -89,9 +89,13 @@ render(
                     class="size-full object-cover" alt="">
             </div>
             <div class="hidden md:flex flex-col gap-y-5">
-                <div class="font-[Lora] text-charm-cream-100 text-xl italic">
-                    If your business is hair extension, if you use tape hair, if you have to order ready-made product
-                    and if you are not completely satisfied with its quality, then this video is for you.
+                <div class="font-[Lora] text-charm-cream-100 textxl italic">
+                    <p>Want to work with premium Slavic hair at a professional level?</p>
+
+                    <p>We offer professional training for hair extension specialists — learn how to select, apply and
+                        maintain high-quality Slavic hair for the best results.</p>
+
+                    <p>Contact us to learn more about our training program.</p>
                 </div>
                 <x-button variant="light" link="products.training" class="w-fit">Training</x-button>
             </div>
@@ -106,8 +110,13 @@ render(
 
         <div class="flex md:hidden bg-charm-dark-400 flex-col px-8 py-10">
             <div class="font-[Lora] text-charm-cream-100 text-lg italic">
-                If your business is hair extension, if you use tape hair, if you have to order ready-made product
-                and if you are not completely satisfied with its quality, then this video is for you.
+                <p>Want to work with premium Slavic hair at a professional level?</p>
+
+                <p>We offer professional training for hair extension specialists — learn how to select, apply and
+                    maintain
+                    high-quality Slavic hair for the best results.</p>
+
+                <p>Contact us to learn more about our training program.</p>
             </div>
             <x-button variant="light" link="products.training" class="w-fit mt-5">Training</x-button>
         </div>
