@@ -200,9 +200,8 @@ render(
                     One of the most important pluses is working only with non-mixed strands. Our principle - "one person
                     -
                     one bulk hair". Therefor, we achieve a homogeneous structure of material, our goods are exclusively
-                    remy
-                    hair extensions. As a result, we get a combed quality cut hair that fully complies with the world
-                    standards and is ready to hair extension or manufacture products.
+                    remy hair extensions. As a result, we get a combed quality cut hair that fully complies with the
+                    world standards and is ready to hair extension or manufacture products.
                 </div>
             </div>
 
@@ -214,10 +213,8 @@ render(
             <div class="order-3 md:order-4 xl:order-3 self-center p-8 chess-board-cell">
                 <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto">
                     Second important point is using only natural materials when processing. Employees disinfect strands
-                    and
-                    prepare for sale with our own technology, without using silicone and other harmful ingredients. For
-                    this
-                    reason, your hairstyle will look attractive for many years.
+                    and prepare for sale with our own technology, without using silicone and other harmful ingredients.
+                    For this reason, your hairstyle will look attractive for many years.
                 </div>
             </div>
 
@@ -227,11 +224,11 @@ render(
             </div>
 
             <div
-                class="order-5 md:order-5 xl:order-5 p-8 bg-charm-dark-400 size-full flex justify-center items-center chess-board-cell">
-                <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto text-charm-cream-100">
-                    Third, what separates us from other companies? It is material that is collected from donors. It must
-                    intact, healthy, with perfect structure. Subsequently, you get a product that does not have damaged
-                    scales and looks real on the client's head.
+                class="order-5 md:order-5 xl:order-5 px-8 py-16 bg-charm-dark-400 size-full flex justify-center items-center chess-board-cell">
+                <div
+                    class="font-[Lora] text-xl/6 uppercase font-black max-w-md mx-auto text-charm-cream-100 text-center tracking-wider">
+                    PURE · NATURAL · TRUSTED<br>
+                    <span class="text-base font-normal mt-5">Premium Slavic Hair — Direct from Ukraine</span>
                 </div>
             </div>
         </div>
