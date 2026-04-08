@@ -95,7 +95,7 @@ render(
                         maintain high-quality Slavic hair for the best results.</p>
                     <p>Contact us to learn more about our training program.</p>
                 </div>
-                <x-button variant="light" link="products.training" class="w-fit">Training</x-button>
+                <x-button variant="light" link="products.training" class="w-fit">More...</x-button>
             </div>
         </div>
 
@@ -109,18 +109,13 @@ render(
         <div class="flex md:hidden bg-charm-dark-400 flex-col px-8 py-10">
             <div class="font-[Lora] text-charm-cream-100 text-lg italic">
                 <p>Want to work with premium Slavic hair at a professional level?</p>
-
                 <p>We offer professional training for hair extension specialists — learn how to select, apply and
-                    maintain
-                    high-quality Slavic hair for the best results.</p>
-
+                    maintain high-quality Slavic hair for the best results.</p>
                 <p>Contact us to learn more about our training program.</p>
             </div>
-            <x-button variant="light" link="products.training" class="w-fit mt-5">Training</x-button>
+            <x-button variant="light" link="products.training" class="w-fit">More...</x-button>
         </div>
     </section>
-
-    <x-section.marquee variant="line" text="{{ env('APP_NAME') }} - Hair Style Shop" />
 
     <x-section class="bg-center bg-no-repeat bg-cover overflow-hidden section-2"
         style="background-image: url('{{ Vite::asset('resources/images/bg-section-categories.png') }}')">
@@ -128,12 +123,11 @@ render(
             <img src="{{ Vite::asset('resources/images/icons/woman-hair-extended-in-front-of-the-head-dark.svg') }}"
                 class="absolute z-0 opacity-7 top-5 -translate-y-1/4 left-5 w-full" alt="">
             <div class="relative z-10 font-[Oswald] text-3xl/8 md:text-4xl lg:text-4xl/10 font-light">
-                Slavic hair is the most popular type of hair in the world. Millions of customers in Europe and the
-                United States dream of Slavic hair extensions.
+                If you work with hair extensions and value true quality — stop buying ready-made hair that doesn’t meet
+                your standards.
             </div>
             <div class="relative z-0 text-charm-dark-400 font-[Boldonse] text-xl md:text-2xl/9 tracking-wide">
-                Where can you get true<br><span class="text-charm-brown-600">Slavic hair</span>,
-                which will<br>last year after year?
+                Discover real Slavic hair — clean, natural, and ethically sourced directly from Ukraine.
             </div>
             <div class="flex justify-center items-center gap-2.5">
                 <div class="relative flex size-12 justify-center items-center">
@@ -162,22 +156,20 @@ render(
                 <x-slot:last><x-marker color="black">suppliers</x-marker>.</x-slot>
             </x-section.title>
             <x-section.content>
-                <p><x-marker variant="font">{{ env('APP_NAME') }}</x-marker> is one of the leaders in market for
-                    selling
-                    REAL <span class="font-semibold">raw virgin hair</span>. Our employees make various products from
-                    them.
-                    We are based in Ukraine, work directly with donors and collect "Slavic hair", which we inspect to
-                    ensure
-                    the best quality possible. If you need a direct <span class="font-semibold">Slavic hair extensions
-                        supplier</span> of quality goods, without second-hand dealers, then our company is exactly what
-                    you
-                    were looking for.
+                <p>
+                    Slavena Hair is a trusted supplier of real Slavic raw virgin hair and high-quality hair extensions.
                 </p>
-                <p>We are professionals and have high qualifications and years of experience, regularly cooperate with
-                    leading European companies and master new advanced techniques of working with material. Customers
-                    around
-                    the world have already appreciated quality of our work. We work with customers from England, France,
-                    Italy, Poland, USA and many other countries.</p>
+
+                <p>We operate directly in Ukraine, sourcing authentic Slavic hair from verified donors and carefully
+                    inspecting every bundle to ensure premium quality.</p>
+
+                <p>If you are looking for a reliable Slavic hair supplier without middlemen — you are in the right
+                    place.</p>
+
+                <p>Our hair extensions are used by professionals across Europe and the USA who value a natural look,
+                    durability, and consistency.</p>
+
+                <p>Trusted by professionals worldwide.</p>
             </x-section.content>
         </div>
     </x-section>
@@ -186,7 +178,7 @@ render(
         <div
             class="font-[Boldonse] w-full p-8 lg:px-0 bg-charm-dark-400 flex items-center text-white uppercase tracking-wide lg:tracking-widest flex-none">
             <div class="max-w-2xl mx-auto chess-board-title">
-                There are a lot of the advantages of cooperation with our company. Let’s see the most importan:
+                Why professionals choose Slavena Hair
             </div>
         </div>
         <div class="grid md:grid-cols-2 xl:grid-cols-3">
@@ -197,11 +189,11 @@ render(
 
             <div class="order-1 md:order-1 xl:order-1 self-center p-8 chess-board-cell">
                 <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto">
-                    One of the most important pluses is working only with non-mixed strands. Our principle - "one person
-                    -
-                    one bulk hair". Therefor, we achieve a homogeneous structure of material, our goods are exclusively
-                    remy hair extensions. As a result, we get a combed quality cut hair that fully complies with the
-                    world standards and is ready to hair extension or manufacture products.
+                    <b>One Donor — One Bundle</b>
+                    <p>We follow a strict principle: one donor — one bundle.
+                        No mixed hair, no unpredictable results — only uniform texture and natural performance.</p>
+                    <p>All our hair is 100% Remy, carefully sorted and aligned to preserve cuticle direction.
+                        The result is clean, high-quality hair ready for professional use.</p>
                 </div>
             </div>
 
@@ -212,9 +204,11 @@ render(
 
             <div class="order-3 md:order-4 xl:order-3 self-center p-8 chess-board-cell">
                 <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto">
-                    Second important point is using only natural materials when processing. Employees disinfect strands
-                    and prepare for sale with our own technology, without using silicone and other harmful ingredients.
-                    For this reason, your hairstyle will look attractive for many years.
+                    <b>No Chemicals — Only Natural Beauty</b>
+                    <p>We process hair using natural methods only.
+                        No silicone. No artificial coatings.</p>
+                    <p>Your clients feel the difference from day one — hair that moves, feels and behaves like their
+                        own.</p>
                 </div>
             </div>
 
@@ -225,10 +219,12 @@ render(
 
             <div
                 class="order-5 md:order-5 xl:order-5 px-8 py-16 bg-charm-dark-400 size-full flex justify-center items-center chess-board-cell">
-                <div
-                    class="font-[Lora] text-xl/6 uppercase font-black max-w-md mx-auto text-charm-cream-100 text-center tracking-wider">
-                    PURE · NATURAL · TRUSTED<br>
-                    <span class="text-base font-normal mt-5">Premium Slavic Hair — Direct from Ukraine</span>
+                <div class="font-[Lora] text-lg/6 uppercase font-medium max-w-md mx-auto text-charm-cream-100">
+                    <b>Direct from Ukraine — Guaranteed Authentic</b>
+                    <p>We source hair directly from verified donors in Ukraine.
+                        You get real Slavic hair — not substitutes or mislabeled hair.</p>
+                    <p>We guarantee authenticity and origin on every order.</p>
+                    <p>Designed for professionals who expect consistency every time.</p>
                 </div>
             </div>
         </div>
